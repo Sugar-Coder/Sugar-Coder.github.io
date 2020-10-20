@@ -1,10 +1,15 @@
 # Welcome to My Page
 
-### My Profile
+## Hello world!
 
-- an senior student major in CS
-- love 🏀 and software building
-- next year, I will study for a master's degree in SE
+The webside is just getting start😄. You can visit my [Blog](http://118.178.94.244/)(Chinese) to explore something interesting.
 
-The webside is just getting start😄. You can visit my [Blog](http://118.178.94.244/) to explore something interesting.
+```java
+public class Sugar{
+  public static void main(String[] args) {
+    System.out.println("I love playing basketball and software building");
+    System.out.println("All comments are well appreciated")
+  }
+}
+```
 
