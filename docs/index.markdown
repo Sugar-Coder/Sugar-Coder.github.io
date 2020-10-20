@@ -1,6 +1,13 @@
-# Welcome to My Page
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-## Hello world!
+layout: home
+---
+
+# Welcome！
+
+## 这是我的个人主页，还在搭建之中...
 
 The webside is just getting start😄. You can visit my [Blog](http://118.178.94.244/)(Chinese) to explore something interesting.
 
@@ -12,4 +19,3 @@ public class Sugar{
   }
 }
 ```
-
