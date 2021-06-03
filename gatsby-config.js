@@ -9,7 +9,20 @@ module.exports = {
     // You can overwrite values here that are used for the SEO component
     // Of course you can also add new values here to query them like usual
     // See all options: https://github.com/LekoArts/gatsby-themes/blob/master/themes/gatsby-theme-cara/gatsby-config.js
-    siteTitleAlt: `Jinyang Shao's Home`,
+    siteTitle: `Jinyang Shao's Home`,
+    siteTitleAlt: `Jinyang Shao's Website`,
+    siteDescription: `Jinyang's personal website based on gatsby and theme cara`,
+    siteImage: `/briton.jpg`,
+    siteHeadline: `Secure your Secrets`,
+    // Will be used to generate absolute URLs for og:image etc.
+    // siteUrl: `https://securesecrets.network`,
+    // Will be set on the <html /> tag
+    siteLanguage: `en`,
+    // Used for og:image and must be placed inside the `static` folder
+    // siteImage: `/banner.jpg`,
+    // Twitter Handle
+    author: `@Sugar-Coder`,
+    // Navigation links
   },
   plugins: [
     {
