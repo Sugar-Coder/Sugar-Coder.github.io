@@ -5,7 +5,7 @@ require(`dotenv`).config({
 const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 
 module.exports = {
-  pathPrefix: "/Sugar-Coder.github.io",
+  pathPrefix: "/",
   siteMetadata: {
     // You can overwrite values here that are used for the SEO component
     // Of course you can also add new values here to query them like usual
