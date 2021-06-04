@@ -1,3 +1,5 @@
+# Sugar-Coder.github.io
+This is my [website](https://sugar-coder.github.io/) based on [`Gatsby.js`](https://www.gatsbyjs.com/) and Theme [`@lekoarts/gatsby-theme-cara`](https://github.com/LekoArts/gatsby-themes/tree/master/themes/gatsby-theme-cara).
 <p align="center">
   <a href="https://cara.lekoarts.de">
     <img alt="LekoArts" src="https://img.lekoarts.de/gatsby/gatsby-site-illustration.png" />
