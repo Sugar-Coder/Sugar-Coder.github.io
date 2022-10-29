@@ -1,2 +1,3 @@
 # About
-Hi, I'm Jinyang Shao.
+![Briton](./images/about/briton.jpg)
+<p align="center">Hi, I'm Jinyang Shao.</p>
