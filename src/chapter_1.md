@@ -18,3 +18,7 @@ $git push githubpage mdbook
 ## 使用github-action来发布
 [参考](https://github.com/rust-lang/mdBook/wiki/Automated-Deployment%3A-GitHub-Actions)
 设置我的仓库的default branch为mdbook
+
+编写.github/workblow/deploy.yml
+
+测试push
