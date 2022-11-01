@@ -9,4 +9,3 @@ title = "Sugar's Blog"
 no-section-label = true
 git-repository-url = "https://github.com/Sugar-Coder/Sugar-Coder.github.io"
 git-repository-icon = "fa-github"
-theme = "mytheme"
