@@ -2,7 +2,7 @@
 This is where I share interesting things.
 > Tell me and I forget. Show me and I remember. Involve me and I understand.
 
-![Briton](./images/about/briton.jpg)
+![Brighton](./images/about/brighton.jpg)
 <p align="center">Photo by <a href="https://www.guomiabai.com/">Guo Bai</a> in Brighton</p>
 
 ## Hi, I'm Jinyang Shao
