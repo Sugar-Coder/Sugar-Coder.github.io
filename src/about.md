@@ -3,7 +3,7 @@ This is where I share interesting things.
 > Tell me and I forget. Show me and I remember. Involve me and I understand.
 
 ![Briton](./images/about/briton.jpg)
-<p align="center">Photo by <a href="https://www.guomiabai.com/">Guo Bai</a> in Briton</p>
+<p align="center">Photo by <a href="https://www.guomiabai.com/">Guo Bai</a> in Brighton</p>
 
 ## Hi, I'm Jinyang Shao
 I'm a graduate student in software engineering and I got a bachelor's degree in computer science in Wuhan University, China. Now I'm working on autonomous driving related tests in [CSTAR](http://cstar.whu.edu.cn/en/index.html) Lab.
