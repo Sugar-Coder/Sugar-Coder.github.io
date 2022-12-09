@@ -6,7 +6,9 @@ src = "src"
 title = "Sugar's Blog"
 
 [output.html]
+theme = "theme"
 mathjax-support = true
 no-section-label = true
 git-repository-url = "https://github.com/Sugar-Coder/Sugar-Coder.github.io"
 git-repository-icon = "fa-github"
+additional-js = ["theme/post_footer.js"]
