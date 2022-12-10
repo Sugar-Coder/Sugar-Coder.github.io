@@ -8,7 +8,7 @@ const Comment = React.forwardRef((props, commentBox) => {
 const PostFooter = () => {
     const commentBox = React.createRef();
     // const { theme } = default_theme;  // default_theme is defined in the index.hbs
-    const isLight = document.getElementsByTagName('html')[0].getAttribute('class').indexOf('light') != -1;
+    const isLight = document.querySelector('html').getAttribute('class').indexOf('light') != -1;
     // console.log(isLight);
     React.useEffect(() => {
       const commentScript = document.createElement('script')
@@ -34,7 +34,7 @@ const PostFooter = () => {
       return () => {
         removeScript();
       };
-    }, [isLight])
+    }, [])
     return (
       <>
         <Comment ref={commentBox} />

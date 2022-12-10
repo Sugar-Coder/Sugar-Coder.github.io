@@ -6,4 +6,4 @@
 - [CMU 15-445/645](./blog20221105.md)
 - [B+Tree](./blog20221113.md)
 - [红黑树](./blog20221129.md)
-- [来点utterances]()
+- [来点utterances](./blog20221209.md)
