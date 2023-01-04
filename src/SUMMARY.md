@@ -37,4 +37,5 @@
 - [CSAPP - Data Lab](./blog20210203.md)
 # 2020
 - [MIT 6.824 MapReduce](./blog20201011.md)
+- [MagicCube](./blog20200201.md)
 - [bluelog](./blog20200116.md)
