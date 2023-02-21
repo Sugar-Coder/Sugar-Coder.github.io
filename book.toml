@@ -11,4 +11,5 @@ mathjax-support = true
 no-section-label = true
 git-repository-url = "https://github.com/Sugar-Coder/Sugar-Coder.github.io"
 git-repository-icon = "fa-github"
-additional-js = ["theme/comments.js"]
+additional-js = ["theme/comments.js", "theme/toc.js"]
+additional-css = ["theme/toc.css"]
