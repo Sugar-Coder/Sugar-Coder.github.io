@@ -2,7 +2,7 @@
 
 function loadComments() {
     // console.log("loading comments.");
-    const page = document.querySelector(".page");
+    const page = document.getElementById("comment-container");
 
     const isLight = document.querySelector('html').getAttribute('class').indexOf('light') != -1;
 
@@ -21,8 +21,8 @@ function loadComments() {
 }
 
 function removeComments() {
-    const page = document.querySelector(".page");
-    page.removeChild(page.lastChild);
+    const page = document.getElementById("comment-container");
+    page.removeChild(page.firstChild);
 }
 
 loadComments();
