@@ -57,7 +57,7 @@ var initToc = function () {
                 indent = "30px";
                 break;
             default:
-                break;
+                return;
         }
 
         link.appendChild(document.createTextNode(el.text));
