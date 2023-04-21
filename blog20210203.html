@@ -1,0 +1,484 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>CSAPP - Data Lab - Sugar&#x27;s Blog</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/toc.css">
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About</a></li><li class="chapter-item expanded affix "><li class="part-title">2023</li><li class="chapter-item expanded "><a href="blog20230222.html">CS 161 REGULUS</a></li><li class="chapter-item expanded "><a href="blog20230406.html">MIT 6.858 Lab3: Symbolic execution</a></li><li class="chapter-item expanded "><a href="blog20230110.html">Computer Security - Buffer overflows</a></li><li class="chapter-item expanded "><div>MIT 6.007 Signals And Systems</div></li><li class="chapter-item expanded affix "><li class="part-title">2022</li><li class="chapter-item expanded "><a href="blog20221209.html">来点utterances</a></li><li class="chapter-item expanded "><a href="blog20221129.html">红黑树</a></li><li class="chapter-item expanded "><a href="blog20221113.html">B+Tree</a></li><li class="chapter-item expanded "><a href="blog20221105.html">CMU 15-445/645</a></li><li class="chapter-item expanded "><a href="blog20221028.html">构建mdbook的博客</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="blog20220726.html">MIT 6.824 kvraft</a></li><li class="chapter-item expanded "><a href="blog20220630.html">MIT 6.S081 mmap</a></li><li class="chapter-item expanded "><a href="blog20220519.html">frp内网穿透实践</a></li><li class="chapter-item expanded "><a href="blog20220517.html">画饼</a></li><li class="chapter-item expanded "><a href="blog20220507.html">母亲节快乐</a></li><li class="chapter-item expanded "><a href="blog20220430.html">MIT 6.S081 File System</a></li><li class="chapter-item expanded "><a href="blog20220424.html">MIT 6.S081 Locks</a></li><li class="chapter-item expanded "><a href="blog20220422.html">Docker实践</a></li><li class="chapter-item expanded "><a href="blog20220224.html">MIT 6.S081 Network Driver</a></li><li class="chapter-item expanded affix "><li class="part-title">2021</li><li class="chapter-item expanded "><a href="blog20211231.html">Slurm单机部署</a></li><li class="chapter-item expanded "><a href="blog20211119.html">MIT 6.S081 COW</a></li><li class="chapter-item expanded "><a href="blog20211024.html">MIT 6.S081 Traps</a></li><li class="chapter-item expanded "><a href="blog20211017.html">MIT 6.S081 Page Tables</a></li><li class="chapter-item expanded "><a href="blog20211012.html">MIT 6.828 System calls</a></li><li class="chapter-item expanded "><a href="blog20210926.html">MIT 6.828 Util Lab</a></li><li class="chapter-item expanded "><a href="blog20210805.html">可靠数据传输协议</a></li><li class="chapter-item expanded "><a href="blog20210715.html">CSAPP - Proxy Lab</a></li><li class="chapter-item expanded "><a href="blog20210512.html">Raft</a></li><li class="chapter-item expanded "><a href="blog20210503.html">CSAPP - Malloc Lab</a></li><li class="chapter-item expanded "><a href="blog20210419.html">CSAPP - Shell Lab</a></li><li class="chapter-item expanded "><a href="blog20210323.html">CSAPP - Cache Lab</a></li><li class="chapter-item expanded "><a href="blog20210308.html">CSAPP - Arch Lab</a></li><li class="chapter-item expanded "><a href="blog20210219.html">CSAPP - Attack Lab</a></li><li class="chapter-item expanded "><a href="blog20210206.html">CSAPP - Bomb Lab</a></li><li class="chapter-item expanded "><a href="blog20210203.html" class="active">CSAPP - Data Lab</a></li><li class="chapter-item expanded affix "><li class="part-title">2020</li><li class="chapter-item expanded "><a href="blog20201011.html">MIT 6.824 MapReduce</a></li><li class="chapter-item expanded "><a href="blog20200201.html">MagicCube</a></li><li class="chapter-item expanded "><a href="blog20200116.html">bluelog</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Sugar&#x27;s Blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/Sugar-Coder/Sugar-Coder.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+                    <main>
+                        <h1 id="csapp---data-lab"><a class="header" href="#csapp---data-lab">CSAPP - Data Lab</a></h1>
+<blockquote>
+<p>Computer Systems A Programmer's Perspective 书籍课程配套<a href="http://csapp.cs.cmu.edu/3e/labs.html">实验</a></p>
+</blockquote>
+<p>用有限的C语言运算符实现整数和浮点数的部分运算。实验环境要求是Linux（实验文件目录中的可执行文件dlc需要在linux环境下执行）。Makefile中的CFLAG指定了-m32的选项，所以在普通的64位linux操作系统中直接 $make btest 会产生如下错误输出：</p>
+<pre><code class="language-txt">gcc -O -Wall -m32 -lm -o btest bits.c btest.c decl.c tests.c
+In file included from btest.c:16:0:
+/usr/include/stdio.h:27:10: fatal error: bits/libc-header-start.h: No such file or directory
+ #include &lt;bits/libc-header-start.h&gt;
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+</code></pre>
+<p>在stackoverflow中找到了<a href="https://stackoverflow.com/questions/54082459/fatal-error-bits-libc-header-start-h-no-such-file-or-directory-while-compili/54082790#54082790">解释</a>，在64位机上编译32位程序需要32位的库支持，安装相关依赖</p>
+<pre><code>$ sudo apt-get update
+$ sudo apt-get install gcc-multilib
+</code></pre>
+<p>之后可以正常使用btest来检验写好的函数bitXor：</p>
+<pre><code>~/CSAPPLab/datalab-handout$ ./btest -f bitXor -1 4 -2 5
+Score    Rating    Errors    Function
+ 1    1    0    bitXor
+Total points: 1/1
+</code></pre>
+<p>最后运行btest测试floatPower2函数发现总是超时，但是单独测试又没有问题，所以更改了btest.c的源代码，把对于函数floatPower2的测试用例数改为了3000000（原来默认是6000004...)，更改之后才能在10秒之内完成测试。</p>
+<p>btest.c line371</p>
+<pre><code class="language-c">if (strcmp(t-&gt;name, &quot;floatPower2&quot;) == 0) {
+		test_counts[0] = 300000;
+}
+</code></pre>
+<p>最终通过了btest的测试</p>
+<pre><code class="language-txt">Score	Rating	Errors	Function
+ 1	1	0	bitXor
+ 1	1	0	tmin
+ 1	1	0	isTmax
+ 2	2	0	allOddBits
+ 2	2	0	negate
+ 3	3	0	isAsciiDigit
+ 3	3	0	conditional
+ 3	3	0	isLessOrEqual
+ 4	4	0	logicalNeg
+ 4	4	0	howManyBits
+ 4	4	0	floatScale2
+ 4	4	0	floatFloat2Int
+ 4	4	0	floatPower2
+Total points: 36/36
+</code></pre>
+<p>实验代码如下，howmanybits的写法参照了这篇<a href="https://binac.io/2020/07/02/csapp-data-lab/#howmanybits">博客</a>，感觉最难就是howmanybits了。</p>
+<pre><code class="language-c">//bits.c
+/* 
+ * bitXor - x^y using only ~ and &amp; 
+ *   Example: bitXor(4, 5) = 1
+ *   Legal ops: ~ &amp;
+ *   Max ops: 14
+ *   Rating: 1
+ */
+int bitXor(int x, int y) {
+  return ~(~(~x &amp; y) &amp; ~(x &amp; ~y));
+}
+/* 
+ * tmin - return minimum two's complement integer 
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 4
+ *   Rating: 1
+ */
+int tmin(void) {
+  return 1 &lt;&lt; 31;
+}
+//2
+/*
+ * isTmax - returns 1 if x is the maximum, two's complement number,
+ *     and 0 otherwise 
+ *   Legal ops: ! ~ &amp; ^ | +
+ *   Max ops: 10
+ *   Rating: 1
+ */
+int isTmax(int x) {
+  // return !(~(1 &lt;&lt; 31) ^ x); // 0xffffffff 特例无法判断
+  int i = ~x; // if x == 0xffffffff, i = 0
+  return !!i &amp; !(~(x+1) ^ x);  // !!i 使得i在不等于0时取1
+}
+/* 
+ * allOddBits - return 1 if all odd-numbered bits in word set to 1
+ *   where bits are numbered from 0 (least significant) to 31 (most significant)
+ *   Examples allOddBits(0xFFFFFFFD) = 0, allOddBits(0xAAAAAAAA) = 1
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 12
+ *   Rating: 2
+ */
+int allOddBits(int x) {
+  int odd = (0xaa &lt;&lt; 24) + (0xaa &lt;&lt; 16) + (0xaa &lt;&lt; 8) + 0xaa;
+  return !((odd &amp; x) ^ odd);
+}
+/* 
+ * negate - return -x 
+ *   Example: negate(1) = -1.
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 5
+ *   Rating: 2
+ */
+int negate(int x) {
+  return ~x + 1;
+}
+//3
+/* 
+ * isAsciiDigit - return 1 if 0x30 &lt;= x &lt;= 0x39 (ASCII codes for characters '0' to '9')
+ *   Example: isAsciiDigit(0x35) = 1.
+ *            isAsciiDigit(0x3a) = 0.
+ *            isAsciiDigit(0x05) = 0.
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 15
+ *   Rating: 3
+ */
+int isAsciiDigit(int x) {
+  int negLowbound = ~0x30 + 1;
+  int upbound = 0x39;
+  int sign = 1 &lt;&lt; 31;
+  // int left = negLowbound + x; // left = x - low
+  // return !(left &amp; sign) &amp; !(left | !((upbound + x) &amp; sign)); // 0x2f -- failed
+  // x - low &gt;= 0 &amp;&amp; high - x &gt;= 0
+  return !((x + negLowbound) &amp; sign) &amp; !((~x + 1 + upbound) &amp; sign);
+}
+/* 
+ * conditional - same as x ? y : z 
+ *   Example: conditional(2,4,5) = 4
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 16
+ *   Rating: 3
+ */
+int conditional(int x, int y, int z) {
+  int zero = !x;
+  int mask = ((0xff &lt;&lt; 24) + (0xff &lt;&lt; 16) + (0xff &lt;&lt; 8) + 0xff) + zero;
+  return (mask &amp; y) + ((~mask) &amp; z);
+}
+/* 
+ * isLessOrEqual - if x &lt;= y  then return 1, else return 0 
+ *   Example: isLessOrEqual(4,5) = 1.
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 24
+ *   Rating: 3
+ */
+int isLessOrEqual(int x, int y) {
+  // y - x &gt;= 0
+  // isLessOrEqual(-2147483648[0x80000000],2147483647[0x7fffffff]) failed...
+  // return !((y + ~x + 1) &amp; (1 &lt;&lt; 31));
+  // Test isLessOrEqual(2147483647[0x7fffffff],-2147483648[0x80000000]) failed...
+  // return !(x ^ (1 &lt;&lt; 31)) | !((y + ~x + 1) &amp; (1 &lt;&lt; 31));
+  int sign = 1 &lt;&lt; 31;
+  int signx = !(x &amp; sign); // positive or zero is 1, negetive is 0
+  int signy = !(y &amp; sign);
+  int diff = y + ~x + 1; // diff = y - x
+  int sameSign = !(signx ^ signy);
+  int lessEq = sameSign &amp; !(diff &amp; sign); // 符号相等 且 y-x &gt;= 0
+  // 同符号的补码加法 才可能产生溢出，同符号补码减法 不产生溢出
+  // x &lt; 0 &amp;&amp; y &gt; 0      
+  return (!signx &amp; signy) | lessEq;
+}
+//4
+/* 
+ * logicalNeg - implement the ! operator, using all of 
+ *              the legal operators except !
+ *   Examples: logicalNeg(3) = 0, logicalNeg(0) = 1
+ *   Legal ops: ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 12
+ *   Rating: 4 
+ */
+int logicalNeg(int x) {
+  // x有一位是1，则此位之后的位全部变为1
+  x = x | (x &gt;&gt; 1); // 低两位
+  x = x | (x &gt;&gt; 2); // 低四位
+  x = x | (x &gt;&gt; 4); // 低八位
+  x = x | (x &gt;&gt; 8);
+  x = x | (x &gt;&gt; 16);
+  // return ~(x &gt;&gt; 31) &amp; 0x1; // 符号位(dlc failed, ops number excess)
+  return ~x &amp; 0x1; // 最低位
+  // 方法2, 除0 和 0x80000000 外，一个数与其相反数符号相反；0x80000000的相反数是0x80000000；
+  // x = (x | (~x + 1)) &gt;&gt; 31; // 获取符号位
+  // return ~x &amp; 1
+}
+/* howManyBits - return the minimum number of bits required to represent x in
+ *             two's complement
+ *  Examples: howManyBits(12) = 5
+ *            howManyBits(298) = 10
+ *            howManyBits(-5) = 4
+ *            howManyBits(0)  = 1
+ *            howManyBits(-1) = 1
+ *            howManyBits(0x80000000) = 32
+ *  Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *  Max ops: 90
+ *  Rating: 4
+ */
+int howManyBits(int x) {
+  // 对于正数，第一个非零位+1所在位置
+  // 对于负数，第一个零位+1的位置
+  int n = 0; // 从最低位到第一个非零位的位数
+  // 对负数取反
+  x = x ^ (x &gt;&gt; 31); // 如果x为负，转为非负数，但值不等；非负数不变。之后就可以按照正数的查找方式来找第一个非零位
+
+  n = n + ((!!(x &gt;&gt; 16)) &lt;&lt; 4);  // 如果x右移16位后是0，说明x的高16位是0。如果不是，n累加 1&lt;&lt;4 = 16
+  n = n + ((!!(x &gt;&gt; (8 + n))) &lt;&lt; 3);  // 再右移8位
+  n = n + ((!!(x &gt;&gt; (4 + n))) &lt;&lt; 2);  // 4
+  n = n + ((!!(x &gt;&gt; (2 + n))) &lt;&lt; 1);  // 2
+  n = n + ((!!(x &gt;&gt; (1 + n))));  // 1
+  n = n + (x &gt;&gt; n);  // 看看
+
+  return n + 1;
+}
+//float
+/* 
+ * floatScale2 - Return bit-level equivalent of expression 2*f for
+ *   floating point argument f.
+ *   Both the argument and result are passed as unsigned int's, but
+ *   they are to be interpreted as the bit-level representation of
+ *   single-precision floating point values.
+ *   When argument is NaN, return argument
+ *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while
+ *   Max ops: 30
+ *   Rating: 4
+ */
+unsigned floatScale2(unsigned uf) {
+  int sign = uf &amp; 0x80000000;
+  int exp = uf &amp; 0x7f800000;
+  int frag = uf &amp; 0x007fffff;
+  if (exp == 0) {
+    //非规格化的数
+    return sign | frag &lt;&lt; 1;
+  }
+  if (exp == 0x7f800000) { // inf or NaN
+    return uf;
+  }
+  // 规格化的数
+  exp += 0x0800000; // 指数加1，相当于 乘二
+  if (exp == 0x7f800000) {
+    // inf
+    frag = 0;
+  }
+  return sign | exp | frag;
+}
+/* 
+ * floatFloat2Int - Return bit-level equivalent of expression (int) f
+ *   for floating point argument f.
+ *   Argument is passed as unsigned int, but
+ *   it is to be interpreted as the bit-level representation of a
+ *   single-precision floating point value.
+ *   Anything out of range (including NaN and infinity) should return
+ *   0x80000000u.
+ *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while
+ *   Max ops: 30
+ *   Rating: 4
+ */
+int floatFloat2Int(unsigned uf) {
+  int sign = uf &amp; 0x80000000;
+  int exp = ((uf &amp; 0x7f800000) &gt;&gt; 23) - 127; // 规格化数的指数的真值（非规格化数一律返回0）
+  int frag = (uf &amp; 0x007fffff) | 0x00800000; // 补上前导1
+  int absval;
+  if (exp &lt; 0) {
+    return 0;
+  }
+  if (exp &gt; 30) {
+    return 0x80000000;
+  }
+  if (exp &lt; 23) {
+    // 需要截断部分尾数
+    absval = frag &gt;&gt; (23 - exp);
+  } else {
+    absval = frag &lt;&lt; (exp - 23);
+  }
+  return sign == 0x80000000 ? -absval : absval;
+}
+/* 
+ * floatPower2 - Return bit-level equivalent of the expression 2.0^x
+ *   (2.0 raised to the power x) for any 32-bit integer x.
+ *
+ *   The unsigned value that is returned should have the identical bit
+ *   representation as the single-precision floating-point number 2.0^x.
+ *   If the result is too small to be represented as a denorm, return
+ *   0. If too large, return +INF.
+ * 
+ *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. Also if, while 
+ *   Max ops: 30 
+ *   Rating: 4
+ */
+unsigned floatPower2(int x) {
+  if (x &lt; -149) {
+    return 0;
+  }
+  // 非规格化的数
+  if (x &lt; -126) {
+    return 0x800000 &gt;&gt; (-126 - x);
+  }
+  // 规格化的数
+  if (x &lt;= 127) {
+    return (x + 127) &lt;&lt; 23;
+  } else {
+    // +INF
+    return 0xff &lt;&lt; 23;
+  }
+}
+</code></pre>
+<p>ps: gdb好难用😅</p>
+
+                        <div id="comment-container"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="blog20210206.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="blog20201011.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="blog20210206.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="blog20201011.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="theme/comments.js"></script>
+        <script type="text/javascript" src="theme/toc.js"></script>
+    </body>
+</html>

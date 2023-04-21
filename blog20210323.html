@@ -1,0 +1,646 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>CSAPP - Cache Lab - Sugar&#x27;s Blog</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/toc.css">
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About</a></li><li class="chapter-item expanded affix "><li class="part-title">2023</li><li class="chapter-item expanded "><a href="blog20230222.html">CS 161 REGULUS</a></li><li class="chapter-item expanded "><a href="blog20230406.html">MIT 6.858 Lab3: Symbolic execution</a></li><li class="chapter-item expanded "><a href="blog20230110.html">Computer Security - Buffer overflows</a></li><li class="chapter-item expanded "><div>MIT 6.007 Signals And Systems</div></li><li class="chapter-item expanded affix "><li class="part-title">2022</li><li class="chapter-item expanded "><a href="blog20221209.html">来点utterances</a></li><li class="chapter-item expanded "><a href="blog20221129.html">红黑树</a></li><li class="chapter-item expanded "><a href="blog20221113.html">B+Tree</a></li><li class="chapter-item expanded "><a href="blog20221105.html">CMU 15-445/645</a></li><li class="chapter-item expanded "><a href="blog20221028.html">构建mdbook的博客</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="blog20220726.html">MIT 6.824 kvraft</a></li><li class="chapter-item expanded "><a href="blog20220630.html">MIT 6.S081 mmap</a></li><li class="chapter-item expanded "><a href="blog20220519.html">frp内网穿透实践</a></li><li class="chapter-item expanded "><a href="blog20220517.html">画饼</a></li><li class="chapter-item expanded "><a href="blog20220507.html">母亲节快乐</a></li><li class="chapter-item expanded "><a href="blog20220430.html">MIT 6.S081 File System</a></li><li class="chapter-item expanded "><a href="blog20220424.html">MIT 6.S081 Locks</a></li><li class="chapter-item expanded "><a href="blog20220422.html">Docker实践</a></li><li class="chapter-item expanded "><a href="blog20220224.html">MIT 6.S081 Network Driver</a></li><li class="chapter-item expanded affix "><li class="part-title">2021</li><li class="chapter-item expanded "><a href="blog20211231.html">Slurm单机部署</a></li><li class="chapter-item expanded "><a href="blog20211119.html">MIT 6.S081 COW</a></li><li class="chapter-item expanded "><a href="blog20211024.html">MIT 6.S081 Traps</a></li><li class="chapter-item expanded "><a href="blog20211017.html">MIT 6.S081 Page Tables</a></li><li class="chapter-item expanded "><a href="blog20211012.html">MIT 6.828 System calls</a></li><li class="chapter-item expanded "><a href="blog20210926.html">MIT 6.828 Util Lab</a></li><li class="chapter-item expanded "><a href="blog20210805.html">可靠数据传输协议</a></li><li class="chapter-item expanded "><a href="blog20210715.html">CSAPP - Proxy Lab</a></li><li class="chapter-item expanded "><a href="blog20210512.html">Raft</a></li><li class="chapter-item expanded "><a href="blog20210503.html">CSAPP - Malloc Lab</a></li><li class="chapter-item expanded "><a href="blog20210419.html">CSAPP - Shell Lab</a></li><li class="chapter-item expanded "><a href="blog20210323.html" class="active">CSAPP - Cache Lab</a></li><li class="chapter-item expanded "><a href="blog20210308.html">CSAPP - Arch Lab</a></li><li class="chapter-item expanded "><a href="blog20210219.html">CSAPP - Attack Lab</a></li><li class="chapter-item expanded "><a href="blog20210206.html">CSAPP - Bomb Lab</a></li><li class="chapter-item expanded "><a href="blog20210203.html">CSAPP - Data Lab</a></li><li class="chapter-item expanded affix "><li class="part-title">2020</li><li class="chapter-item expanded "><a href="blog20201011.html">MIT 6.824 MapReduce</a></li><li class="chapter-item expanded "><a href="blog20200201.html">MagicCube</a></li><li class="chapter-item expanded "><a href="blog20200116.html">bluelog</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Sugar&#x27;s Blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/Sugar-Coder/Sugar-Coder.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+                    <main>
+                        <h1 id="csapp---cache-lab"><a class="header" href="#csapp---cache-lab">CSAPP - Cache Lab</a></h1>
+<p>Computer Systems A Programmer's Perspective 书籍课程配套<a href="http://csapp.cs.cmu.edu/3e/labs.html">实验</a></p>
+<h2 id="parta"><a class="header" href="#parta">PartA</a></h2>
+<p>实现一个cache的模拟程序。（实验环境OSX）</p>
+<p>通过读取traces/文件夹下的某个内存访问记录，模拟cache的miss、hit、eviction。</p>
+<p>内存访问有四种：</p>
+<ol>
+<li><code>I &lt;address&gt;, size </code>   =&gt; 加载指令</li>
+<li><code>M &lt;address&gt;, size </code>   =&gt; 修改内存中的值，其效果相当于L指令后跟一个S指令</li>
+<li><code>L &lt;address&gt;, size </code>   =&gt; 读取内存</li>
+<li><code>S &lt;address&gt;, size </code>   =&gt; 写内存</li>
+</ol>
+<p>我们实现的cache模拟器要支持如下的命令行参数：</p>
+<ul>
+<li>-h : 显示帮助</li>
+<li>-v ：以冗余格式显示内存访问的情况</li>
+<li>-s : Sn = 2s 指定了cache中的组数为Sn</li>
+<li>-E : 相联度，每组多少行</li>
+<li>-b : cache块大小 B = 2b</li>
+<li><code>-t &lt;tracefile&gt;</code> : 指定cache读取的内存访问序列所在文件</li>
+</ul>
+<p>可以先使用csim-refs来看看预期的程序运行结果。在csim.c文件中完成这个实验。</p>
+<p>Cache数据结构的定义</p>
+<pre><code class="language-c">struct cacheLine
+{
+    __uint64_t tag;
+	bool valid;
+	short* blocks;
+	int age;  // 记录被访问时的年龄，年龄值越小，越老
+};
+
+typedef struct set {
+	struct cacheLine* lines;
+	int ageCount; // cache组的访问年龄，每次访问都增加
+}Set;
+
+typedef struct cache {
+    Set* sets;
+    int setNum;
+    int blockSize;
+    int lineNum;
+}Cache;
+</code></pre>
+<p>LRU算法的实现，参考了<a href="https://en.wikipedia.org/wiki/Cache_replacement_policies">Wikipedia</a>上的一个解释。如下是一个cache组，每组4行，访问序列是ABCDEDF</p>
+<p><img src="https://en.wikipedia.org/wiki/File:Lruexample.png" alt="" /></p>
+<p>由于cache是线性表的结构，无法使用类似FILO的方式实现LRU。我这边使用了一个年龄计数法，每次访问一个cache行，该行的年龄就会增加（设置为当前的cache组年龄，随访问次数增加而增加），cache组中年龄值最小的就是应该被淘汰的（eviction）</p>
+<p>解析命令行参数</p>
+<pre><code class="language-c">#define true 1
+#define false 0
+
+#define DEBUG 0
+#define Dprintf(fmt, ...) if (DEBUG) printf(fmt, __VA_ARGS__)
+
+typedef int bool;
+
+typedef struct argsinfo {
+	bool verbose;		// 冗长输出
+	int setBitNum;			// 组位数
+	int cacheLineNum;	// 每组行数
+	int blockBitNum;		// 块位数
+	char* file;			// .trace文件
+}ArgsInfo;
+
+bool parseArgs(ArgsInfo* argsInfo, int argc, char** argv) {
+	if (argc != 9 &amp;&amp; argc != 10) {
+		printf(&quot;Usage: %s [-v] -s  -E  -b  -t \n&quot;, argv[0]);
+		exit(0);
+	}
+	int i;
+	for (i = 1; i &lt; argc; i++) {
+		if (!strcmp(argv[i], &quot;-v&quot;)) {
+			argsInfo-&gt;verbose = true;
+		} else if (!strcmp(argv[i], &quot;-s&quot;)) {
+			i++;
+			argsInfo-&gt;setBitNum = atoi(argv[i]);
+		} else if (!strcmp(argv[i], &quot;-E&quot;)) {
+			i++;
+			argsInfo-&gt;cacheLineNum = atoi(argv[i]);
+		} else if (!strcmp(argv[i], &quot;-b&quot;)) {
+			i++;
+			argsInfo-&gt;blockBitNum = atoi(argv[i]);
+		} else if (!strcmp(argv[i], &quot;-t&quot;)) {
+			i++;
+			argsInfo-&gt;file = (char *)malloc(strlen(argv[i]) + 1);
+			// printf(&quot;sizeof *argv[i] = %lu\n&quot;, sizeof(*argv[i])); // 1 for *argv[i], 8 for argv[i]
+			// printf(&quot;strlen argv = %lu\n&quot;, strlen(argv[i]));
+			strcpy(argsInfo-&gt;file, argv[i]);
+			// printf(&quot;strlen file = %lu\n&quot;, strlen(argsInfo-&gt;file)); // same as argv[i]
+		} else {
+			printf(&quot;Wrong Parameter!\n&quot;);
+			exit(-1);
+		}
+	}
+	Dprintf(&quot;Verbose: %d, setBitNum = %d, cacheLineNum = %d, blockBitNum = %d, file = %s\n&quot;,
+		argsInfo-&gt;verbose, argsInfo-&gt;setBitNum, argsInfo-&gt;cacheLineNum, argsInfo-&gt;blockBitNum, argsInfo-&gt;file);
+	return true;
+}
+</code></pre>
+<p>cache结构的初始化和释放</p>
+<pre><code class="language-c">bool initCache(Cache* cache, ArgsInfo* argsInfo){
+    cache-&gt;setNum = pow(2, argsInfo-&gt;setBitNum);
+    cache-&gt;lineNum = argsInfo-&gt;cacheLineNum;
+    cache-&gt;blockSize = pow(2, argsInfo-&gt;blockBitNum);
+    cache-&gt;sets = (Set *)malloc(sizeof (Set) * cache-&gt;setNum);
+
+	for (int i = 0;i &lt; cache-&gt;setNum; i++) {
+	    // 给每一个组分配cache行
+        cache-&gt;sets[i].lines = (struct cacheLine *)malloc(argsInfo-&gt;cacheLineNum * sizeof(struct cacheLine));
+        cache-&gt;sets[i].ageCount = 0;
+		for (int j = 0; j &lt; argsInfo-&gt;cacheLineNum; j++) {
+            cache-&gt;sets[i].lines[j].blocks = NULL; // We don't really store the data. (short *)malloc(cache-&gt;blockSize * sizeof (short));
+            cache-&gt;sets[i].lines[j].tag = 0;
+            cache-&gt;sets[i].lines[j].valid = false;
+            cache-&gt;sets[i].lines[j].age = 0;
+//            memset(cache-&gt;sets[i].lines[j].blocks, 0, sizeof(short) * cache-&gt;blockSize);
+		}
+	}
+	Dprintf(&quot;Init cache success.\nsetNum = %d, lineNum = %d, blockSize = %d\n&quot;,
+        cache-&gt;setNum, cache-&gt;lineNum, cache-&gt;blockSize);
+	return true;
+}
+
+void freeCache(Cache* cache){
+    for (int i = 0; i &lt; cache-&gt;setNum; ++i) {
+//        for (int j = 0; j &lt; cache-&gt;lineNum; ++j) {
+//            free(cache-&gt;sets[i].lines[j].blocks);
+//        }
+        free(cache-&gt;sets[i].lines);
+    }
+    free(cache-&gt;sets);
+}
+</code></pre>
+<p>在cache中查找数据、空行、寻找需要替换的行</p>
+<pre><code class="language-c">struct cacheLine* findData(Cache* cache, __uint64_t tag, __uint64_t setIndex){
+    struct cacheLine* lines = cache-&gt;sets[setIndex].lines;
+    for (int i = 0; i &lt; cache-&gt;lineNum; ++i) {
+        if (lines[i].valid &amp;&amp; lines[i].tag == tag) {
+            return lines+i;
+        }
+    }
+    return NULL;
+}
+
+struct cacheLine* findEmptyLine(Cache* cache, __uint64_t setIndex) {
+    struct cacheLine* lines = cache-&gt;sets[setIndex].lines;
+    for (int i = 0; i &lt; cache-&gt;lineNum; ++i) {
+        if (lines[i].valid == false) {
+            return lines+i;
+        }
+    }
+    return NULL;
+}
+
+struct cacheLine* findEvictionLine(Cache* cache, __uint64_t setIndex) {  // LRU
+    // all the cache line is valid, find the line that has the lowest age value
+    struct cacheLine* lines = cache-&gt;sets[setIndex].lines;
+    int minIndex = 0;
+    int minAge = lines[0].age;
+    for (int i = 1; i &lt; cache-&gt;lineNum; ++i) {
+        if (lines[i].age &lt; minAge){
+            minAge = lines[i].age;
+            minIndex = i;
+        }
+    }
+    return lines+minIndex;
+}
+</code></pre>
+<p>主函数</p>
+<pre><code class="language-c">int main(int argc, char** argv)
+{
+	// parse args
+	ArgsInfo argsInfo;
+	parseArgs(&amp;argsInfo, argc, argv);
+	Cache cache;
+	initCache(&amp;cache, &amp;argsInfo);
+
+	FILE* fp = fopen(argsInfo.file, &quot;r&quot;);
+    if(!fp) {
+        perror(&quot;File opening failed&quot;);
+        return EXIT_FAILURE;
+    }
+
+    char *buf = NULL;
+    size_t len;
+    AccessInfo accessInfo;
+//    Dprintf(&quot;sizeof unsigned = %lu\n&quot;, sizeof(unsigned )); // 4
+//    unsigned a = 0x80000000;
+//    Dprintf(&quot;a &gt;&gt; 31 = 0x%x\n&quot;, a &gt;&gt; 31); // 0x1
+//    int a = 0x80000000;
+//    Dprintf(&quot;a &gt;&gt; 31 = 0x%x\n&quot;, a &gt;&gt; 31); // 0xffffffff
+
+    __int64_t min64 = 1; // 有符号数
+    __uint64_t temp = (min64 &lt;&lt; 63) &gt;&gt; (argsInfo.setBitNum - 1); // 算数右移
+    Dprintf(&quot;temp = 0x%llx\n&quot;, temp);
+    __uint64_t mask = ((__uint64_t)temp) &gt;&gt; (64 - argsInfo.setBitNum); // setBitNum 位数的掩码，逻辑右移
+    Dprintf(&quot;mask = 0x%llx\n&quot;, mask);
+
+    int hits = 0, misses = 0, evictions = 0;
+    while (getline(&amp;buf, &amp;len, fp) != -1) {
+        if (parseAccessInfo(buf, &amp;accessInfo)) {
+            __uint64_t tagNSet = accessInfo.address &gt;&gt; argsInfo.blockBitNum;
+            __uint64_t tag = (tagNSet &amp; ~(mask)) &gt;&gt; argsInfo.setBitNum;
+            __uint64_t setIndex = tagNSet &amp; mask;
+            Dprintf(&quot;tag = 0x%llx, set = 0x%llx\n&quot;, tag, setIndex);
+
+            if (argsInfo.verbose) {
+                printf(&quot;%c %llx,%d &quot;, accessInfo.op, accessInfo.address, accessInfo.size);
+            }
+
+            switch (accessInfo.op) {
+                case 'S':
+                case 'L': { // remember to use brackets to include the whole case
+                    struct cacheLine *line = NULL;
+                    if ((line = findData(&amp;cache, tag, setIndex))) { // remember to use little brackets to include the assignment
+                        hits++;
+                        line-&gt;age = cache.sets[setIndex].ageCount;
+                        if (argsInfo.verbose) printf(&quot;hit\n&quot;);
+                    } else {
+                        misses++;
+                        if (argsInfo.verbose) printf(&quot;miss&quot;);
+                        struct cacheLine *modifyLine = NULL;
+                        if ((modifyLine = findEmptyLine(&amp;cache, setIndex))) {
+                            modifyLine-&gt;valid = true;
+                            modifyLine-&gt;tag = tag;
+                            modifyLine-&gt;age = cache.sets[setIndex].ageCount;
+                            if (argsInfo.verbose) printf(&quot;\n&quot;);
+                        } else {
+                            evictions++;
+                            if (argsInfo.verbose) printf(&quot; eviction\n&quot;);
+                            struct cacheLine *evictedLine = findEvictionLine(&amp;cache, setIndex);
+                            Dprintf(&quot;Evict: set=%llu, tag=%llx\n&quot;, setIndex, evictedLine-&gt;tag);
+                            evictedLine-&gt;valid = true;
+                            evictedLine-&gt;tag = tag;
+                            evictedLine-&gt;age = cache.sets[setIndex].ageCount;
+                        }
+                    }
+                    cache.sets[setIndex].ageCount++;
+                    break;
+                }
+                case 'M': {
+                    struct cacheLine *line = NULL;
+                    if ((line = findData(&amp;cache, tag, setIndex))) {
+                        hits++;
+                        if (argsInfo.verbose) printf(&quot;hit &quot;);
+                        line-&gt;age = cache.sets[setIndex].ageCount;
+                        line-&gt;valid = true;
+                        hits++;
+                        if (argsInfo.verbose) printf(&quot;hit\n&quot;); // hit by store
+                    } else {
+                        misses++;
+                        if (argsInfo.verbose) printf(&quot;miss &quot;);
+                        struct cacheLine* modifyLine = NULL;
+                        if ((modifyLine = findEmptyLine(&amp;cache, setIndex))) {
+                            modifyLine-&gt;valid = true;
+                            modifyLine-&gt;age = cache.sets[setIndex].ageCount;
+                            modifyLine-&gt;tag = tag;
+                            hits++;
+                            if (argsInfo.verbose) printf(&quot;hit\n&quot;);
+                        } else {
+                            evictions++;
+                            if (argsInfo.verbose) printf(&quot;eviction &quot;);
+                            struct cacheLine* evictedLine = findEvictionLine(&amp;cache, setIndex);
+                            Dprintf(&quot;Evict: set=%llu, tag=%llx\n&quot;, setIndex, evictedLine-&gt;tag);
+                            evictedLine-&gt;valid = true;
+                            evictedLine-&gt;tag = tag;
+                            evictedLine-&gt;age = cache.sets[setIndex].ageCount;
+                            hits++;
+                            if (argsInfo.verbose) printf(&quot;hit\n&quot;);
+                        }
+                    }
+                    cache.sets[setIndex].ageCount++;
+                    break;
+                }
+                default:
+                    exit(-1);
+            }
+        }
+    }
+	freeCache(&amp;cache);
+    printSummary(hits, misses, evictions);
+    return 0;
+}
+
+bool parseAccessInfo(char* buf, AccessInfo* accessInfo){
+    if (buf[0] == 'I') { // ignore the instruction access
+        return false;
+    }
+    accessInfo-&gt;op = buf[1];
+    accessInfo-&gt;address = strtol(&amp;buf[3], NULL, 16);
+    char *ptr = strtok(buf, &quot;,&quot;);
+//    Dprintf(&quot;%s&quot;, ptr);
+    ptr = strtok(NULL, &quot; &quot;);
+    accessInfo-&gt;size = (int)strtol(ptr, NULL, 10);
+    Dprintf(&quot;\nAccessInfo: op = %c, address = 0x%llx, size = %d\n&quot;,
+            accessInfo-&gt;op, accessInfo-&gt;address, accessInfo-&gt;size);
+    return true;
+}
+</code></pre>
+<p>为了使用test-csim，发现linux不支持getline函数，所以使用fgets替代，目的都是读取一行输入；同时linux也不支持__VA_ARGS__的宏。做了这些改动之后在linux服务器上运行得到正确结果：</p>
+<pre><code class="language-sh">sugar@ubuntuServer:~/csappLab/cachelab-handout$ make
+gcc -g -Wall -Werror -std=c99 -m64 -o csim csim.c cachelab.c -lm 
+gcc -g -Wall -Werror -std=c99 -m64 -O0 -c trans.c
+gcc -g -Wall -Werror -std=c99 -m64 -o test-trans test-trans.c cachelab.c trans.o 
+gcc -g -Wall -Werror -std=c99 -m64 -O0 -o tracegen tracegen.c trans.o cachelab.c
+# Generate a handin tar file each time you compile
+tar -cvf sugar-handin.tar  csim.c trans.c 
+csim.c
+trans.c
+sugar@ubuntuServer:~/csappLab/cachelab-handout$ ./test-csim 
+                        Your simulator     Reference simulator
+Points (s,E,b)    Hits  Misses  Evicts    Hits  Misses  Evicts
+     3 (1,1,1)       9       8       6       9       8       6  traces/yi2.trace
+     3 (4,2,4)       4       5       2       4       5       2  traces/yi.trace
+     3 (2,1,4)       2       3       1       2       3       1  traces/dave.trace
+     3 (2,1,3)     167      71      67     167      71      67  traces/trans.trace
+     3 (2,2,3)     201      37      29     201      37      29  traces/trans.trace
+     3 (2,4,3)     212      26      10     212      26      10  traces/trans.trace
+     3 (5,1,5)     231       7       0     231       7       0  traces/trans.trace
+     6 (5,1,5)  265189   21775   21743  265189   21775   21743  traces/long.trace
+    27
+
+TEST_CSIM_RESULTS=27
+</code></pre>
+<h3 id="part-b"><a class="header" href="#part-b">Part B</a></h3>
+<p>实验准备：需要程序运行时内存访问序列的获取，linux可能需要安装valgrind</p>
+<p>编写矩阵转置算法，使得该算法在一个直接映射的cache上有较高的命中率。cache的参数为：32组、每组1行、块大小为32bytes。</p>
+<p>一开始只是使用了分块的思想，每次处理一个8 * 8大小的int类型矩阵，选择8是因为cache每行只能放下8个int元素。</p>
+<pre><code class="language-c">char transpose_submit_desc[] = &quot;Transpose submission&quot;;
+void transpose_submit(int M, int N, int A[N][M], int B[M][N]){
+    // cache 共32组，每组1行，每行32byte（8个int）
+    int tmp;
+    int bsize = 8; // 小块矩阵为 8 * 8
+    for (int i = 0; i &lt; N; i += bsize) {
+        for (int j = 0; j &lt; M; j += bsize) {
+            for (int bi = i; bi &lt; (i + bsize &lt; N ? i + bsize : N); ++bi) {
+                for (int bj = j; bj &lt; (j + bsize &lt; M ? j + bsize : M); ++bj) {
+                    B[bj][bi] = A[bi][bj];
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<p>但是运行32*32和61*67都没有到达满分：</p>
+<pre><code class="language-sh">对于32 * 32的矩阵
+sugar@ubuntuServer:~/csappLab/cachelab-handout$ ./test-trans -M 32 -N 32
+
+Function 0 (2 total)
+Step 1: Validating and generating memory traces
+Step 2: Evaluating performance (s=5, E=1, b=5)
+func 0 (Transpose submission): hits:1710, misses:343, evictions:311
+
+sugar@ubuntuServer:~/csappLab/cachelab-handout$ ./test-trans -M 61 -N 67
+
+Function 0 (2 total)
+Step 1: Validating and generating memory traces
+Step 2: Evaluating performance (s=5, E=1, b=5)
+func 0 (Transpose submission): hits:6061, misses:2118, evictions:2086
+</code></pre>
+<p>后来仔细观察矩阵转置的内存地址访问序列发现，访问地址的后12位指定了cache的访问组号和标记等信息，而后12位的高9位指定了访问的行和列。</p>
+<pre><code class="language-txt">S 0034a65c,4
+ L 0030ac30,4
+ S 0034a6dc,4
+ L 0030ac34,4
+ S 0034a75c,4
+ L 0030ac38,4
+ S 0034a7dc,4
+ L 0030ac3c,4
+ S 0034a85c,4
+ L 0030a8c0,4
+ S 0034a8c0,4
+ L 0030a8c4,4
+ S 0034a940,4
+ L 0030a8c8,4
+ S 0034a9c0,4
+ L 0030a8cc,4
+ S 0034aa40,4
+
+后12位指定了访问的行列信息：
+    地址位数
+    -----&gt;12 11&lt;------------&gt;2 1&lt;-&gt;0
+    数组基址   row * 32 + col     in
+</code></pre>
+<p>所以访问两个数组同行同列的元素一定会导致cache的miss和eviction，所以对对角线元素特殊处理</p>
+<pre><code class="language-c">char transpose_submit_desc[] = &quot;Transpose submission&quot;;
+void transpose_submit(int M, int N, int A[N][M], int B[M][N])
+{
+    // cache 共32组，每组1行，每行32byte（8个int）
+    int tmp;
+    int bsize = 8; // 小块矩阵为 8 * 8
+    for (int i = 0; i &lt; N; i += bsize) {
+        for (int j = 0; j &lt; M; j += bsize) {
+            for (int bi = i; bi &lt; (i + bsize &lt; N ? i + bsize : N); ++bi) {
+                int index = 0;
+                for (int bj = j; bj &lt; (j + bsize &lt; M ? j + bsize : M); ++bj) {
+                    if (bi != bj) {
+                        B[bj][bi] = A[bi][bj];
+                    } else {
+                        tmp = A[bi][bj];
+                        index = bi;
+                    }
+                }
+                // 完成A的一行元素转置后，再把对角线上的元素赋给B，否则先访问位于同行列的B后，把A的行给驱逐
+                if (i == j) {
+                    B[index][index] = tmp;
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<p>可以对32*32的运算miss降低到300以下：</p>
+<pre><code class="language-sh">sugar@ubuntuServer:~/csappLab/cachelab-handout$ ./test-trans -M 32 -N 32
+
+Function 0 (2 total)
+Step 1: Validating and generating memory traces
+Step 2: Evaluating performance (s=5, E=1, b=5)
+func 0 (Transpose submission): hits:1766, misses:287, evictions:255
+</code></pre>
+<p>ddfd对于M=61、N=67的矩阵，要求比较宽松，使用16 * 16的小矩阵即可：</p>
+<pre><code class="language-c">if (M == 61 &amp;&amp; N == 67) {
+    int i, j, k, l;
+    for (i = 0; i &lt; N; i+=16)
+    {
+        for (j = 0; j &lt; M; j+=16)
+        {
+            for (k = i; k &lt; i + 16 &amp;&amp; k &lt; N; k++)
+            {
+                for (l = j; l &lt; j + 16 &amp;&amp; l &lt; M; l++)
+                {
+                    B[l][k] = A[k][l];
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<p>对于64 * 64的矩阵，由于矩阵的一行有64个int，如果还是使用8*8的小矩阵，那么小矩阵的第0行和第4行会存在同一个cache组内（根据地址判断），导致冲突。使用4 * 4的小矩阵作为替代（<a href="https://zhuanlan.zhihu.com/p/142942823">参考</a>）</p>
+<pre><code class="language-c">if (M == 64 &amp;&amp; N == 64) {
+    int i, j, k;
+    int v0, v1, v2, v3;
+    for (i = 0; i &lt; N; i+=4)
+    {
+        for (j = 0; j &lt; M; j+=4)
+        {
+            for (k = i; k &lt; i + 4; k++)
+            {
+                v0 = A[k][j];
+                v1 = A[k][j+1];
+                v2 = A[k][j+2];
+                v3 = A[k][j+3];
+                B[j][k] = v0;
+                B[j+1][k] = v1;
+                B[j+2][k] = v2;
+                B[j+3][k] = v3;
+            }
+        }
+    }
+}
+</code></pre>
+
+                        <div id="comment-container"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="blog20210419.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="blog20210308.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="blog20210419.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="blog20210308.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="theme/comments.js"></script>
+        <script type="text/javascript" src="theme/toc.js"></script>
+    </body>
+</html>

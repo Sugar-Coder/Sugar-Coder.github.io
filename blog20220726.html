@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>MIT 6.824 kvraft - Sugar&#x27;s Blog</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/toc.css">
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About</a></li><li class="chapter-item expanded affix "><li class="part-title">2023</li><li class="chapter-item expanded "><a href="blog20230222.html">CS 161 REGULUS</a></li><li class="chapter-item expanded "><a href="blog20230406.html">MIT 6.858 Lab3: Symbolic execution</a></li><li class="chapter-item expanded "><a href="blog20230110.html">Computer Security - Buffer overflows</a></li><li class="chapter-item expanded "><div>MIT 6.007 Signals And Systems</div></li><li class="chapter-item expanded affix "><li class="part-title">2022</li><li class="chapter-item expanded "><a href="blog20221209.html">来点utterances</a></li><li class="chapter-item expanded "><a href="blog20221129.html">红黑树</a></li><li class="chapter-item expanded "><a href="blog20221113.html">B+Tree</a></li><li class="chapter-item expanded "><a href="blog20221105.html">CMU 15-445/645</a></li><li class="chapter-item expanded "><a href="blog20221028.html">构建mdbook的博客</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="blog20220726.html" class="active">MIT 6.824 kvraft</a></li><li class="chapter-item expanded "><a href="blog20220630.html">MIT 6.S081 mmap</a></li><li class="chapter-item expanded "><a href="blog20220519.html">frp内网穿透实践</a></li><li class="chapter-item expanded "><a href="blog20220517.html">画饼</a></li><li class="chapter-item expanded "><a href="blog20220507.html">母亲节快乐</a></li><li class="chapter-item expanded "><a href="blog20220430.html">MIT 6.S081 File System</a></li><li class="chapter-item expanded "><a href="blog20220424.html">MIT 6.S081 Locks</a></li><li class="chapter-item expanded "><a href="blog20220422.html">Docker实践</a></li><li class="chapter-item expanded "><a href="blog20220224.html">MIT 6.S081 Network Driver</a></li><li class="chapter-item expanded affix "><li class="part-title">2021</li><li class="chapter-item expanded "><a href="blog20211231.html">Slurm单机部署</a></li><li class="chapter-item expanded "><a href="blog20211119.html">MIT 6.S081 COW</a></li><li class="chapter-item expanded "><a href="blog20211024.html">MIT 6.S081 Traps</a></li><li class="chapter-item expanded "><a href="blog20211017.html">MIT 6.S081 Page Tables</a></li><li class="chapter-item expanded "><a href="blog20211012.html">MIT 6.828 System calls</a></li><li class="chapter-item expanded "><a href="blog20210926.html">MIT 6.828 Util Lab</a></li><li class="chapter-item expanded "><a href="blog20210805.html">可靠数据传输协议</a></li><li class="chapter-item expanded "><a href="blog20210715.html">CSAPP - Proxy Lab</a></li><li class="chapter-item expanded "><a href="blog20210512.html">Raft</a></li><li class="chapter-item expanded "><a href="blog20210503.html">CSAPP - Malloc Lab</a></li><li class="chapter-item expanded "><a href="blog20210419.html">CSAPP - Shell Lab</a></li><li class="chapter-item expanded "><a href="blog20210323.html">CSAPP - Cache Lab</a></li><li class="chapter-item expanded "><a href="blog20210308.html">CSAPP - Arch Lab</a></li><li class="chapter-item expanded "><a href="blog20210219.html">CSAPP - Attack Lab</a></li><li class="chapter-item expanded "><a href="blog20210206.html">CSAPP - Bomb Lab</a></li><li class="chapter-item expanded "><a href="blog20210203.html">CSAPP - Data Lab</a></li><li class="chapter-item expanded affix "><li class="part-title">2020</li><li class="chapter-item expanded "><a href="blog20201011.html">MIT 6.824 MapReduce</a></li><li class="chapter-item expanded "><a href="blog20200201.html">MagicCube</a></li><li class="chapter-item expanded "><a href="blog20200116.html">bluelog</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Sugar&#x27;s Blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/Sugar-Coder/Sugar-Coder.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+                    <main>
+                        <h1 id="mit6824-kv-raft"><a class="header" href="#mit6824-kv-raft">MIT6.824 kv-raft</a></h1>
+<p>使用lab2构建的raft库，提供一个fault-tolerance的key-value服务</p>
+<p>完整代码：<a href="https://gitee.com/sugarcoder/mit6.824.git">link</a></p>
+<h2 id="lab3a"><a class="header" href="#lab3a">lab3A</a></h2>
+<p>Client轮询发送RPC请求，直到找到是leader的server。</p>
+<p>Server接受Client的请求，构造Op日志，交给raft节点，raft节点集群之间达成共识后，每个raft节点通过applyCh告诉相应的server，server将日志的命令应用到状态机上，leader server将结果返回给client。</p>
+<h3 id="难点"><a class="header" href="#难点">难点</a></h3>
+<p>当存在多个client同时请求的时候，有多个日志被提交，leader如何定位状态机的应用结果返回给哪个client？解决：用每个命令提交时的log index作为索引，映射到一个返回结果的通道，对于applyCh返回来的日志，根据日志index确定要通知的client。</p>
+<p>如何实现线性化语义？解决：给每一个请求一个UniqueID（Increasing），server保存记录目前已经被应用到状态机最大的请求ID，防止请求被多次应用（写请求）。对于读请求，总让client看到最新的状态。client发送RPC请求的时候，附带clientID和commandId，共同构成这个uniqueID。</p>
+<h3 id="需要注意的点"><a class="header" href="#需要注意的点">需要注意的点</a></h3>
+<p>发送RPC的for循环中需要使用一个新的reply结构体，传递给rpc，否则还是之前的reply结果。</p>
+<p>server中，只有leader需要在RPC的等待channel上发送返回response。</p>
+<h3 id="运行结果"><a class="header" href="#运行结果">运行结果</a></h3>
+<pre><code class="language-shell">$ go test -run 3A                                          
+Test: one client (3A) ...
+  ... Passed --  15.7  5   396   74
+Test: many clients (3A) ...
+  ... Passed --  18.1  5   765  365
+Test: unreliable net, many clients (3A) ...
+  ... Passed --  24.0  5   959  179
+Test: concurrent append to same key, unreliable (3A) ...
+  ... Passed --   6.4  3   150   52
+Test: progress in majority (3A) ...
+  ... Passed --   1.5  5    53    2
+Test: no progress in minority (3A) ...
+  ... Passed --   1.6  5    77    3
+Test: completion after heal (3A) ...
+  ... Passed --   1.2  5    41    3
+Test: partitions, one client (3A) ...
+  ... Passed --  24.1  5   621   46
+Test: partitions, many clients (3A) ...
+  ... Passed --  25.5  5  1019  220
+Test: restarts, one client (3A) ...
+labgob warning: Decoding into a non-default variable/field int may not work
+  ... Passed --  22.9  5  1096   70
+Test: restarts, many clients (3A) ...
+  ... Passed --  25.0  5  1733  375
+Test: unreliable net, restarts, many clients (3A) ...
+  ... Passed --  30.1  5  2015  151
+Test: restarts, partitions, many clients (3A) ...
+  ... Passed --  31.9  5  1534  159
+Test: unreliable net, restarts, partitions, many clients (3A) ...
+  ... Passed --  33.1  5  1775   97
+Test: unreliable net, restarts, partitions, many clients, linearizability checks (3A) ...
+  ... Passed --  32.7  7  4532  293
+PASS
+ok      _/Users/sjy/develop/Go/6.824/src/kvraft 296.354s
+</code></pre>
+<h2 id="lab3b-keyvalue-service-with-log-compaction"><a class="header" href="#lab3b-keyvalue-service-with-log-compaction">Lab3B Key/value service with log compaction</a></h2>
+<p>为了防止raft的log无限制增长浪费空间，kvserver需要在适当的时候告诉raft进行日志压缩，并主动保存状态机的相关状态，保存到persister的snapshot中。raft的leader节点也要检测follower的log是否过于过时，如果follower对于回应AppendEntry RPC的回复出现请求的日志条目已经被snapshot了，leader需要发送installSnapshot RPC，更新follower的Snapshot。</p>
+<p>为了实现动态的日志，给Raft结构增加一个startIndex，代表了日志条目逻辑下标的开始下标，之前一直默认是1。当进行日志压缩后，startIndex增加，需要给Raft定义新的日志操作接口，来完成逻辑下标到真实下标的转换。startIndex也要作为需要persist的持久状态（否则就不能通过TestSnapshotUnreliableRecoverConcurrentPartitionLinearizable3B）。</p>
+<p>当kvserver和raft重启的时候，需要读取相关的state或者snapshot，来获得崩溃之前的状态（如状态机等）。</p>
+<p>对于不是leader的kvserver，相应的raft节点可能收到leader的InstallSnapshot RPC，此时raft节点需要通过applyCh来告诉kvserver来更新状态机。</p>
+<h3 id="运行结果-1"><a class="header" href="#运行结果-1">运行结果</a></h3>
+<pre><code class="language-shell">$ go test -run 3B
+Test: InstallSnapshot RPC (3B) ...
+  ... Passed --  18.8  3   409   63
+Test: snapshot size is reasonable (3B) ...
+--- FAIL: TestSnapshotSize3B (161.48s)
+    config.go:65: test took longer than 120 seconds
+Test: restarts, snapshots, one client (3B) ...
+labgob warning: Decoding into a non-default variable/field int may not work
+  ... Passed --  22.8  5  1111   74
+Test: restarts, snapshots, many clients (3B) ...
+  ... Passed --  35.2  5  4156 1480
+Test: unreliable net, snapshots, many clients (3B) ...
+  ... Passed --  23.6  5   933  189
+Test: unreliable net, restarts, snapshots, many clients (3B) ...
+  ... Passed --  27.0  5  1860  197
+Test: unreliable net, restarts, partitions, snapshots, many clients (3B) ...
+  ... Passed --  35.4  5  1807   89
+Test: unreliable net, restarts, partitions, snapshots, many clients, linearizability checks (3B) ...
+  ... Passed --  34.2  7  4541  258
+FAIL
+exit status 1
+</code></pre>
+<p>发现TestSnapshotSize3B总是超时，要求在120s内完成，但是我的实现总是160s。一开始以为是我的raft层没有实现好，于是又去参考了<a href="https://github.com/vtta/6.824">vtta</a>的raft进行实现，返现速度仍然是160s。尬住了</p>
+
+                        <div id="comment-container"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="blog20221028.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="blog20220630.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="blog20221028.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="blog20220630.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="theme/comments.js"></script>
+        <script type="text/javascript" src="theme/toc.js"></script>
+    </body>
+</html>

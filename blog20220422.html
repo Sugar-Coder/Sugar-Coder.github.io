@@ -1,0 +1,322 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Docker实践 - Sugar&#x27;s Blog</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/toc.css">
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About</a></li><li class="chapter-item expanded affix "><li class="part-title">2023</li><li class="chapter-item expanded "><a href="blog20230222.html">CS 161 REGULUS</a></li><li class="chapter-item expanded "><a href="blog20230406.html">MIT 6.858 Lab3: Symbolic execution</a></li><li class="chapter-item expanded "><a href="blog20230110.html">Computer Security - Buffer overflows</a></li><li class="chapter-item expanded "><div>MIT 6.007 Signals And Systems</div></li><li class="chapter-item expanded affix "><li class="part-title">2022</li><li class="chapter-item expanded "><a href="blog20221209.html">来点utterances</a></li><li class="chapter-item expanded "><a href="blog20221129.html">红黑树</a></li><li class="chapter-item expanded "><a href="blog20221113.html">B+Tree</a></li><li class="chapter-item expanded "><a href="blog20221105.html">CMU 15-445/645</a></li><li class="chapter-item expanded "><a href="blog20221028.html">构建mdbook的博客</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="blog20220726.html">MIT 6.824 kvraft</a></li><li class="chapter-item expanded "><a href="blog20220630.html">MIT 6.S081 mmap</a></li><li class="chapter-item expanded "><a href="blog20220519.html">frp内网穿透实践</a></li><li class="chapter-item expanded "><a href="blog20220517.html">画饼</a></li><li class="chapter-item expanded "><a href="blog20220507.html">母亲节快乐</a></li><li class="chapter-item expanded "><a href="blog20220430.html">MIT 6.S081 File System</a></li><li class="chapter-item expanded "><a href="blog20220424.html">MIT 6.S081 Locks</a></li><li class="chapter-item expanded "><a href="blog20220422.html" class="active">Docker实践</a></li><li class="chapter-item expanded "><a href="blog20220224.html">MIT 6.S081 Network Driver</a></li><li class="chapter-item expanded affix "><li class="part-title">2021</li><li class="chapter-item expanded "><a href="blog20211231.html">Slurm单机部署</a></li><li class="chapter-item expanded "><a href="blog20211119.html">MIT 6.S081 COW</a></li><li class="chapter-item expanded "><a href="blog20211024.html">MIT 6.S081 Traps</a></li><li class="chapter-item expanded "><a href="blog20211017.html">MIT 6.S081 Page Tables</a></li><li class="chapter-item expanded "><a href="blog20211012.html">MIT 6.828 System calls</a></li><li class="chapter-item expanded "><a href="blog20210926.html">MIT 6.828 Util Lab</a></li><li class="chapter-item expanded "><a href="blog20210805.html">可靠数据传输协议</a></li><li class="chapter-item expanded "><a href="blog20210715.html">CSAPP - Proxy Lab</a></li><li class="chapter-item expanded "><a href="blog20210512.html">Raft</a></li><li class="chapter-item expanded "><a href="blog20210503.html">CSAPP - Malloc Lab</a></li><li class="chapter-item expanded "><a href="blog20210419.html">CSAPP - Shell Lab</a></li><li class="chapter-item expanded "><a href="blog20210323.html">CSAPP - Cache Lab</a></li><li class="chapter-item expanded "><a href="blog20210308.html">CSAPP - Arch Lab</a></li><li class="chapter-item expanded "><a href="blog20210219.html">CSAPP - Attack Lab</a></li><li class="chapter-item expanded "><a href="blog20210206.html">CSAPP - Bomb Lab</a></li><li class="chapter-item expanded "><a href="blog20210203.html">CSAPP - Data Lab</a></li><li class="chapter-item expanded affix "><li class="part-title">2020</li><li class="chapter-item expanded "><a href="blog20201011.html">MIT 6.824 MapReduce</a></li><li class="chapter-item expanded "><a href="blog20200201.html">MagicCube</a></li><li class="chapter-item expanded "><a href="blog20200116.html">bluelog</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Sugar&#x27;s Blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/Sugar-Coder/Sugar-Coder.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+                    <main>
+                        <h1 id="docker实践"><a class="header" href="#docker实践">Docker实践</a></h1>
+<h2 id="motivation"><a class="header" href="#motivation">Motivation</a></h2>
+<p>这个bluelog运行在云服务器上，明年这时候就差不多过期了，还没想好到时候迁移到哪里，就想着用docker打包一下，方便之后使用。同时bluelog原来使用python2.7 + pipenv构件开发环境的。准备升级到python3 + pip + docker的环境。</p>
+<h2 id="准备工作"><a class="header" href="#准备工作">准备工作</a></h2>
+<p>下载docker，参考相关<a href="https://docs.docker.com/language/python/develop/">文档</a>。在bluelog的根目录下创建Dockerfile。</p>
+<p>创建docker volume持久化保存mysql的数据，创建network用于两个容器通信</p>
+<pre><code class="language-sh">╰─$ docker volume create bluelog_mysql                                      1 ↵
+bluelog_mysql
+╰─$ docker volume create bluelog_mysql_config
+bluelog_mysql_config
+╰─$ docker network create bluelog_mysqlnet
+1845be4225056f8994881d90476a8188e7ca44097801901b8fada5dce0f131c5
+</code></pre>
+<p>启动mysql容器，创建数据库awesome</p>
+<pre><code>$ docker run --rm -d -v bluelog_mysql:/var/lib/bluelog_mysql \
+-v bluelog_mysql_config:/etc/mysql -p 3306:3306 \
+--network bluelog_mysqlnet \
+--name mysqldb \
+-e MYSQL_ROOT_PASSWORD=dbpass \
+mysql
+
+╰─$ docker ps                                                               1 ↵
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                               NAMES
+cf7a578b689e        mysql               &quot;docker-entrypoint.s…&quot;   23 seconds ago      Up 22 seconds       0.0.0.0:3306-&gt;3306/tcp, 33060/tcp   bluelogdb
+
+$ docker exec -it mysqldb mysql -u root -p                              1 ↵
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+
+mysql&gt; create database awesome default character set utf8mb4 collate utf8mb4_unicode_ci;
+Query OK, 1 row affected (0.01 sec)
+</code></pre>
+<p>测试使用的bluelog/.env文件部分内容：</p>
+<pre><code>FLASK_CONFIG=production
+DATABASE_URL=mysql://root:dbpass@mysqldb/awesome?charset=utf8mb4
+</code></pre>
+<p>Dockerfile内容</p>
+<pre><code class="language-Dockerfile">FROM python:3.8-slim-buster
+
+WORKDIR /bluelog
+
+COPY requirements.txt requirements.txt
+
+RUN pip3 install -r requirements.txt
+RUN pip3 install flask-whooshee
+RUN pip3 install pymysql
+RUN pip3 install cryptography
+
+COPY . .
+
+CMD [&quot;python3&quot;, &quot;-m&quot; , &quot;flask&quot;, &quot;run&quot;, &quot;--host=0.0.0.0&quot;] # 开放给外部可见
+</code></pre>
+<p>根据Dockerfile构件bluelog-docker镜像</p>
+<pre><code>$ docker build --tag bluelog-docker .
+</code></pre>
+<p>启动bluelog-app容器</p>
+<pre><code>$ docker run \                                                                      
+--rm -d \   # --rm: Automatically remove the container when it exits. -d: Run container in background and print container ID
+--network bluelog_mysqlnet \ # 使用的网络
+--name bluelog-app \
+-p 8000:5000 \ # 本机端口：容器端口
+bluelog-docker
+</code></pre>
+<p>发现了一些bug，ModuleNotFoundError: No module named 'MySQLdb'，<a href="https://stackoverflow.com/questions/22252397/importerror-no-module-named-mysqldb">参照</a>解决，使用pymysql作为数据库接口</p>
+<p>进入bluelog-app容器中使用flask命令初始化博客</p>
+<pre><code class="language-sh">$ docker exec -it bluelog-app bash                                                                                                  1 ↵
+root@e7bdaaa29534:/bluelog# ls
+Dockerfile  Pipfile       Procfile          README.md   bluelog  migrations        tests    whooshee
+LICENSE     Pipfile.lock  Procfile.windows  blogdb.sql  logs     requirements.txt  uploads  wsgi.py
+root@e7bdaaa29534:/bluelog# flask init --username admin --password 123
+Initializing the database...
+Creating the temporary administrator account...
+Creating the default category...
+Done.
+</code></pre>
+<p>即可在localhost:8000端口访问博客</p>
+<h2 id="使用docker-compose自动化"><a class="header" href="#使用docker-compose自动化">使用docker-compose自动化</a></h2>
+<p>在bluelog目录下创建docker-compose.yml</p>
+<pre><code class="language-yml">version: &quot;3.7&quot;
+
+services:
+  app:
+    build:
+     context: .  # The app service uses an image that’s built from the Dockerfile in the current directory. 
+    ports:
+    - &quot;8000:5000&quot;
+    volumes:
+    - ./:/bluelog
+
+  mysqldb:  # 这个名称就是要被连接的hostname
+    image: mysql
+    ports:
+    - 3306:3306
+    environment:
+    - MYSQL_ROOT_PASSWORD=dbpass
+    volumes:
+    - bluelog_mysql:/var/lib/mysql
+    - bluelog_mysql_config:/etc/mysql
+
+volumes:  # 这两个volumes是之前用docker volume创建的
+  bluelog_mysql:
+  bluelog_mysql_config:
+</code></pre>
+<p>启动</p>
+<pre><code>$ docker-compose up
+</code></pre>
+<p>重复之前的操作，对接mysql container，创建数据库awesome</p>
+<pre><code class="language-sql">mysql&gt; create database awesome default character set utf8mb4 collate utf8mb4_unicode_ci;
+Query OK, 1 row affected (0.01 sec)
+</code></pre>
+<p>对接bluelog-container，初始化博客</p>
+<pre><code class="language-sh"># flask init --username admin --password 123
+Initializing the database...
+Creating the temporary administrator account...
+Creating the default category...
+Done.
+</code></pre>
+<p>访问localhost：8000
+<img src="./images/blog20220422/bluelog.png" alt="bluelog" />
+Done!</p>
+<h2 id="迁移数据"><a class="header" href="#迁移数据">迁移数据</a></h2>
+<p>将本地文件复制到docker容器中</p>
+<p>在mysql容器中创建数据库blogdb（对应这台服务器上的），同时更改.env文件的URL</p>
+<pre><code class="language-sh">sugar@ubuntuServer:~$ mysqldump -u root -p --opt blogdb &gt; blogdb.sql
+Enter password: 
+# 本机
+$ scp sugar@118.178.94.244:/path/to/blogdb.sql . 
+# 复制到docker mysql container中
+$ docker cp blogdb.sql bluelog_mysqldb_1:/blogdb.sql
+$ docker exec -it bluelog_mysqldb_1 bash
+# 导入到数据库中
+# 注意可能只能单独启一个mysql，不启动bluelog
+root@db14eda59ac1:/# mysql -u root -p blogdb &lt; blogdb.sql 
+
+$ docker-compose up
+</code></pre>
+
+                        <div id="comment-container"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="blog20220424.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="blog20220224.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="blog20220424.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="blog20220224.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="theme/comments.js"></script>
+        <script type="text/javascript" src="theme/toc.js"></script>
+    </body>
+</html>

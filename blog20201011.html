@@ -1,0 +1,590 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>MIT 6.824 MapReduce - Sugar&#x27;s Blog</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/toc.css">
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About</a></li><li class="chapter-item expanded affix "><li class="part-title">2023</li><li class="chapter-item expanded "><a href="blog20230222.html">CS 161 REGULUS</a></li><li class="chapter-item expanded "><a href="blog20230406.html">MIT 6.858 Lab3: Symbolic execution</a></li><li class="chapter-item expanded "><a href="blog20230110.html">Computer Security - Buffer overflows</a></li><li class="chapter-item expanded "><div>MIT 6.007 Signals And Systems</div></li><li class="chapter-item expanded affix "><li class="part-title">2022</li><li class="chapter-item expanded "><a href="blog20221209.html">来点utterances</a></li><li class="chapter-item expanded "><a href="blog20221129.html">红黑树</a></li><li class="chapter-item expanded "><a href="blog20221113.html">B+Tree</a></li><li class="chapter-item expanded "><a href="blog20221105.html">CMU 15-445/645</a></li><li class="chapter-item expanded "><a href="blog20221028.html">构建mdbook的博客</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="blog20220726.html">MIT 6.824 kvraft</a></li><li class="chapter-item expanded "><a href="blog20220630.html">MIT 6.S081 mmap</a></li><li class="chapter-item expanded "><a href="blog20220519.html">frp内网穿透实践</a></li><li class="chapter-item expanded "><a href="blog20220517.html">画饼</a></li><li class="chapter-item expanded "><a href="blog20220507.html">母亲节快乐</a></li><li class="chapter-item expanded "><a href="blog20220430.html">MIT 6.S081 File System</a></li><li class="chapter-item expanded "><a href="blog20220424.html">MIT 6.S081 Locks</a></li><li class="chapter-item expanded "><a href="blog20220422.html">Docker实践</a></li><li class="chapter-item expanded "><a href="blog20220224.html">MIT 6.S081 Network Driver</a></li><li class="chapter-item expanded affix "><li class="part-title">2021</li><li class="chapter-item expanded "><a href="blog20211231.html">Slurm单机部署</a></li><li class="chapter-item expanded "><a href="blog20211119.html">MIT 6.S081 COW</a></li><li class="chapter-item expanded "><a href="blog20211024.html">MIT 6.S081 Traps</a></li><li class="chapter-item expanded "><a href="blog20211017.html">MIT 6.S081 Page Tables</a></li><li class="chapter-item expanded "><a href="blog20211012.html">MIT 6.828 System calls</a></li><li class="chapter-item expanded "><a href="blog20210926.html">MIT 6.828 Util Lab</a></li><li class="chapter-item expanded "><a href="blog20210805.html">可靠数据传输协议</a></li><li class="chapter-item expanded "><a href="blog20210715.html">CSAPP - Proxy Lab</a></li><li class="chapter-item expanded "><a href="blog20210512.html">Raft</a></li><li class="chapter-item expanded "><a href="blog20210503.html">CSAPP - Malloc Lab</a></li><li class="chapter-item expanded "><a href="blog20210419.html">CSAPP - Shell Lab</a></li><li class="chapter-item expanded "><a href="blog20210323.html">CSAPP - Cache Lab</a></li><li class="chapter-item expanded "><a href="blog20210308.html">CSAPP - Arch Lab</a></li><li class="chapter-item expanded "><a href="blog20210219.html">CSAPP - Attack Lab</a></li><li class="chapter-item expanded "><a href="blog20210206.html">CSAPP - Bomb Lab</a></li><li class="chapter-item expanded "><a href="blog20210203.html">CSAPP - Data Lab</a></li><li class="chapter-item expanded affix "><li class="part-title">2020</li><li class="chapter-item expanded "><a href="blog20201011.html" class="active">MIT 6.824 MapReduce</a></li><li class="chapter-item expanded "><a href="blog20200201.html">MagicCube</a></li><li class="chapter-item expanded "><a href="blog20200116.html">bluelog</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Sugar&#x27;s Blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/Sugar-Coder/Sugar-Coder.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+                    <main>
+                        <h1 id="mit-6824-lab1mapreduce"><a class="header" href="#mit-6824-lab1mapreduce">MIT 6.824 Lab1:MapReduce</a></h1>
+<p>Paper: MapReduce(2004) 一种编程模式，屏蔽了分布式系统的复杂，由一个master来分配任务，同时也需要RPC调用</p>
+<p>遇到问题：不知道如何分配给reduce worker需要读取的文件</p>
+<p>理解与解决：对于每一个执行map的worker A来说，A需要读取一个确定的文件file1，将每一个不同的key-value对（即一个单词-&gt;1）写入Nreduce个中间文件之一，Nreduce由用户指出，至于写入哪一个文件，需要用hash（key）% Nreduce 来获得该文件索引。For example, 第x个map任务，对于值为key的键值对（ihash(key)%Nreduce = Y），需要写入mr-X-Y.txt的中间文件中。</p>
+<p>对于执行reduce任务的worker B</p>
+<ol>
+<li>他需要读取所有 mr-*-r.txt的文件，r为这个reduce任务的id</li>
+<li>sort，根据key值排序，相同的key值就被放在一起了</li>
+<li>调用reduce函数</li>
+<li>将结果写入mr-out-r.txt</li>
+</ol>
+<p>关于Linux下的timeout，在MacOS中没有对应的命令，使用brew安装coreutils，再在lab1的测试脚本中使用alias timeout=gtimeout，作为替代</p>
+<p>第一次进行测试后，发现测试脚本只启动了3个worker，所以我的代码还需修改，worker完成当前分配的任务后，继续接受master的assign指令。</p>
+<p>经过修改，单个worker可以不断向master请求，完成所有的mapreduce任务，同时加入了任务的超时判断，即在master的数据结构中增加了一个map，从任务号到任务开始时间的映射。但是测试脚本发现出现了map concurrent write，原来是新增加的map结构未加锁。</p>
+<p>再次测试遇到问题，没有通过reduce任务的并发测试。现象十分奇怪，单独测试reduce的并发没有问题，但是只要加了word count的测试脚本，reduce任务就timeout。</p>
+<p>为了检测worker crash，使用heartbeat（参考大佬vtta）来清除宕机的worker，同时增加了worker的唯一id生成函数，使用tempfile写入reduce的任务</p>
+<p><strong>2021/5/12 update</strong></p>
+<p>重构了下代码，没有使用心跳来保证worker的正常运行，而是只在master中增加对注册worker的定时器。如果worker在规定时间内没有RPC请求，master会删除有关worker的数据结构，当worker发来迟到的RPC时，master不予处理。</p>
+<p>main/mrworker.go中会调用Worker函数开启worker来请求任务（mapjob、reducejob），处理逻辑如下：</p>
+<pre><code class="language-go">func Worker(mapf func(string, string) []KeyValue,
+	reducef func(string, []string) string) {
+
+	registReply := RegistResp{}
+	if ok := call(&quot;Master.RegisterWorker&quot;, &amp;RegistArgs{}, ®istReply); !ok {
+		return
+	}
+	workerID := registReply.WorkerID
+
+	// Your worker implementation here.
+	// send call to request task
+	tryAccessTimes := 0
+	for {
+		args := RequestArgs{-1, -1, workerID}
+		reply := ResponseType{}
+
+		if ok := call(&quot;Master.AcceptWorker&quot;, &amp;args, &amp;reply); !ok {
+			fmt.Println(&quot;worker &gt; request failed, sleep...&quot;)
+			time.Sleep(100 * time.Millisecond)
+			tryAccessTimes++
+			if tryAccessTimes &gt; 5 {
+				fmt.Println(&quot;worker &gt; cannot access master. Quit&quot;)
+				return
+			}
+			continue
+		}
+
+		tryAccessTimes = 0
+		if reply.NReduce == -1 {
+			fmt.Println(&quot;worker &gt; exit&quot;)
+			return
+		}
+
+		// fmt.Println(&quot;apply job success&quot;)
+		switch reply.JobType {
+		case MAP: // map job
+			mapJob(&amp;reply, mapf)
+		case REDUCE:
+			reduceJob(&amp;reply, reducef)
+		}
+	}
+}
+</code></pre>
+<p>处理逻辑中定义了三种RPC（但是只使用了两种请求args）</p>
+<pre><code class="language-go">const (
+	MAP = 1
+	REDUCE = 2
+)
+
+type RegistArgs struct {
+
+}
+
+type RegistResp struct {
+	WorkerID int
+}
+
+// RequestArgs worker请求的类型
+type RequestArgs struct {
+	TaskNum int // 返回被分配的任务索引，初始请求时为空
+	JobType int // 任务类型 1-map 2-reduce
+	WorkerID int // 这个worker的ID
+}
+
+// master的应答
+type ResponseType struct {
+	NReduce int // master的用户参数，取模用
+	JobType int
+	BucketName string // 分配的任务名称 （map任务需要读取的文件名)
+	TaskNum int 	// 任务号 
+					// 1、对于map任务，master数据结构中的files的下标 + 1
+					// 2、对于reduce任务，taskNum在 [0, NReduce) 区间内
+}
+</code></pre>
+<p>这边使用了counter函数生成全局唯一的worker ID。</p>
+<pre><code class="language-go">func counter() (f func() int) {
+	i := 0
+	return func() int {
+		i += 1
+		return i
+	}
+}
+
+// generate a unique id for a worker or a Job
+var uniqueID = counter()
+</code></pre>
+<p>mapjob的处理</p>
+<pre><code class="language-go">func mapJob(reply *ResponseType,
+	mapf func(string, string) []KeyValue) {
+	// 打开原始文件
+	file, err := os.Open(reply.BucketName)
+	if err != nil {
+		log.Fatalf(&quot;cannot open %v&quot;, reply.BucketName)
+	}
+	content, err := ioutil.ReadAll(file)
+	if err != nil {
+		log.Fatalf(&quot;cannot read %v&quot;, reply.BucketName)
+	}
+	file.Close()
+
+	// 调用用户的map函数
+	kva := mapf(reply.BucketName, string(content))
+
+	// 对于每个key值，划分为nReduce个组
+	var groups = make([][]KeyValue, reply.NReduce)
+	for _, kv := range kva {
+		gid := ihash(kv.Key) % reply.NReduce
+		groups[gid] = append(groups[gid], kv)
+	}
+
+	// 将中间文件写入disk,注意写入的是NReduce个不同文件
+	for index, kvs := range groups {
+		// 创建或打开intermediate文件
+		filename := &quot;mr-&quot; + strconv.Itoa(reply.TaskNum) + &quot;-&quot; + strconv.Itoa(index)
+		// file, _ = os.OpenFile(filename, os.O_RDWR|os.O_APPEND|os.O_CREATE, 0644)
+		file, err := ioutil.TempFile(&quot;.&quot;, &quot;mr-&quot;)
+		if err != nil {
+			log.Fatalln(&quot;cannot create temporary file&quot;)
+		}
+
+		enc := json.NewEncoder(file)
+		for _, kv := range kvs {
+			err := enc.Encode(&amp;kv)
+			if err != nil {
+				os.Remove(file.Name())
+				// call for failure
+				log.Fatal(&quot;map write file error&quot;)
+			}
+		}
+		os.Rename(file.Name(), filename)
+		if err != nil {
+			log.Fatalln(&quot;cannot rename to&quot;, filename)
+		}
+		log.Printf(&quot;%s created.&quot;, filename)
+	}
+
+	rpArgs := RequestArgs{}
+	rpArgs.JobType = MAP
+	rpArgs.TaskNum = reply.TaskNum
+
+	rpReply := ResponseType{}
+
+	call(&quot;Master.WorkerFinished&quot;, &amp;rpArgs, &amp;rpReply) // TODO: 考虑失败的worker
+
+}
+</code></pre>
+<p>reducejob的处理</p>
+<pre><code class="language-go">func reduceJob(reply *ResponseType,
+	reducef func(string, []string) string) {
+	// 读取所有属于taskNum的mr-X-taskNum.txt文件 到 intermediate
+	var intermediate []KeyValue
+	for i := 0; ; i++ { // i对应map任务号
+		filename := &quot;mr-&quot; + strconv.Itoa(i) + &quot;-&quot; + strconv.Itoa(reply.TaskNum)
+		file, err := os.Open(filename)
+		if err != nil {
+			break
+		}
+		dec := json.NewDecoder(file)
+		for {
+			var kv KeyValue
+			if err := dec.Decode(&amp;kv); err != nil {
+				break
+			}
+			intermediate = append(intermediate, kv)
+		}
+		file.Close()
+	}
+
+	// sort
+	sort.Sort(ByKey(intermediate))
+
+	// 注意！使用临时文件，防止残缺文件被写入！
+	oname := fmt.Sprintf(&quot;mr-out-%v&quot;, reply.TaskNum)
+	ofile, err := ioutil.TempFile(&quot;.&quot;, &quot;mr-&quot;)
+	// oname := &quot;mr-out-&quot; + strconv.Itoa(reply.TaskNum)
+	// ofile, err := os.Create(oname)
+	if err != nil {
+		log.Fatalln(&quot;cannot create temporary file&quot;)
+	}
+
+	fmt.Printf(&quot;worker &gt; inter len : %v\n&quot;, len(intermediate))
+	// call the user define reduce function
+	i := 0
+	for i &lt; len(intermediate) {
+		j := i + 1
+		for j &lt; len(intermediate) &amp;&amp; intermediate[j].Key == intermediate[i].Key { // the same key has been sorted to be together
+			j++
+		}
+		values := []string{}
+		for k := i; k &lt; j; k++ {
+			values = append(values, intermediate[k].Value)
+		}
+		output := reducef(intermediate[i].Key, values)
+
+		// this is the correct format for each line of Reduce output.
+		fmt.Fprintf(ofile, &quot;%v %v\n&quot;, intermediate[i].Key, output)
+
+		i = j
+	}
+	err = ofile.Close()
+	if err != nil {
+		log.Fatalln(&quot;cannot close&quot;, oname)
+	}
+	err = os.Rename(ofile.Name(), oname)
+	if err != nil {
+		log.Fatalln(&quot;cannot rename to&quot;, oname)
+	}
+
+	rpArgs := RequestArgs{}
+	rpArgs.JobType = REDUCE
+	rpArgs.TaskNum = reply.TaskNum
+
+	rpReply := ResponseType{}
+
+	call(&quot;Master.WorkerFinished&quot;, &amp;rpArgs, &amp;rpReply) // 目前，未考虑失败的worker
+}
+</code></pre>
+<p>master中保存的数据结构</p>
+<pre><code class="language-go">var (
+	mu sync.Mutex
+)
+
+// State 为job的状态
+type State int
+const (
+	IDLE = 0
+	INPROGRESS = 1
+	COMPLETE = 2
+)
+
+type Master struct {
+	// Your definitions here.
+	mapState map[int]State  // 序号 -》状态
+	fileNames []string // 序号 -&gt; 文件名
+	mapWorker map[int]int  // 序号 -》workerid
+	mapDone bool
+
+	nReduce int // 需要启动的reduce worker数量，也是每个map任务需要写入的文件数量
+	reduceState map[int]State // 一个nReduce大小的切片，记录reduce任务完成的情况, 0-未分配，1-已分配，2-已完成
+	reduceWorker map[int]int // 任务号 -》 worker
+	reduceDone bool
+
+	timers map[int]*time.Timer  // 计时器，映射为workerID到timer
+}
+</code></pre>
+<p>master对三种RPC的处理</p>
+<p>用于worker注册的</p>
+<pre><code class="language-go">// RegisterWorker worker注册，生成定时器goroutine
+func (m *Master) RegisterWorker(args *RegistArgs, reply *RegistResp) error {
+	mu.Lock()
+	defer mu.Unlock()
+
+	workerID := uniqueID()
+	reply.WorkerID = workerID
+	m.timers[workerID] = time.NewTimer(time.Second * 10)
+	log.Printf(&quot;Master &gt; new worker %v register&quot;, workerID)
+
+	// 为每个worker分配一个定时器线程
+	go func(worker int, timer &lt;-chan time.Time) {
+		&lt;- timer // 如果定时器超时了
+		mu.Lock()
+		defer mu.Unlock()
+		delete(m.timers, worker) // 删除定时器
+		for jobid, wid := range m.mapWorker {
+			if wid == worker {
+				m.mapState[jobid] = IDLE
+				delete(m.mapWorker, jobid)
+				log.Printf(&quot;Master &gt; map worker %v time out&quot;, worker)
+			}
+		}
+		for jobid, wid := range m.reduceWorker {
+			if wid == worker {
+				m.reduceState[jobid] = IDLE
+				delete(m.reduceWorker, jobid)
+				log.Printf(&quot;Master &gt; reduce worker %v time out&quot;, worker)
+			}
+		}
+	}(workerID, m.timers[workerID].C)
+
+	return nil
+}
+</code></pre>
+<p>用于worker请求任务的：</p>
+<pre><code class="language-go">// AcceptWorker PRC响应 接受worker的请求任务请求
+func (m *Master) AcceptWorker(args *RequestArgs, reply *ResponseType) error {
+	mu.Lock()
+	defer mu.Unlock()
+	
+	reply.NReduce = m.nReduce
+	if !m.mapDone { // map未完成
+		mapjobid := m.assignMapJob(args.WorkerID)
+
+		if mapjobid == -1 {
+			return fmt.Errorf(&quot;please apply job again&quot;)
+		}
+		reply.JobType = MAP
+		reply.BucketName = m.fileNames[mapjobid]
+		reply.TaskNum = mapjobid
+		
+		m.mapWorker[mapjobid] = args.WorkerID
+
+	} else if !m.reduceDone{
+		rdTaskNum := m.assignReduceJob(args.WorkerID)
+
+		if rdTaskNum == -1 {
+			reply.NReduce = -1 // 告诉worker不要再申请任务了
+			return fmt.Errorf(&quot;no job available&quot;)
+		}
+		reply.JobType = REDUCE
+		reply.TaskNum = rdTaskNum
+	}
+	return nil // success assigned
+}
+</code></pre>
+<p>用与worker告知结束任务的</p>
+<pre><code class="language-go">// WorkerFinished 回应worker完成工作
+// 对于timeout的worker,即使worker完成了任务，由于在master保存的数据结构中找不到对应的worker
+func (m *Master) WorkerFinished(args *RequestArgs, reply *ResponseType) error {
+	mu.Lock()
+	defer mu.Unlock()
+
+	if args.JobType == MAP {
+		_, ok := m.mapWorker[args.TaskNum]
+		if !ok {
+			return fmt.Errorf(&quot;Map Worker timeout, job : %v&quot;, m.fileNames[args.TaskNum])
+		}
+		m.mapState[args.TaskNum] = COMPLETE
+		delete(m.mapWorker, args.TaskNum)
+
+		fmt.Printf(&quot;Map job&quot; + m.fileNames[args.TaskNum] + &quot; finish\n&quot;)
+	} else if args.JobType == REDUCE {
+		_, ok := m.reduceWorker[args.TaskNum]
+		if !ok {
+			return fmt.Errorf(&quot;Reduce worker timeout, job : %v&quot;, args.TaskNum)
+		}
+		m.reduceState[args.TaskNum] = COMPLETE
+		delete(m.reduceWorker, args.TaskNum)
+
+		fmt.Printf(&quot;Reduce job&quot; + strconv.Itoa(args.TaskNum) + &quot; finish\n&quot;)
+	}
+	return nil
+}
+</code></pre>
+<p>master分配任务使用的函数</p>
+<pre><code class="language-go">// 根据job类型来选择文件名
+func (m *Master) assignMapJob(worker int) (job int){
+	mapComplete := true
+	for jobid, state := range m.mapState {
+		if state == IDLE {
+			job = jobid
+			m.mapState[jobid] = INPROGRESS
+			m.mapWorker[jobid] = worker
+			return
+		}
+		if state != COMPLETE {
+			mapComplete = false
+		}
+	}
+	if mapComplete {
+		m.mapDone = true
+		log.Println(&quot;map phase compelet&quot;)
+	}
+	return -1
+}
+
+func (m *Master) assignReduceJob(worker int) (reduceNum int) {
+	reduceComplete := true
+	for jobid, state := range m.reduceState {
+		if state == IDLE {
+			reduceNum = jobid  // 返回该reduce任务的编号，即这个reduce worker要读取mr-X-reduceNum.txt的中间文件
+			m.reduceState[jobid] = INPROGRESS
+			m.reduceWorker[jobid] = worker
+			return
+		}
+		if state != COMPLETE {
+			reduceComplete = false
+		}
+	}
+	if reduceComplete {
+		m.reduceDone = true
+		log.Println(&quot;reduce phase complete&quot;)
+	}
+	return -1
+}
+</code></pre>
+
+                        <div id="comment-container"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="blog20210203.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="blog20200201.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="blog20210203.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="blog20200201.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="theme/comments.js"></script>
+        <script type="text/javascript" src="theme/toc.js"></script>
+    </body>
+</html>

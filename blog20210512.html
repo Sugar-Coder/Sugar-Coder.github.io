@@ -1,0 +1,699 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Raft - Sugar&#x27;s Blog</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/toc.css">
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About</a></li><li class="chapter-item expanded affix "><li class="part-title">2023</li><li class="chapter-item expanded "><a href="blog20230222.html">CS 161 REGULUS</a></li><li class="chapter-item expanded "><a href="blog20230406.html">MIT 6.858 Lab3: Symbolic execution</a></li><li class="chapter-item expanded "><a href="blog20230110.html">Computer Security - Buffer overflows</a></li><li class="chapter-item expanded "><div>MIT 6.007 Signals And Systems</div></li><li class="chapter-item expanded affix "><li class="part-title">2022</li><li class="chapter-item expanded "><a href="blog20221209.html">来点utterances</a></li><li class="chapter-item expanded "><a href="blog20221129.html">红黑树</a></li><li class="chapter-item expanded "><a href="blog20221113.html">B+Tree</a></li><li class="chapter-item expanded "><a href="blog20221105.html">CMU 15-445/645</a></li><li class="chapter-item expanded "><a href="blog20221028.html">构建mdbook的博客</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="blog20220726.html">MIT 6.824 kvraft</a></li><li class="chapter-item expanded "><a href="blog20220630.html">MIT 6.S081 mmap</a></li><li class="chapter-item expanded "><a href="blog20220519.html">frp内网穿透实践</a></li><li class="chapter-item expanded "><a href="blog20220517.html">画饼</a></li><li class="chapter-item expanded "><a href="blog20220507.html">母亲节快乐</a></li><li class="chapter-item expanded "><a href="blog20220430.html">MIT 6.S081 File System</a></li><li class="chapter-item expanded "><a href="blog20220424.html">MIT 6.S081 Locks</a></li><li class="chapter-item expanded "><a href="blog20220422.html">Docker实践</a></li><li class="chapter-item expanded "><a href="blog20220224.html">MIT 6.S081 Network Driver</a></li><li class="chapter-item expanded affix "><li class="part-title">2021</li><li class="chapter-item expanded "><a href="blog20211231.html">Slurm单机部署</a></li><li class="chapter-item expanded "><a href="blog20211119.html">MIT 6.S081 COW</a></li><li class="chapter-item expanded "><a href="blog20211024.html">MIT 6.S081 Traps</a></li><li class="chapter-item expanded "><a href="blog20211017.html">MIT 6.S081 Page Tables</a></li><li class="chapter-item expanded "><a href="blog20211012.html">MIT 6.828 System calls</a></li><li class="chapter-item expanded "><a href="blog20210926.html">MIT 6.828 Util Lab</a></li><li class="chapter-item expanded "><a href="blog20210805.html">可靠数据传输协议</a></li><li class="chapter-item expanded "><a href="blog20210715.html">CSAPP - Proxy Lab</a></li><li class="chapter-item expanded "><a href="blog20210512.html" class="active">Raft</a></li><li class="chapter-item expanded "><a href="blog20210503.html">CSAPP - Malloc Lab</a></li><li class="chapter-item expanded "><a href="blog20210419.html">CSAPP - Shell Lab</a></li><li class="chapter-item expanded "><a href="blog20210323.html">CSAPP - Cache Lab</a></li><li class="chapter-item expanded "><a href="blog20210308.html">CSAPP - Arch Lab</a></li><li class="chapter-item expanded "><a href="blog20210219.html">CSAPP - Attack Lab</a></li><li class="chapter-item expanded "><a href="blog20210206.html">CSAPP - Bomb Lab</a></li><li class="chapter-item expanded "><a href="blog20210203.html">CSAPP - Data Lab</a></li><li class="chapter-item expanded affix "><li class="part-title">2020</li><li class="chapter-item expanded "><a href="blog20201011.html">MIT 6.824 MapReduce</a></li><li class="chapter-item expanded "><a href="blog20200201.html">MagicCube</a></li><li class="chapter-item expanded "><a href="blog20200116.html">bluelog</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Sugar&#x27;s Blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/Sugar-Coder/Sugar-Coder.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+                    <main>
+                        <h1 id="mit-6824-raft"><a class="header" href="#mit-6824-raft">MIT 6.824 Raft</a></h1>
+<h2 id="lab2a-leader-election"><a class="header" href="#lab2a-leader-election">Lab2A Leader election</a></h2>
+<p>首先选举出一个leader，让这个leader来管理冗余日志。leader从client接受日志条目，在其他服务器上做冗余备份，并告知其他服务器一个安全的时间点将这些日志应用于他们自己的状态机</p>
+<p>leader必须接受其他的log entries 从client，并且做好备份</p>
+<p>safety：在一个log的index上（多台server的），只能有一种日志entries</p>
+<h3 id="51-raft基础"><a class="header" href="#51-raft基础">5.1 Raft基础</a></h3>
+<p>开始的时候都是Follower，timeout后开始选举，变成candidate；1、在timeout后没有接到多数选票，再次进行选举；2、如果接受了多数的选票，变成leader</p>
+<p>时间被分割为term，每个term被开始为选举期，如果没有leader被选举出来（split vote），term结束。</p>
+<p>每一个server保存一个当前term的数字（随时间线性增长）。不论何时server在沟通的时候，当前的term会被交换。candidtae和leader发现自己的term过时的时候，就会转变为follower。如果一个server收到了一个包含过时的term number的request，它会忽略。</p>
+<h3 id="52-leader-election"><a class="header" href="#52-leader-election">5.2 Leader Election</a></h3>
+<p>在开始的时候，一个server是follower，当收到leader或者candidate的RPC时，它会一直保持这个状态。Leader会发送定时的heartbeat信息（不含log entries的AppendEntries RPC调用）给所有followers，以保持他们的属性状态。</p>
+<p>如果一个follower在election timeout的时间内没有收到任何交流信息，它就开始选举leader</p>
+<p>在选举的开始，follower增加它的term number，并且转换成candidate状态。它给自己投票，并且向集群中的其他server发送RequestVote RPC调用。
+以下三种状况中，candidate转换自己的状态：</p>
+<ol>
+<li>赢得了选举</li>
+<li>另一个server赢得了选举</li>
+<li>没有winner
+以下是三种情况的详细说明：</li>
+<li>赢得选举 &lt;=&gt; 在同一个term中，获取集群中的大多数选票。 一个server最多只能在一个term中投票一个candidate（以FCFS的方式投票），这个机制保证了在一个term中，最多只有一个优胜者。当一个candidate赢得选举后，发送heartbeat信息来终止新的选举。</li>
+<li>在等待选票的过程中，如果收到了其他server的AppendEntries RPC（即他也想当leader），根据term number的大小决定是否变回follower，若调用来自term较大（&gt;= 当前的candidate term）的，则变回follower</li>
+<li>大家都没有获得足够的选票，那么每个candidate都timeout然后进行新一轮的选举，并增加自己的term number</li>
+</ol>
+<p>raft使用随机的time-out长度来避免split vote</p>
+<h3 id="raft节点数据结构"><a class="header" href="#raft节点数据结构">Raft节点数据结构</a></h3>
+<pre><code class="language-go">// Role is the server's role
+type Role int
+
+const (
+	FOLLOWER  = 0
+	CANDIDATE = 1
+	LEADER    = 2
+)
+
+type LogEntry struct {
+	Command interface{}
+	Term    int // 这条logEntry是在term时期被写入的
+}
+
+//
+// A Go object implementing a single Raft peer.
+//
+type Raft struct {
+	mu        sync.Mutex          // Lock to protect shared access to this peer's state
+	peers     []*labrpc.ClientEnd // RPC end points of all peers
+	persister *Persister          // Object to hold this peer's persisted state
+	me        int                 // this peer's index into peers[]
+	dead      int32               // set by Kill()
+
+	// Your data here (2A, 2B, 2C).
+	// Look at the paper's Figure 2 for a description of what
+	// state a Raft server must maintain.
+	currentTerm int
+	votedFor    int        // vote for the candidate id
+	log         []LogEntry // log entries
+
+	role Role
+
+	commitIndex int // index of log entry of the highest
+	lastApplied int
+
+	nextIndex  []int // 对于每个server，需要发送的日志索引
+	matchIndex []int // 对每个server，已知的已经被冗余了的日志最高索引
+
+	// channel for communication
+	chAppendEntry chan struct{} // 用于通信的管道， receive the heartbeat
+	chRequestVote chan struct{} // channel, receive the request vote
+}
+
+// return currentTerm and whether this server
+// believes it is the leader.
+func (rf *Raft) GetState() (int, bool) {
+
+	var term int
+	var isleader bool
+	// Your code here (2A).
+	rf.mu.Lock()
+	term = rf.currentTerm
+	isleader = (rf.role == LEADER)
+	rf.mu.Unlock()
+	return term, isleader
+}
+</code></pre>
+<p>GetState函数</p>
+<pre><code class="language-go">// return currentTerm and whether this server
+// believes it is the leader.
+func (rf *Raft) GetState() (int, bool) {
+
+	var term int
+	var isleader bool
+	// Your code here (2A).
+	rf.mu.Lock()
+	term = rf.currentTerm
+	isleader = (rf.role == LEADER)
+	rf.mu.Unlock()
+	return term, isleader
+}
+</code></pre>
+<p>Make函数启动一个Raft节点</p>
+<pre><code class="language-go">func Make(peers []*labrpc.ClientEnd, me int,
+	persister *Persister, applyCh chan ApplyMsg) *Raft {
+	rf := &amp;Raft{}
+	rf.peers = peers
+	rf.persister = persister
+	rf.me = me
+
+	// Your initialization code here (2A, 2B, 2C).
+	rf.currentTerm = 0
+	rf.votedFor = -1
+	rf.log = make([]LogEntry, 16)
+	rf.log[0] = LogEntry{struct{}{}, -1}
+	rf.commitIndex = 0
+	rf.lastApplied = 0
+	rf.matchIndex = make([]int, len(rf.peers))
+	rf.nextIndex = make([]int, len(rf.peers))
+
+	rf.chAppendEntry = make(chan struct{})
+	rf.chRequestVote = make(chan struct{})
+	rf.role = FOLLOWER
+
+	// 开启服务
+	go rf.startServing()
+
+	// initialize from state persisted before a crash
+	rf.readPersist(persister.ReadRaftState())
+
+	return rf
+}
+</code></pre>
+<p>主要逻辑函数startServing</p>
+<pre><code class="language-go">func (rf *Raft) startServing() {
+	for {
+		if rf.killed() {
+			return
+		}
+		switch rf.role {
+		case FOLLOWER:
+			rf.following()
+		case CANDIDATE:
+			rf.election()
+		case LEADER:
+			rf.sendingHeartBeat()
+		}
+	}
+}
+
+func (rf *Raft) changeRole(role Role) {
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+	rf.role = role
+}
+</code></pre>
+<p>作为Follower的处理逻辑</p>
+<pre><code class="language-go">func (rf *Raft) following() {
+	rand.Seed(time.Now().Unix())
+	electionTimeout := rand.Intn(1000) + 400 // in the thesis use 150~300ms, but here use 500~1000ms
+	timer := time.NewTimer(time.Millisecond * time.Duration(electionTimeout))
+	for {
+		if rf.killed() {
+			return
+		}
+		select {
+		case &lt;-timer.C:
+			DPrintf(&quot;%d: Eletion Timeout, start election\n&quot;, rf.me)
+			rf.changeRole(CANDIDATE)
+			return
+		case &lt;-rf.chAppendEntry:
+			electionTimeout := rand.Intn(1000) + 400
+			timer.Reset(time.Millisecond * time.Duration(electionTimeout))
+		case &lt;-rf.chRequestVote:
+			DPrintf(&quot;%d: recieve the candidates' request for vote\n&quot;, rf.me)
+			electionTimeout := rand.Intn(1000) + 400
+			timer.Reset(time.Millisecond * time.Duration(electionTimeout))
+		}
+	}
+}
+</code></pre>
+<p>作为Candidate的处理逻辑</p>
+<pre><code class="language-go">func (rf *Raft) election() {
+	rf.mu.Lock()
+	rf.currentTerm++
+	rf.votedFor = rf.me
+	rf.mu.Unlock()
+
+	args := RequestVoteArgs{}
+	args.CandidateID = rf.me
+	args.Term = rf.currentTerm
+	args.LastLogIndex = len(rf.log) - 1
+	args.LastLogTerm = rf.log[args.LastLogIndex].Term
+
+	voteCount := 0
+	voteOk := make(chan struct{})
+	var voteMu sync.Mutex
+	var notified bool = false  // 是否已经发送给voteOk信号
+
+	timer := time.NewTimer(time.Millisecond * time.Duration(rand.Intn(300)+500))
+	for serverID := range(rf.peers) {
+		if serverID != rf.me {
+			go func(server int) {
+				reply := RequestVoteReply{}
+				if ok := rf.sendRequestVote(server, &amp;args, &amp;reply); ok {
+					if reply.VoteGranted {
+						voteMu.Lock()
+						voteCount++
+						if !notified &amp;&amp; voteCount &gt;= len(rf.peers) / 2 {
+							voteOk &lt;- struct{}{}
+							notified = true  // 其他的选票就不再通知了
+							voteMu.Unlock()
+						} else {
+							voteMu.Unlock()
+						}
+					}
+				}
+			}(serverID)
+		}
+	}
+	select {
+	case &lt;-voteOk:
+		DPrintf(&quot;%d: Become Leader&quot;, rf.me)
+		rf.changeRole(LEADER)
+		rf.votedFor = -1
+		return
+	case &lt;-rf.chAppendEntry: // 当有其他的leader已经被选举出来后
+		rf.changeRole(FOLLOWER)
+		rf.votedFor = -1
+		return
+	case &lt;-rf.chRequestVote: // 收到其他candidate的合法选票
+		rf.changeRole(FOLLOWER)
+		rf.votedFor = -1
+		DPrintf(&quot;Receive others' requestVote&quot;)
+		return
+	case &lt;-timer.C: // 到时间了还没有选票
+		rf.changeRole(FOLLOWER)
+		rf.votedFor = -1
+		return
+	}
+}
+</code></pre>
+<p>作为Master的处理逻辑</p>
+<pre><code class="language-go">func (rf *Raft) sendingHeartBeat() {
+	rf.mu.Lock()
+	lastLogIndex := len(rf.log) - 1
+	for i := range(rf.peers) {
+		rf.nextIndex[i] = lastLogIndex + 1
+		rf.matchIndex[i] = 0
+	}
+
+	args := AppendEntriesArgs{}
+	args.Term = rf.currentTerm
+	args.LeaderID = rf.me
+	args.PrevLogIndex = lastLogIndex // index of log entry immediately preceding new ones
+	args.PrevLogTerm = rf.log[args.PrevLogIndex].Term
+	args.Entries = []LogEntry{} // empty log entries
+	args.LeaderCommit = rf.commitIndex
+	rf.mu.Unlock()
+
+	timer := time.NewTimer(time.Duration(time.Millisecond * 200)) // 间隔200ms发出心跳
+	higherTermCh := make(chan struct{})
+	gotHigherTerm := false  // 是否收到了高Term的回复
+	
+	for {
+		for serverID := range(rf.peers) {
+			if serverID == rf.me {
+				continue
+			}
+			go func(server int) {
+				reply := AppendEntriesReply{}
+				if ok := rf.sendAppendEntry(server, &amp;args, &amp;reply); ok {
+					rf.mu.Lock()
+					if !gotHigherTerm &amp;&amp; reply.Term &gt; rf.currentTerm {
+						rf.currentTerm = reply.Term
+						gotHigherTerm = true
+						higherTermCh &lt;- struct{}{}
+					}
+					rf.mu.Unlock()
+				}
+			}(serverID)
+		}
+
+		select {
+		case &lt;-timer.C:
+			timer.Reset(time.Duration(time.Millisecond * 200))
+		case &lt;-higherTermCh: // discover a server with higher term
+			rf.changeRole(FOLLOWER)
+			return
+		case &lt;-rf.chAppendEntry: // 如果接收到follower的高term AppendEntry
+			rf.changeRole(FOLLOWER)
+			return
+		case &lt;-rf.chRequestVote: // 如果接收到candidate的高term RequestVote
+			rf.changeRole(FOLLOWER)
+			return
+		}
+	}
+}
+</code></pre>
+<p>AppendEntries（心跳接受的RPC）</p>
+<pre><code class="language-go">func (rf *Raft) AppendEntry(args *AppendEntriesArgs, reply *AppendEntriesReply) {
+	// follower 接收心跳处理
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+	if len(args.Entries) == 0 {
+		if args.Term &lt; rf.currentTerm {  // 收到的心跳Term太小
+			reply.Success = false
+			reply.Term = rf.currentTerm
+		} else {
+			DPrintf(&quot;%d: Got valid heartbeat from %d\n&quot;, rf.me, args.LeaderID)
+			rf.currentTerm = args.Term
+			reply.Success = true
+			go func(){
+				rf.chAppendEntry &lt;- struct{}{}
+			}()
+		}
+	}
+}
+</code></pre>
+<p>RequestVote（投票请求的处理）</p>
+<pre><code class="language-go">type RequestVoteArgs struct {
+	// Your data here (2A, 2B).
+	Term         int // candidate's term
+	CandidateID  int // 暂时用rafts数组的下标作为id
+	LastLogIndex int // 最后一个日志条目的下标
+	LastLogTerm  int
+}
+
+//
+// example RequestVote RPC reply structure.
+// field names must start with capital letters!
+//
+type RequestVoteReply struct {
+	// Your data here (2A).
+	Term        int  // currentTerm, for candidate to update itself
+	VoteGranted bool // true表示同意选举
+}
+
+func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
+	// Your code here (2A, 2B).
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+	if args.Term &lt; rf.currentTerm {
+		reply.VoteGranted = false
+		reply.Term = rf.currentTerm
+		DPrintf(&quot;%d: refuse vote to %d\n&quot;, rf.me, args.CandidateID)
+	} else if rf.votedFor == -1 || rf.votedFor == args.CandidateID {
+		curLogIndex := len(rf.log) - 1
+		if args.LastLogIndex &gt;= curLogIndex &amp;&amp; args.LastLogTerm &gt;= rf.log[curLogIndex].Term { // candidates的log至少和我一样新
+			DPrintf(&quot;%d: Vote to %d\n&quot;, rf.me, args.CandidateID)
+			reply.VoteGranted = true
+			reply.Term = args.Term
+			rf.currentTerm = args.Term
+			rf.votedFor = args.CandidateID
+
+			go func() {
+				rf.chRequestVote &lt;- struct{}{} 
+			}() // 通知自己收到了合法的请求投票
+		} else {
+			reply.VoteGranted = false
+			// reply.Term = rf.currentTerm
+			DPrintf(&quot;%d: refuese vote to %d, because the old log\n&quot;, rf.me, args.CandidateID)
+		}
+	} else {
+		reply.VoteGranted = false
+		// reply.Term = rf.currentTerm
+		DPrintf(&quot;%d: refuese vote to %d, because has voted-&gt;%d.\n&quot;, rf.me, args.CandidateID, rf.votedFor)
+	}
+}
+</code></pre>
+<p>运行结果</p>
+<pre><code class="language-sh">➜  raft git:(master) ✗ go test -run 2A -race
+Test (2A): initial election ...
+  ... Passed --   4.6  3   38    9128    0
+Test (2A): election after network failure ...
+  ... Passed --   7.5  3   86   17588    0
+PASS
+ok  	_/Users/sjy/develop/Go/6.824/src/raft	12.486s
+</code></pre>
+<h2 id="lab2b-log-replication"><a class="header" href="#lab2b-log-replication">Lab2B Log replication</a></h2>
+<p>从测试出发进行理解（applyCh的意义：将日志应用到状态机上）</p>
+<p>从TestBasicAgree2B 测试函数出发 -&gt; make_config -&gt; start1<br />
+start1函数中有将commit command 写入cfg的log中（从通道applyCh中接收新的command）<br />
+在TestBasicAgree2B 测试函数中 nCommitted函数会检查cfg的log，查看是否大多数节点已经agreement了<br />
+所以需要把start1中的applyCh传给当前的server节点，当有新的log entry commit后，通过applyCh发送相关消息</p>
+<p>leader的nextIndex数组保存着要发给每个server的log index，初始化为leader 的最后一个log的下标+1(len(log))<br />
+leader的matchIndex保存着已经复制到某个server的log index，初始化为0；leader不断的检查matchIndex，来确定是否存在新的commitIndex</p>
+<p>每个server都会不停得检查lastApplied Index，一但commitIndex大于lastApplied，当前Server会把这条日志通过applyCh应用到状态机里</p>
+<h3 id="日志复制的流程"><a class="header" href="#日志复制的流程">日志复制的流程</a></h3>
+<p>client发送command -&gt; leader<br />
+leader append to leader's log -&gt; send RPC to follower -&gt; follower append to log(Replicate)<br />
+-&gt; majority follower agree -&gt; leader apply the command to state machine(this log marked as committed)<br />
+-&gt; follower know the log is committed -&gt; follower apply the command to state machine</p>
+<p>完整代码我放到<a href="https://gitee.com/sugarcoder/mit6.824.git">gitee</a>上了，下面只记录通过测试的时候的遇到的各种问题。</p>
+<p>TestBasicAgree2B 中由于忘记更新AppendEntries RPC的Term，导致一直不同步</p>
+<p>TestFailAgree2B 中由于脱离连接的节点不停得ElectionTimeout，所以Term一直增加，Leader会收到对AppendEntries拒绝的reply，因为Term的原因<br />
+所以Leader在收到高Term的AppendEntries Reply后，需要step down，重新选举，更新term</p>
+<p>TestFailNoAgree2B Passed (但是会出现conflictIndex=-1的情况，解决：在Leader的Term中，不要立即使用rf.currentTerm，使用之前保存的LeaderCurrentTerm，防止被RPC篡改)<br />
+问题，出现类似死锁<br />
+ </p>
+<pre><code class="language-log">2021/05/20 12:28:41 Leader 3:Update Server 2 matchIndex = 2, nextIndex = 3
+2021/05/20 12:28:41 4: Eletion Timeout, start election
+2021/05/20 12:28:41 1: Eletion Timeout, start election
+2021/05/20 12:28:41 0: Eletion Timeout, start election
+2021/05/20 12:28:42 4: Eletion Timeout, start election
+2021/05/20 12:28:43 Follower 4: invalid AppendEntry RPC, args.Term=1, rf.currentTerm=3
+2021/05/20 12:28:43 Follower 1: invalid AppendEntry RPC, args.Term=1, rf.currentTerm=2
+2021/05/20 12:28:43 Follower 0: invalid AppendEntry RPC, args.Term=1, rf.currentTerm=2
+2021/05/20 12:28:43 Leader 3: Saw term 2, step down
+2021/05/20 12:28:43 1: Eletion Timeout, start election
+2021/05/20 12:28:43 2: refuese vote to 1, because has voted-&gt;3.
+2021/05/20 12:28:43 4: refuese vote to 1, because has voted-&gt;4.
+2021/05/20 12:28:43 0: Vote to 1
+2021/05/20 12:28:43 0: recieve the candidates' request for vote
+2021/05/20 12:28:44 1: Eletion Timeout, start election
+2021/05/20 12:28:44 0: Vote to 1
+2021/05/20 12:28:44 4: Vote to 1
+2021/05/20 12:28:44 2: refuese vote to 1, because has voted-&gt;3.
+2021/05/20 12:28:44 0: recieve the candidates' request for vote
+2021/05/20 12:28:44 4: recieve the candidates' request for vote
+2021/05/20 12:28:44 1: Become Leader
+</code></pre>
+<p>把心跳接收到高Term的回复后的通知管道改为有缓冲的了，同时比较Term的时候用leader的term缓存来比较</p>
+<h3 id="testconcurrentstarts2b-failed"><a class="header" href="#testconcurrentstarts2b-failed">TestConcurrentStarts2B Failed</a></h3>
+<p>貌似出现死锁，其实是matchIndex一直不更新，导致无法Leader无法跟新commitIndex<br />
+原因：nextIndex的更新方式</p>
+<pre><code class="language-go">if reply.Success {
+    // rf.matchIndex[server] = rf.nextIndex[server]
+    rf.nextIndex[server] += len(args.Entries)
+    rf.matchIndex[server] = rf.nextIndex[server] - 1
+    // ...
+}
+</code></pre>
+<h3 id="testrejoin2b-failed"><a class="header" href="#testrejoin2b-failed">TestRejoin2B Failed</a></h3>
+<p>在两个日志不一样的server选举的时候出现问题，无法选出leader</p>
+<p>修改RequestVote RPC handler的投票同意条件（注意其实这里错了，log的term相等的时候不能保证是一样新的，所以此处的&lt;=应该是&lt;）</p>
+<pre><code class="language-go">if rf.log[curLogIndex].Term &lt;= args.LastLogTerm || (args.LastLogTerm == rf.log[curLogIndex].Term &amp;&amp; args.LastLogIndex &gt;= curLogIndex) { } // candidates的log至少和我一样新
+</code></pre>
+<p>遇到问题：在TestFailAgree2B中，发现会仅仅根据term投票给candidate，导致测试不通过</p>
+<p>再次修改投票同意条件，只有args.LastLogTerm比当前节点大的时候才认为比当前的log新</p>
+<pre><code class="language-go">curLogIndex := len(rf.log) - 1
+if rf.log[curLogIndex].Term &lt; args.LastLogTerm || (args.LastLogTerm == rf.log[curLogIndex].Term &amp;&amp; args.LastLogIndex &gt;= curLogIndex) {} // candidates的log至少和我一样新
+</code></pre>
+<h3 id="testbackup2b-failed"><a class="header" href="#testbackup2b-failed">TestBackup2B Failed</a></h3>
+<p>发现包含冲突的日志的3个server不能选举出leader，因为term的不匹配<br />
+原因：在选举时忘记更新term</p>
+<pre><code class="language-go">go func(server int) {
+	reply := RequestVoteReply{}
+	if ok := rf.sendRequestVote(server, &amp;args, &amp;reply); ok {
+		if reply.VoteGranted {
+			voteMu.Lock()
+			voteCount++
+			if !notified &amp;&amp; voteCount &gt;= len(rf.peers) / 2 {
+				voteOk &lt;- struct{}{}
+				notified = true  // 其他的选票就不再通知了
+				voteMu.Unlock()
+			} else {
+				voteMu.Unlock()
+			}
+		} else {
+			if reply.Term &gt; leaderCurrentTerm {
+				rf.mu.Lock()
+				rf.currentTerm = reply.Term
+				rf.mu.Unlock()
+			}
+		}
+	}
+}(serverID)
+</code></pre>
+<p>最终通过所有的测试：</p>
+<pre><code class="language-txt">$ time go test -run 2B
+Test (2B): basic agreement ...
+  ... Passed --   1.6  3   16    4434    3
+Test (2B): RPC byte count ...
+  ... Passed --   4.9  3   48  114046   11
+Test (2B): agreement despite follower disconnection ...
+  ... Passed --   9.0  3   78   19452    8
+Test (2B): no agreement if too many followers disconnect ...
+  ... Passed --   5.4  5  116   26368    4
+Test (2B): concurrent Start()s ...
+  ... Passed --   2.2  3   14    3906    6
+Test (2B): rejoin of partitioned leader ...
+  ... Passed --   8.1  3  120   28561    4
+Test (2B): leader backs up quickly over incorrect follower logs ...
+  ... Passed --  50.0  5 1968 1587150  102
+Test (2B): RPC counts aren't too high ...
+  ... Passed --   2.8  3   26    7518   12
+PASS
+ok  	_/Users/sjy/develop/Go/6.824/src/raft	84.752s
+go test -run 2B  2.30s user 1.47s system 4% cpu 1:25.09 total
+</code></pre>
+<h2 id="lab2c-log-persistence"><a class="header" href="#lab2c-log-persistence">Lab2C Log Persistence</a></h2>
+<p>将raft节点的部分信息持久化到“disk”上（其实是persister）</p>
+<p>在labgob的使用中，需要注册持久化数据的基本数据类型，由于我的日志条目的第一条内容是个空的struct，所以需要注册这个类型。</p>
+<p>虽然通过了2B，但还有情况选不出来leader，在测试2C的过程中发现了。参考了下大佬的代码，发现stepDown函数的妙用。主要是在接受心跳回复和投票回复时，进行处理判断，如果收到了高Term的回复，直接退回到follower状态，不再处理。</p>
+<p>部分函数修改后，通过了测试，代码在<a href="https://gitee.com/sugarcoder/mit6.824/tree/raft/">这里</a></p>
+<pre><code class="language-txt">$ go test -run 2C
+Test (2C): basic persistence ...
+labgob warning: Decoding into a non-default variable/field int may not work
+  ... Passed --   6.5  3  182   37778    6
+Test (2C): more persistence ...
+  ... Passed --  23.5  5  652  139412   16
+Test (2C): partitioned leader and one follower crash, leader restarts ...
+  ... Passed --   4.2  3   52   11504    4
+Test (2C): Figure 8 ...
+  ... Passed --  40.3  5 13452 2786455   15
+Test (2C): unreliable agreement ...
+  ... Passed --  11.0  5  216   72284  246
+Test (2C): Figure 8 (unreliable) ...
+  ... Passed --  40.8  5 1728 5864070  933
+Test (2C): churn ...
+  ... Passed --  16.3  5  700  441128  130
+Test (2C): unreliable churn ...
+  ... Passed --  16.5  5  332  117614  123
+PASS
+ok  	_/6.824/src/raft	159.471s
+</code></pre>
+
+                        <div id="comment-container"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="blog20210715.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="blog20210503.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="blog20210715.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="blog20210503.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="theme/comments.js"></script>
+        <script type="text/javascript" src="theme/toc.js"></script>
+    </body>
+</html>

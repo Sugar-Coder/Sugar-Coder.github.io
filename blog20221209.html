@@ -1,0 +1,338 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>来点utterances - Sugar&#x27;s Blog</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/toc.css">
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About</a></li><li class="chapter-item expanded affix "><li class="part-title">2023</li><li class="chapter-item expanded "><a href="blog20230222.html">CS 161 REGULUS</a></li><li class="chapter-item expanded "><a href="blog20230406.html">MIT 6.858 Lab3: Symbolic execution</a></li><li class="chapter-item expanded "><a href="blog20230110.html">Computer Security - Buffer overflows</a></li><li class="chapter-item expanded "><div>MIT 6.007 Signals And Systems</div></li><li class="chapter-item expanded affix "><li class="part-title">2022</li><li class="chapter-item expanded "><a href="blog20221209.html" class="active">来点utterances</a></li><li class="chapter-item expanded "><a href="blog20221129.html">红黑树</a></li><li class="chapter-item expanded "><a href="blog20221113.html">B+Tree</a></li><li class="chapter-item expanded "><a href="blog20221105.html">CMU 15-445/645</a></li><li class="chapter-item expanded "><a href="blog20221028.html">构建mdbook的博客</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="blog20220726.html">MIT 6.824 kvraft</a></li><li class="chapter-item expanded "><a href="blog20220630.html">MIT 6.S081 mmap</a></li><li class="chapter-item expanded "><a href="blog20220519.html">frp内网穿透实践</a></li><li class="chapter-item expanded "><a href="blog20220517.html">画饼</a></li><li class="chapter-item expanded "><a href="blog20220507.html">母亲节快乐</a></li><li class="chapter-item expanded "><a href="blog20220430.html">MIT 6.S081 File System</a></li><li class="chapter-item expanded "><a href="blog20220424.html">MIT 6.S081 Locks</a></li><li class="chapter-item expanded "><a href="blog20220422.html">Docker实践</a></li><li class="chapter-item expanded "><a href="blog20220224.html">MIT 6.S081 Network Driver</a></li><li class="chapter-item expanded affix "><li class="part-title">2021</li><li class="chapter-item expanded "><a href="blog20211231.html">Slurm单机部署</a></li><li class="chapter-item expanded "><a href="blog20211119.html">MIT 6.S081 COW</a></li><li class="chapter-item expanded "><a href="blog20211024.html">MIT 6.S081 Traps</a></li><li class="chapter-item expanded "><a href="blog20211017.html">MIT 6.S081 Page Tables</a></li><li class="chapter-item expanded "><a href="blog20211012.html">MIT 6.828 System calls</a></li><li class="chapter-item expanded "><a href="blog20210926.html">MIT 6.828 Util Lab</a></li><li class="chapter-item expanded "><a href="blog20210805.html">可靠数据传输协议</a></li><li class="chapter-item expanded "><a href="blog20210715.html">CSAPP - Proxy Lab</a></li><li class="chapter-item expanded "><a href="blog20210512.html">Raft</a></li><li class="chapter-item expanded "><a href="blog20210503.html">CSAPP - Malloc Lab</a></li><li class="chapter-item expanded "><a href="blog20210419.html">CSAPP - Shell Lab</a></li><li class="chapter-item expanded "><a href="blog20210323.html">CSAPP - Cache Lab</a></li><li class="chapter-item expanded "><a href="blog20210308.html">CSAPP - Arch Lab</a></li><li class="chapter-item expanded "><a href="blog20210219.html">CSAPP - Attack Lab</a></li><li class="chapter-item expanded "><a href="blog20210206.html">CSAPP - Bomb Lab</a></li><li class="chapter-item expanded "><a href="blog20210203.html">CSAPP - Data Lab</a></li><li class="chapter-item expanded affix "><li class="part-title">2020</li><li class="chapter-item expanded "><a href="blog20201011.html">MIT 6.824 MapReduce</a></li><li class="chapter-item expanded "><a href="blog20200201.html">MagicCube</a></li><li class="chapter-item expanded "><a href="blog20200116.html">bluelog</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Sugar&#x27;s Blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/Sugar-Coder/Sugar-Coder.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+                    <main>
+                        <h1 id="utterances-实现博客评论功能"><a class="header" href="#utterances-实现博客评论功能">Utterances 实现博客评论功能</a></h1>
+<p><a href="https://utteranc.es/">Utterances</a>利用github上issue的功能，来完成对评论的存储和分类，映射到不同的博客文章url上。</p>
+<p>在标准的html-js网站中，只需要在对应的github仓库安装 utterances GitHub app ，再在需要评论的页面引入下面脚本即可。</p>
+<pre><code class="language-html">&lt;script src=&quot;https://utteranc.es/client.js&quot;
+        repo=&quot;[ENTER REPO HERE]&quot;
+        issue-term=&quot;pathname&quot;
+        label=&quot;comment&quot;
+        theme=&quot;github-light&quot;
+        crossorigin=&quot;anonymous&quot;
+        async&gt;
+&lt;/script&gt;
+</code></pre>
+<h2 id="mdbook-覆盖主题"><a class="header" href="#mdbook-覆盖主题">mdbook 覆盖主题</a></h2>
+<p>由于mdbook是用handlebars来写模板页面的，想要评论主题随着博客主题同时变化所以还需进一步操作。</p>
+<p>mdbook有theme覆盖的功能，即可以用同名的文件来覆盖原有的前端代码。
+使用<code>mdbook init --theme</code>生成包含theme文件夹的初始工程，之后把其中的theme文件夹复制到当前的博客目录中，在<code>book.toml</code>中指定用此文件夹来覆盖原有的theme。我们只需变动<code>index.hbs</code>文件，所以theme目录中的其他文件可以删除了。再创建一个用于增加评论的脚本文件<code>comments.js</code>。</p>
+<pre><code class="language-toml">[output.html]
+theme = &quot;theme&quot;
+additional-js = [&quot;theme/comments.js&quot;]
+</code></pre>
+<h2 id="js实现"><a class="header" href="#js实现">js实现</a></h2>
+<p><code>comments.js</code>主要根据当前的博客主题动态地生成引入utterances的<code>&lt;script&gt;</code>标签。loadComments函数实现了这个功能。</p>
+<pre><code class="language-javascript">function loadComments() {
+    // console.log(&quot;loading comments.&quot;);
+    const page = document.querySelector(&quot;.page&quot;);
+
+    const isLight = document.querySelector('html').getAttribute('class').indexOf('light') != -1;
+
+    const commentScript = document.createElement('script')
+    const commentsTheme = isLight ? 'github-light' : 'github-dark'
+    commentScript.async = true
+    commentScript.src = 'https://utteranc.es/client.js'
+    commentScript.setAttribute('repo', 'Sugar-Coder/Sugar-Coder.github.io')
+    commentScript.setAttribute('issue-term', 'pathname')
+    commentScript.setAttribute('id', 'utterances')
+    commentScript.setAttribute('label', 'comment')
+    commentScript.setAttribute('theme', commentsTheme)
+    commentScript.setAttribute('crossorigin', 'anonymous')
+
+    page.appendChild(commentScript);
+}
+
+loadComments();
+</code></pre>
+<p>为了监听用户改变博客主题，使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver">MutationObserver</a> 来监听html的class属性变动。如果发生了从明亮主题到暗色主题的变动，那么就重新加载comments。</p>
+<pre><code class="language-javascript">function removeComments() {
+    const page = document.querySelector(&quot;.page&quot;);
+    page.removeChild(page.lastChild);
+}
+
+(function observeChange() {
+    const html=document.querySelector('html')
+    const options={
+        attributes:true,//观察node对象的属性
+        attributeFilter:['class']//只观察class属性
+    }
+    let prevIsLight = document.querySelector('html').getAttribute('class').indexOf('light') != -1;
+    var mb=new MutationObserver(function(mutationRecord,observer){
+        let isLight = document.querySelector('html').getAttribute('class').indexOf('light') != -1;
+        // console.log(`prevIsLight:${prevIsLight}, isLight:${isLight}`)
+        if (prevIsLight != isLight) {
+            removeComments();
+            loadComments();
+            prevIsLight = isLight;
+        }
+    })
+    mb.observe(html,options)
+})();
+</code></pre>
+<p>这样就实现了动态评论主题。</p>
+<h2 id="使用基于react的方式增加utterances"><a class="header" href="#使用基于react的方式增加utterances">使用基于React的方式增加utterances</a></h2>
+<p><strong>Note</strong>: 这个方法现在已经不用了，多引入了很多依赖，我现在使用上面的纯js方法来完成评论的生成。</p>
+<p>向基于react构建的博客加入utterances可以参考这片<a href="https://abba.dev/blog/blog-comments-with-utterances">文章</a>。</p>
+<h3 id="step1-add-a-dom-container-to-the-html"><a class="header" href="#step1-add-a-dom-container-to-the-html">Step1: Add a DOM Container to the HTML</a></h3>
+<p>在<code>index.hbs</code>中增加一个空的 <code>&lt;div&gt;</code> 容器，来放React生成的元素。</p>
+<pre><code class="language-html">&lt;div id=&quot;content&quot; class=&quot;content&quot;&gt;
+    &lt;!-- rendering post content --&gt;
+&lt;/div&gt;
+&lt;!-- react DOM container --&gt;
+&lt;div id=&quot;react-app&quot;&gt;&lt;/div&gt; 
+</code></pre>
+<p>我把上面这个DOM Container放到了<code>#content</code>的同级位置，让评论能在文章内容底部出现。</p>
+<h3 id="step2-add-the-script-tags"><a class="header" href="#step2-add-the-script-tags">Step2: Add the Script Tags</a></h3>
+<p>为了使用React，就需要一些依赖脚本，首先是react和react-dom。</p>
+<p>babel是为了编译包含JSX语法的js文件（post_footer.js），如果不加babel，就会出现unexpected token的<a href="https://nextjs.org/learn/foundations/from-javascript-to-react/getting-started-with-react">报错</a>。</p>
+<p>第四个script就是引入自己写的脚本，这个地方用了handlebars的语法来增加所有在book.toml中配置的additional_js文件。</p>
+<pre><code class="language-handlebars">{{!-- The react --}}
+&lt;!-- Load React. --&gt;
+&lt;!-- Note: when deploying, replace &quot;development.js&quot; with &quot;production.min.js&quot;. --&gt;
+&lt;script src=&quot;https://unpkg.com/react@18/umd/react.development.js&quot; crossorigin&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/react-dom@18/umd/react-dom.development.js&quot; crossorigin&gt;&lt;/script&gt;
+&lt;!-- Babel Script --&gt;
+&lt;script src=&quot;https://unpkg.com/@babel/standalone/babel.min.js&quot;&gt;&lt;/script&gt;
+&lt;!-- Custom JS scripts --&gt;
+{{#each additional_js}}
+&lt;script type=&quot;text/jsx&quot; src=&quot;{{ ../path_to_root }}{{this}}&quot;&gt;&lt;/script&gt;
+{{/each}}
+</code></pre>
+<h3 id="step3-create-a-react-component"><a class="header" href="#step3-create-a-react-component">Step3: Create a React Component</a></h3>
+<p>由于使用<code>&lt;script&gt;</code>方式引入的React在全局作用域中，在post_footer.js中就可以直接使用React了。
+首先找到要用React的<code>&lt;div&gt;</code>容器，在这个容器中渲染要加入的元素PostFooter。</p>
+<pre><code class="language-javascript">const e = React.createElement;
+
+const domContainer = document.querySelector('#react-app');
+const root = ReactDOM.createRoot(domContainer);
+root.render(e(PostFooter));
+</code></pre>
+<p>接着来定义PostFooter这个React Component。
+首先定义组成PostFooter的每一个comment，用React的forwardRef来定义，似乎是为了组件复用，在父组件中引用。</p>
+<pre><code class="language-javascript">const Comment = React.forwardRef((props, commentBox) =&gt; {
+    return &lt;div ref={commentBox} className=&quot;comments&quot; /&gt;
+});
+</code></pre>
+<p>之后就生成引入utterances的<code>&lt;script&gt;</code>标签。该标签的属性可以根据当前的theme改变，我这边是用html标签的class属性是否包含light关键字来判断的。</p>
+<p>因为希望评论的主题和博客的主题保持一致，所以希望在这个react组建加载的时候进行判断，完成对应的评论主题生成。使用useEffect来完成组件加载时的执行逻辑。
+useEffect函数最后返回的是用于清空当前渲染出来的组件的。</p>
+<p>这种方法现在只能通过切换url来完成评论主题的更改，不能在更改博客主题时马上更改评论主题。</p>
+<pre><code class="language-javascript">const PostFooter = () =&gt; {
+    const commentBox = React.createRef();
+    const isLight = document.querySelector('html').getAttribute('class').indexOf('light') != -1;
+    React.useEffect(() =&gt; {
+      const commentScript = document.createElement('script')
+      const commentsTheme = isLight ? 'github-light' : 'github-dark'
+      commentScript.async = true
+      commentScript.src = 'https://utteranc.es/client.js'
+      commentScript.setAttribute('repo', 'Sugar-Coder/Sugar-Coder.github.io')
+      commentScript.setAttribute('issue-term', 'pathname')
+      commentScript.setAttribute('id', 'utterances')
+      commentScript.setAttribute('label', 'comment')
+      commentScript.setAttribute('theme', commentsTheme)
+      commentScript.setAttribute('crossorigin', 'anonymous')
+      if (commentBox &amp;&amp; commentBox.current) {
+        commentBox.current.appendChild(commentScript)
+      } else {
+        console.log(`Error adding utterances comments on: ${commentBox}`)
+      }
+
+      const removeScript = () =&gt; {
+        commentScript.remove();
+        document.querySelectorAll(&quot;.utterances&quot;).forEach(el =&gt; el.remove());
+      };
+      return () =&gt; {
+        removeScript();
+      };
+    }, [])
+    return (
+      &lt;&gt;
+        &lt;Comment ref={commentBox} /&gt;
+      &lt;/&gt;
+    )
+}
+</code></pre>
+
+                        <div id="comment-container"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="blog20230110.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="blog20221129.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="blog20230110.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="blog20221129.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="theme/comments.js"></script>
+        <script type="text/javascript" src="theme/toc.js"></script>
+    </body>
+</html>

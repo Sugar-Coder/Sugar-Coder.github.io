@@ -1,0 +1,550 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>MIT 6.828 Util Lab - Sugar&#x27;s Blog</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/toc.css">
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About</a></li><li class="chapter-item expanded affix "><li class="part-title">2023</li><li class="chapter-item expanded "><a href="blog20230222.html">CS 161 REGULUS</a></li><li class="chapter-item expanded "><a href="blog20230406.html">MIT 6.858 Lab3: Symbolic execution</a></li><li class="chapter-item expanded "><a href="blog20230110.html">Computer Security - Buffer overflows</a></li><li class="chapter-item expanded "><div>MIT 6.007 Signals And Systems</div></li><li class="chapter-item expanded affix "><li class="part-title">2022</li><li class="chapter-item expanded "><a href="blog20221209.html">来点utterances</a></li><li class="chapter-item expanded "><a href="blog20221129.html">红黑树</a></li><li class="chapter-item expanded "><a href="blog20221113.html">B+Tree</a></li><li class="chapter-item expanded "><a href="blog20221105.html">CMU 15-445/645</a></li><li class="chapter-item expanded "><a href="blog20221028.html">构建mdbook的博客</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="blog20220726.html">MIT 6.824 kvraft</a></li><li class="chapter-item expanded "><a href="blog20220630.html">MIT 6.S081 mmap</a></li><li class="chapter-item expanded "><a href="blog20220519.html">frp内网穿透实践</a></li><li class="chapter-item expanded "><a href="blog20220517.html">画饼</a></li><li class="chapter-item expanded "><a href="blog20220507.html">母亲节快乐</a></li><li class="chapter-item expanded "><a href="blog20220430.html">MIT 6.S081 File System</a></li><li class="chapter-item expanded "><a href="blog20220424.html">MIT 6.S081 Locks</a></li><li class="chapter-item expanded "><a href="blog20220422.html">Docker实践</a></li><li class="chapter-item expanded "><a href="blog20220224.html">MIT 6.S081 Network Driver</a></li><li class="chapter-item expanded affix "><li class="part-title">2021</li><li class="chapter-item expanded "><a href="blog20211231.html">Slurm单机部署</a></li><li class="chapter-item expanded "><a href="blog20211119.html">MIT 6.S081 COW</a></li><li class="chapter-item expanded "><a href="blog20211024.html">MIT 6.S081 Traps</a></li><li class="chapter-item expanded "><a href="blog20211017.html">MIT 6.S081 Page Tables</a></li><li class="chapter-item expanded "><a href="blog20211012.html">MIT 6.828 System calls</a></li><li class="chapter-item expanded "><a href="blog20210926.html" class="active">MIT 6.828 Util Lab</a></li><li class="chapter-item expanded "><a href="blog20210805.html">可靠数据传输协议</a></li><li class="chapter-item expanded "><a href="blog20210715.html">CSAPP - Proxy Lab</a></li><li class="chapter-item expanded "><a href="blog20210512.html">Raft</a></li><li class="chapter-item expanded "><a href="blog20210503.html">CSAPP - Malloc Lab</a></li><li class="chapter-item expanded "><a href="blog20210419.html">CSAPP - Shell Lab</a></li><li class="chapter-item expanded "><a href="blog20210323.html">CSAPP - Cache Lab</a></li><li class="chapter-item expanded "><a href="blog20210308.html">CSAPP - Arch Lab</a></li><li class="chapter-item expanded "><a href="blog20210219.html">CSAPP - Attack Lab</a></li><li class="chapter-item expanded "><a href="blog20210206.html">CSAPP - Bomb Lab</a></li><li class="chapter-item expanded "><a href="blog20210203.html">CSAPP - Data Lab</a></li><li class="chapter-item expanded affix "><li class="part-title">2020</li><li class="chapter-item expanded "><a href="blog20201011.html">MIT 6.824 MapReduce</a></li><li class="chapter-item expanded "><a href="blog20200201.html">MagicCube</a></li><li class="chapter-item expanded "><a href="blog20200116.html">bluelog</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Sugar&#x27;s Blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/Sugar-Coder/Sugar-Coder.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+                    <main>
+                        <h1 id="mit-6828-util-lab"><a class="header" href="#mit-6828-util-lab">MIT 6.828 Util Lab</a></h1>
+<p>在xv6操作系统上实现一些实用小程序</p>
+<h2 id="实验准备lab1-boot-xv6"><a class="header" href="#实验准备lab1-boot-xv6">实验准备（Lab1 Boot xv6）</a></h2>
+<p>在ubuntu18上进行实验</p>
+<p>根据2021年的实验<a href="https://pdos.csail.mit.edu/6.828/2021/tools.html">网站</a>进行配置，但是发现用不了qemu-system-riscv64，只能自己手动构建riscv的toolchain，参考2020年的<a href="https://pdos.csail.mit.edu/6.828/2020/tools.html">网站</a>。</p>
+<p>项目克隆下来后，使用make时提示riscv64-linux-gnu-gcc的命令行参数错误，参照这个<a href="https://github.com/mit-pdos/xv6-riscv/issues/7">issue</a>更改Makefile。</p>
+<p>最终可以make qemu了。</p>
+<h2 id="lab2-sleep"><a class="header" href="#lab2-sleep">Lab2 sleep</a></h2>
+<p>利用xv6的系统调用，实现sleep命令。</p>
+<p>使用 <code>$ ./grade-lab-util sleep</code> 对实验打分</p>
+<pre><code class="language-c">#include &quot;kernel/types.h&quot;
+#include &quot;kernel/stat.h&quot;
+#include &quot;user/user.h&quot;
+
+int main(int argc, char* argv[]) {
+    if (argc != 2) {
+        fprintf(2, &quot;Usage: sleep [seconds]\n&quot;);
+        exit(1);
+    }
+    int seconds = atoi(argv[1]);
+    sleep(seconds);
+    exit(0);
+}
+</code></pre>
+<h2 id="lab3-pingpong"><a class="header" href="#lab3-pingpong">Lab3 pingpong</a></h2>
+<p>通过创建管道实现父子进程通信，注意，对于一个进程来说，管道是单向的，所以要实现双向通讯，必须创建两个管道。</p>
+<p>read(read_pipe, buf, buf_len)是阻塞的，除非关闭了管道的所有写端口（包括子进程），read返回0。</p>
+<pre><code class="language-c">#include &quot;kernel/types.h&quot;
+#include &quot;kernel/stat.h&quot;
+#include &quot;user/user.h&quot;
+
+int main(void) {
+    int p2c[2], c2p[2];
+    char buf[1];
+
+    if(pipe(p2c) &lt; 0) {
+        fprintf(2, &quot;%s\n&quot;, &quot;Cannot create pipe p2c.&quot;);
+        exit(1);
+    }
+
+    if(pipe(c2p) &lt; 0) {
+        fprintf(2, &quot;%s\n&quot;, &quot;Cannot create pipe c2p.&quot;);
+        exit(1);
+    }
+
+
+    if (fork() == 0) {
+        // child process
+        close(p2c[1]);  // close the write to parent
+
+        read(p2c[0], buf, 1);
+        printf(&quot;%d: received ping\n&quot;, getpid());  // 2. child receive the byte
+        close(c2p[0]);
+        write(c2p[1], buf, 1);  // 3. tell parent
+
+        close(p2c[0]);
+        close(c2p[1]);
+        exit(0);
+    } else {
+        close(p2c[0]);  // close the read
+
+        write(p2c[1], &quot;a&quot;, 1);   // 1. send a byte to child
+
+        close(c2p[1]);
+        read(c2p[0], buf, 1);
+        printf(&quot;%d: received pong\n&quot;, getpid());  // 4. parent got the byte
+
+        close(p2c[1]);
+        close(c2p[0]);
+        exit(0);
+    }
+}
+</code></pre>
+<h2 id="lab4-primes"><a class="header" href="#lab4-primes">Lab4 primes</a></h2>
+<p>使用管道实现素数筛，每一个阶段实现打印管道中到来的第一个素数a，判断剩余到达的数是否能被a整除，如果不能，则送入下一阶段的管道。<a href="https://stackoverflow.com/questions/64839416/implementation-of-sieve-of-eratosthenes-in-c">参考</a>实现。</p>
+<pre><code class="language-c">#include &quot;kernel/types.h&quot;
+#include &quot;kernel/stat.h&quot;
+#include &quot;user/user.h&quot;
+
+const int limit = 35;
+
+void panic(char* buf) {
+    fprintf(2, &quot;%s\n&quot;, buf);
+    exit(1);
+}
+
+void cull(int readPipe, int writePipe, int prime) {
+    uint32 n;
+    while (read(readPipe, &amp;n, 4)) {
+        if (n % prime != 0) {
+            write(writePipe, &amp;n, 4);
+        }
+    }
+}
+/**
+ * return the another pipe contains group of numbers that cannot be divided by prime
+ * @param prime
+ * @param readPipe
+ * @return
+ */
+void primeFilters(int readPipe) {
+    uint32 prime;
+    if (read(readPipe, &amp;prime, 4)) {
+        printf(&quot;prime %d\n&quot;, prime);
+
+        int newPipe[2];
+        if (pipe(newPipe) &lt; 0) {
+            panic(&quot;cannot create pipe.&quot;);
+        }
+
+        if (fork() == 0) {
+            // child generate new sequence
+            close(newPipe[0]);
+            cull(readPipe, newPipe[1], prime);
+            close(newPipe[1]);
+        } else {
+            // parent forward the pipe to next stage
+            close(newPipe[1]);
+            primeFilters(newPipe[0]);
+            close(newPipe[0]);
+        }
+    }
+}
+
+int main(void) {
+    int p[2];
+    if (pipe(p) &lt; 0) {
+        panic(&quot;Cannot create pipe.&quot;);
+    }
+
+    if (fork() == 0) {
+        // child
+        close(p[1]);
+        primeFilters(p[0]);
+        close(p[0]);
+    } else {
+        // parent
+        close(p[0]);
+        for (uint32 i = 2; i &lt;= limit; ++i) {
+            write(p[1], &amp;i, 4);
+        }
+        close(p[1]);
+        wait(0); // wait all children
+    }
+    exit(0);
+}
+</code></pre>
+<h2 id="lab5-find"><a class="header" href="#lab5-find">Lab5 find</a></h2>
+<p>递归得查找目录，用了来自ls.c的fmtname来规范化文件名，同时借鉴grep.c的正则匹配。</p>
+<pre><code class="language-c">#include &quot;kernel/types.h&quot;
+#include &quot;kernel/stat.h&quot;
+#include &quot;user/user.h&quot;
+#include &quot;kernel/fs.h&quot;
+
+char curDir[DIRSIZ], parDir[DIRSIZ];
+int match(char*, char*);
+
+char* fmtname(char *path)
+{
+    static char buf[DIRSIZ+1];
+    char *p;
+
+    // Find first character after last slash.
+    for(p=path+strlen(path); p &gt;= path &amp;&amp; *p != '/'; p--)
+        ;
+    p++;
+
+    // Return blank-padded name.
+    if(strlen(p) &gt;= DIRSIZ)
+        return p;
+    memmove(buf, p, strlen(p));
+    memset(buf+strlen(p), ' ', DIRSIZ-strlen(p));
+    return buf;
+}
+
+char *trim(char *path) {
+    char *p;
+    static char buf[DIRSIZ];
+    for (p = path + strlen(path) - 1; p &gt;= path &amp;&amp; *p == ' '; p--)
+        ;
+    p++;
+    memmove(buf, path, p-path);
+    buf[p-path] = 0;
+    return buf;
+}
+
+void find(char* path, char* name) {
+    int fd;
+    struct dirent de;
+    char buf[512], *p;
+    struct stat st;
+
+    if((fd = open(path, 0)) &lt; 0){
+        fprintf(2, &quot;find: cannot open %s\n&quot;, path);
+        return;
+    }
+
+    if(fstat(fd, &amp;st) &lt; 0){
+        fprintf(2, &quot;find: cannot stat %s\n&quot;, path);
+        close(fd);
+        return;
+    }
+
+    char *dirname = fmtname(path);
+//    if (strcmp(name, dirname) == 0) { // compare
+    if (match(name, trim(dirname))) {
+        printf(&quot;%s\n&quot;, dirname);
+        return;
+    }
+
+    if (st.type == T_DIR) {
+        if(strlen(path) + 1 + DIRSIZ + 1 &gt; sizeof buf){
+            printf(&quot;find: path too long\n&quot;);
+            return;
+        }
+
+        strcpy(buf, path);
+        p = buf+strlen(buf);
+        *p++ = '/';
+
+        while(read(fd, &amp;de, sizeof(de))) {
+            if (de.inum == 0) {
+                continue;
+            }
+            memmove(p, de.name, DIRSIZ);
+            p[DIRSIZ] = 0;
+            if(stat(buf, &amp;st) &lt; 0){
+                printf(&quot;find: cannot stat %s\n&quot;, buf);
+                continue;
+            }
+            char *itemname = fmtname(buf);
+//            if (!strcmp(name, itemname)) {  // compare
+            if (match(name, trim(itemname))) {
+                printf(&quot;%s\n&quot;, buf);
+            } else {
+                if (st.type == T_DIR) {
+                    if (strcmp(curDir, itemname) &amp;&amp; strcmp(parDir, itemname)){
+                        find(buf, name);
+                    }
+                }
+            }
+        }
+    }
+}
+
+int main(int argc, char* argv[]) {
+    if (argc &lt; 3) {
+        fprintf(2, &quot;Usage: find\n&quot;);
+        exit(1);
+    }
+    while (argv[1][strlen(argv[1])-1] == '/') {
+        argv[1][strlen(argv[1])-1] = 0;
+    }
+
+    strcpy(curDir, fmtname(&quot;.&quot;));
+    strcpy(parDir, fmtname(&quot;..&quot;));
+
+    for (int i = 2; i &lt; argc; i++) {
+//        char nameBuf[DIRSIZ];
+//        strcpy(nameBuf, fmtname(argv[i]));
+        find(argv[1], argv[i]);
+    }
+    exit(0);
+}
+
+
+int matchhere(char*, char*);
+int matchstar(int, char*, char*);
+
+int
+match(char *re, char *text)
+{
+    if(re[0] == '^')
+        return matchhere(re+1, text);
+    do{  // must look at empty string
+        if(matchhere(re, text))
+            return 1;
+    }while(*text++ != '\0');
+    return 0;
+}
+
+// matchhere: search for re at beginning of text
+int matchhere(char *re, char *text)
+{
+    if(re[0] == '\0')
+        return 1;
+    if(re[1] == '*')
+        return matchstar(re[0], re+2, text);
+    if(re[0] == '$' &amp;&amp; re[1] == '\0')
+        return *text == '\0';
+    if(*text!='\0' &amp;&amp; (re[0]=='.' || re[0]==*text))
+        return matchhere(re+1, text+1);
+    return 0;
+}
+
+// matchstar: search for c*re at beginning of text
+int matchstar(int c, char *re, char *text)
+{
+    do{  // a * matches zero or more instances
+        if(matchhere(re, text))
+            return 1;
+    }while(*text!='\0' &amp;&amp; (*text++==c || c=='.'));
+    return 0;
+}
+</code></pre>
+<h2 id="lab6-xargs"><a class="header" href="#lab6-xargs">Lab6 xargs</a></h2>
+<p>没有按照实验的要求一次读取一个字符直至'\n'，而是批量读取，之后来分割，所以代码有些复杂。在运用指针数组的时候注意。</p>
+<pre><code class="language-c">#include &quot;kernel/types.h&quot;
+#include &quot;kernel/stat.h&quot;
+#include &quot;kernel/param.h&quot;
+#include &quot;user/user.h&quot;
+
+int main(int argc, char* argv[]) {
+    if (argc &lt; 2) {
+        fprintf(2, &quot;Usage: %s cmd args...\n&quot;, argv[0]);
+        exit(1);
+    }
+
+    char *execargv[MAXARG];
+    for (int i = 1; i &lt; argc; ++i) {
+        execargv[i-1] = argv[i];
+    }
+
+    char buf[1024];
+    int n, m;
+
+    m = 0;
+    while ((n = read(0, buf+m, sizeof(buf)-m-1)) &gt; 0) {
+        char *bp = buf + m, *p;
+        p = bp;
+        while (p &lt; buf + m + n) {
+            if (*p == '\n') {
+                *p = '\0';
+            }
+            p++;
+        }
+        m += n;
+        buf[m] = '\0';
+
+        p = bp;
+        while (p &lt; bp + n) {
+            if (strlen(p) == 0) {
+                p++;
+                continue;
+            }
+
+            if (fork() == 0) {
+                // child
+//                strcpy(execargv[argc], p);  // WRONG!! copy the args from stdin
+                execargv[argc-1] = p;  // 注意未分配内存，只保存栈指针
+                execargv[argc] = 0;
+                exec(execargv[0], execargv);
+                fprintf(2, &quot;exec %s failed\n&quot;, execargv[0]);
+                exit(1);
+            } else {
+                wait(0);
+            }
+            p += (strlen(p) + 1);
+        }
+    }
+    exit(0);
+}
+</code></pre>
+<p>END</p>
+
+                        <div id="comment-container"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="blog20211012.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="blog20210805.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="blog20211012.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="blog20210805.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="theme/comments.js"></script>
+        <script type="text/javascript" src="theme/toc.js"></script>
+    </body>
+</html>

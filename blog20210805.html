@@ -1,0 +1,533 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>可靠数据传输协议 - Sugar&#x27;s Blog</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/toc.css">
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About</a></li><li class="chapter-item expanded affix "><li class="part-title">2023</li><li class="chapter-item expanded "><a href="blog20230222.html">CS 161 REGULUS</a></li><li class="chapter-item expanded "><a href="blog20230406.html">MIT 6.858 Lab3: Symbolic execution</a></li><li class="chapter-item expanded "><a href="blog20230110.html">Computer Security - Buffer overflows</a></li><li class="chapter-item expanded "><div>MIT 6.007 Signals And Systems</div></li><li class="chapter-item expanded affix "><li class="part-title">2022</li><li class="chapter-item expanded "><a href="blog20221209.html">来点utterances</a></li><li class="chapter-item expanded "><a href="blog20221129.html">红黑树</a></li><li class="chapter-item expanded "><a href="blog20221113.html">B+Tree</a></li><li class="chapter-item expanded "><a href="blog20221105.html">CMU 15-445/645</a></li><li class="chapter-item expanded "><a href="blog20221028.html">构建mdbook的博客</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="blog20220726.html">MIT 6.824 kvraft</a></li><li class="chapter-item expanded "><a href="blog20220630.html">MIT 6.S081 mmap</a></li><li class="chapter-item expanded "><a href="blog20220519.html">frp内网穿透实践</a></li><li class="chapter-item expanded "><a href="blog20220517.html">画饼</a></li><li class="chapter-item expanded "><a href="blog20220507.html">母亲节快乐</a></li><li class="chapter-item expanded "><a href="blog20220430.html">MIT 6.S081 File System</a></li><li class="chapter-item expanded "><a href="blog20220424.html">MIT 6.S081 Locks</a></li><li class="chapter-item expanded "><a href="blog20220422.html">Docker实践</a></li><li class="chapter-item expanded "><a href="blog20220224.html">MIT 6.S081 Network Driver</a></li><li class="chapter-item expanded affix "><li class="part-title">2021</li><li class="chapter-item expanded "><a href="blog20211231.html">Slurm单机部署</a></li><li class="chapter-item expanded "><a href="blog20211119.html">MIT 6.S081 COW</a></li><li class="chapter-item expanded "><a href="blog20211024.html">MIT 6.S081 Traps</a></li><li class="chapter-item expanded "><a href="blog20211017.html">MIT 6.S081 Page Tables</a></li><li class="chapter-item expanded "><a href="blog20211012.html">MIT 6.828 System calls</a></li><li class="chapter-item expanded "><a href="blog20210926.html">MIT 6.828 Util Lab</a></li><li class="chapter-item expanded "><a href="blog20210805.html" class="active">可靠数据传输协议</a></li><li class="chapter-item expanded "><a href="blog20210715.html">CSAPP - Proxy Lab</a></li><li class="chapter-item expanded "><a href="blog20210512.html">Raft</a></li><li class="chapter-item expanded "><a href="blog20210503.html">CSAPP - Malloc Lab</a></li><li class="chapter-item expanded "><a href="blog20210419.html">CSAPP - Shell Lab</a></li><li class="chapter-item expanded "><a href="blog20210323.html">CSAPP - Cache Lab</a></li><li class="chapter-item expanded "><a href="blog20210308.html">CSAPP - Arch Lab</a></li><li class="chapter-item expanded "><a href="blog20210219.html">CSAPP - Attack Lab</a></li><li class="chapter-item expanded "><a href="blog20210206.html">CSAPP - Bomb Lab</a></li><li class="chapter-item expanded "><a href="blog20210203.html">CSAPP - Data Lab</a></li><li class="chapter-item expanded affix "><li class="part-title">2020</li><li class="chapter-item expanded "><a href="blog20201011.html">MIT 6.824 MapReduce</a></li><li class="chapter-item expanded "><a href="blog20200201.html">MagicCube</a></li><li class="chapter-item expanded "><a href="blog20200116.html">bluelog</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Sugar&#x27;s Blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/Sugar-Coder/Sugar-Coder.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+                    <main>
+                        <h1 id="computer-networking---可靠数据传输协议"><a class="header" href="#computer-networking---可靠数据传输协议">Computer Networking - 可靠数据传输协议</a></h1>
+<p>《计算机网络 自顶向下方法》配套实验</p>
+<p>实现一个可靠数据传输协议（reliable data transfer protocol)，实验<a href="https://media.pearsoncmg.com/aw/aw_kurose_network_3/labs/lab5/lab5.html">链接</a></p>
+<h2 id="一比特交换协议"><a class="header" href="#一比特交换协议">一、比特交换协议</a></h2>
+<p>基于停止等待的理论，使用校验和、序号、肯定否定ACK、重传和定时器的技术，实现一个在不可靠网络上的单项数据传输的可靠协议。</p>
+<p>停止等待：发送方在发送了一个数据包（分组）后等待接收方的回应，在此期间不发送任何数据。</p>
+<p>序号：为了使接收方知道发送方是否在重传前一个发送分组（接收到的分组序号与最近收到的分组序号相同），在停止等待协议中，使用1比特的序号即可。</p>
+<p>否定ACK：对上次正确接收的分组发送一个ACK（冗余ACK），即可实现否定ACK。</p>
+<p>定时器：如果当前发送完分组后在一定时间内没有收到对应的ACK，那么进行重传。</p>
+<h3 id="实验框架"><a class="header" href="#实验框架">实验框架</a></h3>
+<p>实验网络环境为模拟环境，分为3部分。layer5代表应用层，layer4是我们要实现的可靠数据传输层，layer3是不可靠的传输媒介。实验中实现的是单向的数据传输（A发送，B接收）</p>
+<p>参考课本上图3-15 的发送方状态转移图和 3-14的接收方状态转移图。</p>
+<p>应用层会调用A_outout(msg)向B发送数据，A需要构建发送分组，开启定时器。</p>
+<p>A_input（pkt）函数用于从layer3中接收B发来的ACK信息，进行处理，判断ACK的类型和数据包是否受损。</p>
+<p>A_timerinterrupt() 函数用于处理当前发送的分组超时后的重传。</p>
+<p>B_input（pkt）函数从layer3中接收A发送的数据，进行处理（发送给数据接收的应用层layer5）并进行回复。</p>
+<p>接收方和发送方的状态记录结构以及相应初始化：</p>
+<pre><code class="language-c">const int WCALL = 0, WACK = 1;
+typedef struct astate{
+    int state;  // 当前处于等待调用 或 等待ack的状态
+    int curseq;
+    int checksum;
+    char data[20];
+}AState;
+
+const int WZERO = 0, WONE = 1;
+typedef struct bstate{
+    int state;
+}BState;
+
+AState A_State;
+BState B_State;
+
+void A_init()
+{
+    A_State.checksum = 0;
+    A_State.state = WCALL;
+    A_State.curseq = 0;
+}
+void B_init()
+{
+    B_State.state = WZERO;
+}
+</code></pre>
+<p>A_output</p>
+<pre><code class="language-c">float timer_increment = 50;
+
+int compute_pkt_sum(struct pkt packet) {
+    int sum = 0;
+    for (int i = 0; i &lt; 20; i++ ) {
+        sum += packet.payload[i];
+    }
+    sum += packet.acknum;
+    sum += packet.seqnum;
+    return sum;
+}
+
+/* called from layer 5, passed the data to be sent to other side */
+void A_output(message)
+  struct msg message;
+{
+    if (A_State.state == WCALL) {
+        struct pkt pkt_to_send = {.acknum = A_State.curseq,
+                .seqnum = A_State.curseq};
+        for (int i = 0; i &lt; 20; i++) {
+            char d = message.data[i];
+            pkt_to_send.payload[i] = d;
+            A_State.data[i] = d;
+        }
+        pkt_to_send.checksum = compute_pkt_sum(pkt_to_send);
+
+        A_State.state = WACK;
+
+        starttimer(A, timer_increment);
+
+        tolayer3(A, pkt_to_send);
+
+        if (TRACE &gt; 2) {
+            printf(&quot;A: Being called.\n&quot;);
+        }
+    } else {
+        ADropped_msg++;
+        if (TRACE &gt; 2) {
+            printf(&quot;A: Drop Message.\n&quot;);
+        }
+    }
+}
+</code></pre>
+<p>A_input</p>
+<pre><code class="language-c">/* called from layer 3, when a packet arrives for layer 4 */
+void A_input(packet)
+  struct pkt packet;
+{
+    if (A_State.state == WACK) {
+        if (packet.acknum == A_State.curseq &amp;&amp; packet.checksum == compute_pkt_sum(packet)) {
+            if (TRACE &gt; 2) {
+                printf(&quot;A: valid ACK.\n&quot;);
+            }
+            stoptimer(A);
+
+            A_State.curseq = !A_State.curseq;
+            A_State.checksum = 0;
+            A_State.state = WCALL;
+
+            ACKed_msg++;
+
+        } else {
+            printf(&quot;A: Invalid checksum or pktACK %d != curseq %d\n&quot;, packet.acknum, A_State.curseq);
+        }
+    } else {
+        if (TRACE &gt; 2) {
+            printf(&quot;A: Invalid ACK.\n&quot;);
+        }
+    }
+}
+</code></pre>
+<p>B_input</p>
+<pre><code class="language-c">void B_input(packet)
+  struct pkt packet;
+{
+    struct pkt response;
+    for (int i = 0; i &lt; 20; ++i) {
+        response.payload[i] = 0;
+    }
+
+    if (packet.seqnum == B_State.state &amp;&amp; packet.checksum == compute_pkt_sum(packet)) {
+        if (TRACE &gt; 2) {
+            printf(&quot;B: Receive valid data. ACK%d\n&quot;, B_State.state);
+        }
+        tolayer5(B, packet.payload);
+
+        response.acknum = B_State.state;
+        response.seqnum = B_State.state;
+        response.checksum = compute_pkt_sum(response);
+
+        tolayer3(B, response);
+
+        B_State.state = !B_State.state;
+    } else {
+        if (TRACE &gt; 2) {
+            printf(&quot;B: Resend ACK%d.\n&quot;, !B_State.state);
+        }
+
+        BACK_resend++;
+
+        // 冗余ack
+        response.acknum = !B_State.state;
+        response.seqnum = !B_State.state;
+        response.checksum = compute_pkt_sum(response);
+        tolayer3(B, response);
+    }
+}
+</code></pre>
+<p>A_timerinterrupt</p>
+<pre><code class="language-c">void A_timerinterrupt()
+{
+    if (TRACE &gt; 2) {
+        printf(&quot;A: time out, resend packet.\n&quot;);
+    }
+
+    AResend_msg++;
+
+    // resend packet
+    struct pkt packet = {.acknum = A_State.curseq, .checksum = A_State.checksum, .seqnum = A_State.curseq};
+    for (int i = 0; i &lt; 20; i++) {
+        packet.payload[i] = A_State.data[i];
+    }
+    tolayer3(A, packet);
+    starttimer(A, timer_increment);
+}
+</code></pre>
+<h3 id="测试"><a class="header" href="#测试">测试</a></h3>
+<p>使用的超时间隔是50，应用发来数据包的间隔是100。原程序中我还增加了一些记录用的变量，统计丢包率之类的。没有丢包受损的情况下，一次收发在TRACE=3的debug输出为：</p>
+<pre><code class="language-sh">EVENT time: 69.657104,  type: 1, fromlayer5  entity: 0
+          GENERATE NEXT ARRIVAL: creating new arrival
+            INSERTEVENT: time is 69.657104
+            INSERTEVENT: future time will be 196.618607
+          MAINLOOP: data given to student: aaaaaaaaaaaaaaaaaaaa
+          START TIMER: starting timer at 69.657104
+            INSERTEVENT: time is 69.657104
+            INSERTEVENT: future time will be 119.657104
+          TOLAYER3: seq: 0, ack 0, check: 1940 aaaaaaaaaaaaaaaaaaaa
+          TOLAYER3: scheduling arrival on other side
+            INSERTEVENT: time is 69.657104
+            INSERTEVENT: future time will be 75.066002
+A: Being called.
+
+EVENT time: 75.066002,  type: 2, fromlayer3  entity: 1
+B: Receive valid data. ACK0
+          TOLAYER5: data received: aaaaaaaaaaaaaaaaaaaa
+          TOLAYER3: seq: 0, ack 0, check: 0 
+          TOLAYER3: scheduling arrival on other side
+            INSERTEVENT: time is 75.066002
+            INSERTEVENT: future time will be 79.824150
+
+EVENT time: 79.824150,  type: 2, fromlayer3  entity: 0
+A: valid ACK.
+          STOP TIMER: stopping timer at 79.824150
+</code></pre>
+<p>丢包重传的情况：</p>
+<pre><code class="language-sh">EVENT time: 286.424072,  type: 1, fromlayer5  entity: 0
+          GENERATE NEXT ARRIVAL: creating new arrival
+            INSERTEVENT: time is 286.424072
+            INSERTEVENT: future time will be 289.861755
+          MAINLOOP: data given to student: cccccccccccccccccccc
+          START TIMER: starting timer at 286.424072
+            INSERTEVENT: time is 286.424072
+            INSERTEVENT: future time will be 336.424072
+          TOLAYER3: seq: 0, ack 0, check: 1980 cccccccccccccccccccc
+          TOLAYER3: scheduling arrival on other side
+            INSERTEVENT: time is 286.424072
+            INSERTEVENT: future time will be 293.377441
+A: Being called.
+
+EVENT time: 289.861755,  type: 1, fromlayer5  entity: 0
+          GENERATE NEXT ARRIVAL: creating new arrival
+            INSERTEVENT: time is 289.861755
+            INSERTEVENT: future time will be 483.757172
+          MAINLOOP: data given to student: dddddddddddddddddddd
+A: Drop Message.
+
+EVENT time: 293.377441,  type: 2, fromlayer3  entity: 1
+B: Receive valid data. ACK0
+          TOLAYER5: data received: cccccccccccccccccccc
+          TOLAYER3: packet being lost
+
+EVENT time: 336.424072,  type: 0, timerinterrupt   entity: 0
+A: time out, resend packet.
+          TOLAYER3: seq: 0, ack 0, check: 0 cccccccccccccccccccc
+          TOLAYER3: scheduling arrival on other side
+            INSERTEVENT: time is 336.424072
+            INSERTEVENT: future time will be 343.941284
+          START TIMER: starting timer at 336.424072
+            INSERTEVENT: time is 336.424072
+            INSERTEVENT: future time will be 386.424072
+
+EVENT time: 343.941284,  type: 2, fromlayer3  entity: 1
+B: Resend ACK0.
+          TOLAYER3: seq: 0, ack 0, check: 0 
+          TOLAYER3: scheduling arrival on other side
+            INSERTEVENT: time is 343.941284
+            INSERTEVENT: future time will be 350.816040
+
+EVENT time: 350.816040,  type: 2, fromlayer3  entity: 0
+A: valid ACK.
+          STOP TIMER: stopping timer at 350.816040
+</code></pre>
+<h2 id="二go-back-n"><a class="header" href="#二go-back-n">二、Go-back-N</a></h2>
+<p>画了接收方和发送方的有限状态机。</p>
+<p><img src="./images/blog20210805/GBN-receiver.png" alt="" /></p>
+<p><img src="./images/blog20210805/sender.png" alt="" /></p>
+<h3 id="实现"><a class="header" href="#实现">实现</a></h3>
+<p>相比比特交换协议，接收方的增加了对收到msg的缓存，这边我使用了一个循环数组来实现缓存，base、nextseqnum、tail指针将缓存分为了四个部分：已发送且收到确认的msg <code>[0, base)</code>，已发送但未收到确认的msg <code>[base, nextseqnum)</code>，窗口中等待发送的msg <code>[nextseqnum, min(tail, base+WINDOW) )</code>, 缓存的msg <code>[base，tail]</code>。</p>
+<pre><code class="language-c">#define MAXBUFFER 50
+#define WINDOW 8
+
+
+typedef struct astate{
+    int base;
+    int nextseqnum;
+    char buffer[MAXBUFFER][20];
+    int tail;
+    int buf_size;
+}AState;
+
+int insert_tail(AState* astate, char* data) {
+    if (astate-&gt;buf_size == MAXBUFFER) {
+        return 0;
+    }
+    for (int i = 0; i &lt; 20; ++i) {
+        astate-&gt;buffer[astate-&gt;tail][i] = data[i];
+    }
+    astate-&gt;tail = (astate-&gt;tail + 1) % MAXBUFFER;
+    astate-&gt;buf_size++;
+    return 1;
+}
+
+typedef struct bstate{
+    int expectedseqnum;
+}BState;
+</code></pre>
+<p>具体实现时注意缓存是循环使用的，使用buf_size记录已经缓存的数据量，完整代码<a href="https://gitee.com/sugarcoder/ComputerNetworkingLab.git">链接</a></p>
+<h3 id="测试-1"><a class="header" href="#测试-1">测试</a></h3>
+<p>设置的超时为100，消息间隔为50，丢包率为0.1，受损率为0.1，总共发送10个消息，TRACE=2。</p>
+<p>正常收发</p>
+<pre><code class="language-txt">EVENT time: 34.828552,  type: 1, fromlayer5  entity: 0
+A: Got Message ,window [0, 0)
+
+EVENT time: 40.237450,  type: 2, fromlayer3  entity: 1
+B: ACK 0
+
+EVENT time: 44.995598,  type: 2, fromlayer3  entity: 0
+A: Receive valid ACK, window updated:[1, 1)
+EVENT time: 98.309303,  type: 1, fromlayer5  entity: 0
+A: Got Message ,window [1, 1)
+
+EVENT time: 107.837433,  type: 2, fromlayer3  entity: 1
+B: ACK 1
+
+EVENT time: 117.540672,  type: 2, fromlayer3  entity: 0
+A: Receive valid ACK, window updated:[2, 2)
+</code></pre>
+<p>丢包</p>
+<pre><code class="language-txt">A: Got Message ,window [2, 2)
+
+EVENT time: 153.000458,  type: 2, fromlayer3  entity: 1
+B: ACK 2
+          TOLAYER3: packet being lost
+
+EVENT time: 238.246262,  type: 1, fromlayer5  entity: 0
+A: Got Message ,window [2, 3)
+
+EVENT time: 243.212036,  type: 0, timerinterrupt   entity: 0
+A: time out. Go back N.[2, 4)
+A: Resend seq 2
+          TOLAYER3: packet being lost
+A: Resend seq 3
+
+EVENT time: 244.415878,  type: 2, fromlayer3  entity: 1
+B: ACK 3
+
+EVENT time: 251.290649,  type: 2, fromlayer3  entity: 0
+A: Receive valid ACK, window updated:[4, 4)
+</code></pre>
+<p>重传</p>
+<pre><code class="language-txt">A: time out. Go back N.[4, 6)
+A: Resend seq 4
+A: Resend seq 5
+
+EVENT time: 426.913330,  type: 2, fromlayer3  entity: 1
+B: ACK 5
+          TOLAYER3: packet being corrupted
+
+EVENT time: 430.196320,  type: 2, fromlayer3  entity: 1
+B: resend ACK 4
+
+EVENT time: 432.601593,  type: 2, fromlayer3  entity: 1
+B: resend ACK 5
+          TOLAYER3: packet being lost
+
+EVENT time: 433.927460,  type: 2, fromlayer3  entity: 0
+A: Invalid packet data.
+
+EVENT time: 441.234406,  type: 2, fromlayer3  entity: 0
+Warning: attempt to start a timer that is already started
+A: Receive valid ACK, window updated:[5, 6)
+</code></pre>
+
+                        <div id="comment-container"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="blog20210926.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="blog20210715.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="blog20210926.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="blog20210715.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="theme/comments.js"></script>
+        <script type="text/javascript" src="theme/toc.js"></script>
+    </body>
+</html>

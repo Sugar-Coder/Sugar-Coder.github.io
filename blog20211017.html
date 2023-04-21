@@ -1,0 +1,327 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>MIT 6.S081 Page Tables - Sugar&#x27;s Blog</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/toc.css">
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About</a></li><li class="chapter-item expanded affix "><li class="part-title">2023</li><li class="chapter-item expanded "><a href="blog20230222.html">CS 161 REGULUS</a></li><li class="chapter-item expanded "><a href="blog20230406.html">MIT 6.858 Lab3: Symbolic execution</a></li><li class="chapter-item expanded "><a href="blog20230110.html">Computer Security - Buffer overflows</a></li><li class="chapter-item expanded "><div>MIT 6.007 Signals And Systems</div></li><li class="chapter-item expanded affix "><li class="part-title">2022</li><li class="chapter-item expanded "><a href="blog20221209.html">来点utterances</a></li><li class="chapter-item expanded "><a href="blog20221129.html">红黑树</a></li><li class="chapter-item expanded "><a href="blog20221113.html">B+Tree</a></li><li class="chapter-item expanded "><a href="blog20221105.html">CMU 15-445/645</a></li><li class="chapter-item expanded "><a href="blog20221028.html">构建mdbook的博客</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="blog20220726.html">MIT 6.824 kvraft</a></li><li class="chapter-item expanded "><a href="blog20220630.html">MIT 6.S081 mmap</a></li><li class="chapter-item expanded "><a href="blog20220519.html">frp内网穿透实践</a></li><li class="chapter-item expanded "><a href="blog20220517.html">画饼</a></li><li class="chapter-item expanded "><a href="blog20220507.html">母亲节快乐</a></li><li class="chapter-item expanded "><a href="blog20220430.html">MIT 6.S081 File System</a></li><li class="chapter-item expanded "><a href="blog20220424.html">MIT 6.S081 Locks</a></li><li class="chapter-item expanded "><a href="blog20220422.html">Docker实践</a></li><li class="chapter-item expanded "><a href="blog20220224.html">MIT 6.S081 Network Driver</a></li><li class="chapter-item expanded affix "><li class="part-title">2021</li><li class="chapter-item expanded "><a href="blog20211231.html">Slurm单机部署</a></li><li class="chapter-item expanded "><a href="blog20211119.html">MIT 6.S081 COW</a></li><li class="chapter-item expanded "><a href="blog20211024.html">MIT 6.S081 Traps</a></li><li class="chapter-item expanded "><a href="blog20211017.html" class="active">MIT 6.S081 Page Tables</a></li><li class="chapter-item expanded "><a href="blog20211012.html">MIT 6.828 System calls</a></li><li class="chapter-item expanded "><a href="blog20210926.html">MIT 6.828 Util Lab</a></li><li class="chapter-item expanded "><a href="blog20210805.html">可靠数据传输协议</a></li><li class="chapter-item expanded "><a href="blog20210715.html">CSAPP - Proxy Lab</a></li><li class="chapter-item expanded "><a href="blog20210512.html">Raft</a></li><li class="chapter-item expanded "><a href="blog20210503.html">CSAPP - Malloc Lab</a></li><li class="chapter-item expanded "><a href="blog20210419.html">CSAPP - Shell Lab</a></li><li class="chapter-item expanded "><a href="blog20210323.html">CSAPP - Cache Lab</a></li><li class="chapter-item expanded "><a href="blog20210308.html">CSAPP - Arch Lab</a></li><li class="chapter-item expanded "><a href="blog20210219.html">CSAPP - Attack Lab</a></li><li class="chapter-item expanded "><a href="blog20210206.html">CSAPP - Bomb Lab</a></li><li class="chapter-item expanded "><a href="blog20210203.html">CSAPP - Data Lab</a></li><li class="chapter-item expanded affix "><li class="part-title">2020</li><li class="chapter-item expanded "><a href="blog20201011.html">MIT 6.824 MapReduce</a></li><li class="chapter-item expanded "><a href="blog20200201.html">MagicCube</a></li><li class="chapter-item expanded "><a href="blog20200116.html">bluelog</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Sugar&#x27;s Blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/Sugar-Coder/Sugar-Coder.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+                    <main>
+                        <h1 id="page-tables"><a class="header" href="#page-tables">Page Tables</a></h1>
+<h2 id="加速系统调用"><a class="header" href="#加速系统调用">加速系统调用</a></h2>
+<p>在分配每个process的时候，增加一个映射到虚拟地址为USYSCALL（定义于kernel/memlayout.c）的物理页，保存某些可以直接访问的系统调用的相同结果，如进程的pid</p>
+<p>这里要加速的调用程序是ugetpid（定义与user/ulib.c）</p>
+<pre><code class="language-c">int
+ugetpid(void)
+{
+  struct usyscall *u = (struct usyscall *)USYSCALL;
+  return u-&gt;pid;
+}
+</code></pre>
+<p>在kernel/proc.c中的allocproc函数中增加分配一个物理页，同时对进程记录proc.h增加一个usyscallpa的成员记录此物理地址</p>
+<pre><code class="language-c">static struct proc*
+allocproc(void)
+{
+...
+// Allocate a page for usyscall
+  if((p-&gt;usyscallpa = (struct usyscall *)kalloc()) == 0) {
+      freeproc(p);
+      release(&amp;p-&gt;lock);
+      return 0;
+  }
+  p-&gt;usyscallpa-&gt;pid = p-&gt;pid;
+...
+}
+</code></pre>
+<p>在proc_pagetable()增加对此物理页到USYSCALL的映射，不要忘了在proc_freepagetable中取消此映射（如果不取消，那么在freewalk中会出现leaf节点没有被先释放的问题）</p>
+<pre><code class="language-c">pagetable_t
+proc_pagetable(struct proc *p)
+{
+...
+// map the va USYSCALL to the pa USYSCALL in user memory
+  if (mappages(pagetable, USYSCALL, PGSIZE,
+               (uint64)(p-&gt;usyscallpa), PTE_R) &lt; 0) {
+      uvmunmap(pagetable, USYSCALL, 1, 0);
+      uvmfree(pagetable, 0);
+      return 0;
+  }
+
+  return pagetable;
+}
+// Free a process's page table, and free the
+// physical memory it refers to.
+void
+proc_freepagetable(pagetable_t pagetable, uint64 sz)
+{
+  uvmunmap(pagetable, TRAMPOLINE, 1, 0);
+  uvmunmap(pagetable, TRAPFRAME, 1, 0);
+  // Remenber to unmap the usyscall mapping
+  uvmunmap(pagetable, USYSCALL, 1, 0);
+  uvmfree(pagetable, sz);
+}
+</code></pre>
+<p>在free_proc()中释放此物理页的空间 </p>
+<pre><code class="language-c">static void
+freeproc(struct proc *p)
+{
+...
+  if(p-&gt;usyscallpa)
+      kfree((void*)p-&gt;usyscallpa);
+  p-&gt;usyscallpa = 0;
+...
+}
+</code></pre>
+<p>出现问题：</p>
+<pre><code class="language-sh">xv6 kernel is booting
+
+hart 2 starting
+init: starting sh
+$ hart 1 starting
+./pgtbltest
+ugetpid_test starting
+usertrap(): unexpected scause 0x000000000000000d pid=4
+            sepc=0x000000000000049c stval=0x0000003fffffd000
+$ QEMU: Terminated
+</code></pre>
+<p>解决，在映射到虚拟地址时增加用户可访问标志PTE_U</p>
+<pre><code class="language-c">if (mappages(pagetable, USYSCALL, PGSIZE, (uint64)(p-&gt;usyscallpa), PTE_R | PTE_U) &lt; 0) {  // 可读 ｜ user可访问
+</code></pre>
+<h2 id="print-a-page-table"><a class="header" href="#print-a-page-table">Print a page table</a></h2>
+<p>打印页表条目（pte），根据页表等级进行深度优先遍历，可以参考kernel/vm.c中的freewalk函数进行实现。</p>
+<pre><code class="language-c">void vmpgtbprint(pagetable_t pagetable, int level) {
+    for (int i = 0; i &lt; 512; ++i) {
+        pte_t pte = pagetable[i];
+        if (pte &amp; PTE_V) {
+            uint64 pa = PTE2PA(pte);
+            for (int l = level; l &gt; 0; --l) {
+                printf(&quot; ..&quot;);
+            }
+            printf(&quot;%d: pte %p pa %p\n&quot;,i, pte, pa);
+            if (level &lt; 3) {
+                vmpgtbprint((pagetable_t)pa, level+1);
+            }
+        }
+    }
+}
+
+void vmprint(pagetable_t pagetable) {
+    printf(&quot;page table %p\n&quot;, pagetable);
+    vmpgtbprint(pagetable, 1);
+}
+</code></pre>
+<h2 id="detecting-which-pages-have-been-accessed"><a class="header" href="#detecting-which-pages-have-been-accessed">Detecting which pages have been accessed</a></h2>
+<p>通过定义PTE_A位（参考RISC-V privilege手册中的页表表项的位定义），在访问了一个页的时候，PTE_A会被置位。实现一个新的系统调用pgaccess，根据用户提供的起始虚拟地址，遍历页表，统计被访问的PTE_V。返回一个bitmask表示从起始地址开始哪些页被访问了。</p>
+<p>注意在riscv.h中定义PTE_A的位。</p>
+<pre><code class="language-c">int
+sys_pgaccess(void)
+{
+  // lab pgtbl: your code here.
+  struct proc *p = myproc();
+
+  uint64 userpage;  // the starting virtual address of the first user page to check
+  int pagenum;
+  uint64 abitsaddr;
+
+  if(argaddr(0, &amp;userpage) &lt; 0)
+      return -1;
+  if(argint(1, &amp;pagenum) &lt; 0)
+      return -1;
+  if(argaddr(2, &amp;abitsaddr) &lt; 0)
+      return -1;
+
+  if (pagenum &gt; 64) {
+      printf(&quot;Exceed the maximum of pages that can be scaned.\n&quot;);
+      return -1;
+  }
+  uint64 bitmask = 0;
+  for (int i = 0; i &lt; pagenum; i++) {
+      pte_t *pte = walk(p-&gt;pagetable, userpage + i * PGSIZE, 0);
+      if ((*pte &amp; PTE_V) &amp;&amp; (*pte &amp; PTE_A)) {
+          bitmask |= (1 &lt;&lt; i);
+          *pte = (*pte &amp; (~PTE_A)); // clear
+//          printf(&quot;DEBUG: find accessed page. bitmask=%p, pte=%p\n&quot;, bitmask, *pte);
+      }
+  }
+
+  if(copyout(p-&gt;pagetable, abitsaddr, (char *)&amp;bitmask, sizeof(uint64)) &lt; 0)
+      return -1;
+  return 0;
+}
+</code></pre>
+
+                        <div id="comment-container"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="blog20211024.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="blog20211012.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="blog20211024.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="blog20211012.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="theme/comments.js"></script>
+        <script type="text/javascript" src="theme/toc.js"></script>
+    </body>
+</html>

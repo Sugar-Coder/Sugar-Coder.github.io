@@ -1,0 +1,458 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>MIT 6.S081 Locks - Sugar&#x27;s Blog</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/toc.css">
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About</a></li><li class="chapter-item expanded affix "><li class="part-title">2023</li><li class="chapter-item expanded "><a href="blog20230222.html">CS 161 REGULUS</a></li><li class="chapter-item expanded "><a href="blog20230406.html">MIT 6.858 Lab3: Symbolic execution</a></li><li class="chapter-item expanded "><a href="blog20230110.html">Computer Security - Buffer overflows</a></li><li class="chapter-item expanded "><div>MIT 6.007 Signals And Systems</div></li><li class="chapter-item expanded affix "><li class="part-title">2022</li><li class="chapter-item expanded "><a href="blog20221209.html">来点utterances</a></li><li class="chapter-item expanded "><a href="blog20221129.html">红黑树</a></li><li class="chapter-item expanded "><a href="blog20221113.html">B+Tree</a></li><li class="chapter-item expanded "><a href="blog20221105.html">CMU 15-445/645</a></li><li class="chapter-item expanded "><a href="blog20221028.html">构建mdbook的博客</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="blog20220726.html">MIT 6.824 kvraft</a></li><li class="chapter-item expanded "><a href="blog20220630.html">MIT 6.S081 mmap</a></li><li class="chapter-item expanded "><a href="blog20220519.html">frp内网穿透实践</a></li><li class="chapter-item expanded "><a href="blog20220517.html">画饼</a></li><li class="chapter-item expanded "><a href="blog20220507.html">母亲节快乐</a></li><li class="chapter-item expanded "><a href="blog20220430.html">MIT 6.S081 File System</a></li><li class="chapter-item expanded "><a href="blog20220424.html" class="active">MIT 6.S081 Locks</a></li><li class="chapter-item expanded "><a href="blog20220422.html">Docker实践</a></li><li class="chapter-item expanded "><a href="blog20220224.html">MIT 6.S081 Network Driver</a></li><li class="chapter-item expanded affix "><li class="part-title">2021</li><li class="chapter-item expanded "><a href="blog20211231.html">Slurm单机部署</a></li><li class="chapter-item expanded "><a href="blog20211119.html">MIT 6.S081 COW</a></li><li class="chapter-item expanded "><a href="blog20211024.html">MIT 6.S081 Traps</a></li><li class="chapter-item expanded "><a href="blog20211017.html">MIT 6.S081 Page Tables</a></li><li class="chapter-item expanded "><a href="blog20211012.html">MIT 6.828 System calls</a></li><li class="chapter-item expanded "><a href="blog20210926.html">MIT 6.828 Util Lab</a></li><li class="chapter-item expanded "><a href="blog20210805.html">可靠数据传输协议</a></li><li class="chapter-item expanded "><a href="blog20210715.html">CSAPP - Proxy Lab</a></li><li class="chapter-item expanded "><a href="blog20210512.html">Raft</a></li><li class="chapter-item expanded "><a href="blog20210503.html">CSAPP - Malloc Lab</a></li><li class="chapter-item expanded "><a href="blog20210419.html">CSAPP - Shell Lab</a></li><li class="chapter-item expanded "><a href="blog20210323.html">CSAPP - Cache Lab</a></li><li class="chapter-item expanded "><a href="blog20210308.html">CSAPP - Arch Lab</a></li><li class="chapter-item expanded "><a href="blog20210219.html">CSAPP - Attack Lab</a></li><li class="chapter-item expanded "><a href="blog20210206.html">CSAPP - Bomb Lab</a></li><li class="chapter-item expanded "><a href="blog20210203.html">CSAPP - Data Lab</a></li><li class="chapter-item expanded affix "><li class="part-title">2020</li><li class="chapter-item expanded "><a href="blog20201011.html">MIT 6.824 MapReduce</a></li><li class="chapter-item expanded "><a href="blog20200201.html">MagicCube</a></li><li class="chapter-item expanded "><a href="blog20200116.html">bluelog</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Sugar&#x27;s Blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/Sugar-Coder/Sugar-Coder.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+                    <main>
+                        <h1 id="mit-6s081-locks"><a class="header" href="#mit-6s081-locks">MIT 6.S081 locks</a></h1>
+<h2 id="part-1-memory-allocator"><a class="header" href="#part-1-memory-allocator">Part 1 Memory allocator</a></h2>
+<p>改进内存分配器，实现per cpu freelist，减少在kalloc过程中的锁竞争。</p>
+<h3 id="kalloctest的调用栈"><a class="header" href="#kalloctest的调用栈">kalloctest的调用栈</a></h3>
+<pre><code>sysproc.c    proc.c         vm.c                     kalloc.c
+sys_sbrk -&gt;  growproc   |-&gt; uvmalloc     -&gt;          kalloc
+                        |_  uvmdealloc -&gt; uvmunmap -&gt; kfree
+</code></pre>
+<p>初次运行kalloctest</p>
+<pre><code class="language-sh">$ kalloctest
+start test1
+test1 results:
+--- lock kmem/bcache stats
+lock: kmem: #test-and-set 4684888 #acquire() 433086
+lock: bcache: #test-and-set 0 #acquire() 2098
+--- top 5 contended locks:
+lock: kmem: #test-and-set 4684888 #acquire() 433086
+lock: uart: #test-and-set 2622037 #acquire() 838
+lock: proc: #test-and-set 1381255 #acquire() 258356
+lock: proc: #test-and-set 1170755 #acquire() 258355
+lock: proc: #test-and-set 1148248 #acquire() 258356
+tot= 4684888
+test1 FAIL
+</code></pre>
+<p>for each lock, the count of calls to acquire for that lock, and the number of times the loop in acquire tried but failed to set the lock. #test-and-set是自旋次数 #acquire() 是尝试获取锁的次数</p>
+<p>需要改进空闲页链表的锁机制，每个CPU一个锁，对应一个空闲页链表 当一个cpu的freelist空了后，从另一个cpu中偷一个（注意加锁）</p>
+<pre><code class="language-c">struct {
+  struct spinlock lock;
+  struct run *freelist;
+  char name[7];
+} kmem[NCPU];
+
+static struct run * steal(int cpuid) {
+    for (int i = (cpuid + 1) % NCPU; i != cpuid ; i = (i + 1) % NCPU) {
+        acquire(&amp;kmem[i].lock);  // 对被偷取的链表加锁
+        if (kmem[i].freelist != 0) { // find a not empty list
+            // find middle point of the list
+            struct run *slow, *fast, *head = kmem[i].freelist;
+            slow = kmem[i].freelist;
+            fast = kmem[i].freelist;
+            while (fast != 0 &amp;&amp; fast-&gt;next != 0) {
+                slow = slow-&gt;next;
+                fast = fast-&gt;next-&gt;next;
+            }
+            // the slow point to the middle
+            kmem[i].freelist = slow-&gt;next;  // 后半段作为当前的链表头
+            slow-&gt;next = 0;  // 切断
+
+            release(&amp;kmem[i].lock);
+            return head;  // 返回此链表的头作为偷取结果
+        }
+        release(&amp;kmem[i].lock);
+    }
+    return 0;
+}
+
+// Allocate one 4096-byte page of physical memory.
+// Returns a pointer that the kernel can use.
+// Returns 0 if the memory cannot be allocated.
+void *
+kalloc(void)
+{
+    struct run *r;
+
+    push_off();
+    int id = cpuid();
+    pop_off();
+
+    acquire(&amp;kmem[id].lock);
+    r = kmem[id].freelist;
+    if (r) {
+        kmem[id].freelist = r-&gt;next;
+        release(&amp;kmem[id].lock);
+    }
+    else {
+        release(&amp;kmem[id].lock); // 注意释放当前链表的锁，防止死锁（拿着一个锁不放去获取别的锁）
+        r = steal(id);
+        if (r) {
+            acquire(&amp;kmem[id].lock);
+            kmem[id].freelist = r-&gt;next;
+            release(&amp;kmem[id].lock);
+        }
+    }
+
+    if (r)
+        memset((char *) r, 5, PGSIZE); // fill with junk
+
+    return (void *) r;
+}
+</code></pre>
+<p>问题：如何给每个cpu初始化freelist hint：回收给当前正在运行的cpu的freelist</p>
+<p>在kalloc时偷取其他cpu的freelist，&quot;steal part of the other CPU's free list. &quot; 注意当cpua在steal的时候，不能拿着自己的锁不放</p>
+<pre><code class="language-c">void
+kinit()
+{
+    for (int i = 0; i &lt; NCPU; i++) {
+        snprintf(kmem[i].name, 7, &quot;kmem-%d&quot;, i);
+        initlock(&amp;kmem[i].lock, kmem[i].name);
+        kmem[i].freelist = 0;
+    }
+//    initlock(&amp;kmem.lock, &quot;kmem&quot;);
+    freerange(end, (void*)PHYSTOP);
+}
+
+void
+kfree(void *pa)
+{
+  struct run *r;
+
+  if(((uint64)pa % PGSIZE) != 0 || (char*)pa &lt; end || (uint64)pa &gt;= PHYSTOP)
+    panic(&quot;kfree&quot;);
+
+  // Fill with junk to catch dangling refs.
+  memset(pa, 1, PGSIZE);
+
+  push_off();
+  int coreid = cpuid();
+  pop_off();
+
+  r = (struct run*)pa;
+
+  acquire(&amp;kmem[coreid].lock);
+  r-&gt;next = kmem[coreid].freelist;
+  kmem[coreid].freelist = r;
+  release(&amp;kmem[coreid].lock);
+}
+</code></pre>
+<p>kalloctest运行结果</p>
+<pre><code class="language-sh">$ ./kalloctest
+start test1
+test1 results:
+--- lock kmem/bcache stats
+lock: kmem-0: #test-and-set 0 #acquire() 34211
+lock: kmem-1: #test-and-set 0 #acquire() 198354
+lock: kmem-2: #test-and-set 0 #acquire() 200456
+lock: kmem-3: #test-and-set 0 #acquire() 2
+lock: kmem-4: #test-and-set 0 #acquire() 2
+lock: kmem-5: #test-and-set 0 #acquire() 2
+lock: kmem-6: #test-and-set 0 #acquire() 2
+lock: kmem-7: #test-and-set 0 #acquire() 2
+lock: bcache: #test-and-set 0 #acquire() 342
+--- top 5 contended locks:
+lock: proc: #test-and-set 21545 #acquire() 509603
+lock: virtio_disk: #test-and-set 19495 #acquire() 57
+lock: proc: #test-and-set 12286 #acquire() 509606
+lock: proc: #test-and-set 7114 #acquire() 509436
+lock: proc: #test-and-set 5269 #acquire() 509494
+tot= 0
+test1 OK
+start test2
+total free number of pages: 32499 (out of 32768)
+.....
+test2 OK
+</code></pre>
+<h2 id="part-2-buffer-cache"><a class="header" href="#part-2-buffer-cache">Part 2 Buffer cache</a></h2>
+<p>bcachetest 创建多个子进程并发完成对文件的读写，竞争buffer cache。初次运行bcachetest结果如下：</p>
+<p>同样按照part1的思路，将整个buf分到（按照blockno进行hash）固定大小的桶中，用时间戳来完成LRU，在buf.h中增加timestamp成员。在我的第一次实现中，桶的的大小固定。但是这种实现总是会出现在bget过程中出现panic: bget: no buffer。</p>
+<pre><code class="language-c">#define BUCKET_NUM 13
+#define NBUF_PER_BUCKET 3
+
+struct {
+  struct buf bucket[BUCKET_NUM][NBUF_PER_BUCKET];
+  struct spinlock locks[BUCKET_NUM];
+} bcache;
+
+void
+binit(void)
+{
+  struct buf *b;
+
+//    initlock(&amp;bcache.lock, &quot;bcache&quot;);
+    for (int i = 0; i &lt; BUCKET_NUM; ++i) {
+        // 初始化每个桶的lock
+        initlock(&amp;bcache.locks[i], &quot;bcache.bucket&quot;);
+        // 初始化桶中的buffer
+        for (b = bcache.bucket[i]; b &lt; bcache.bucket[i] + NBUF_PER_BUCKET; b++) {
+            initsleeplock(&amp;b-&gt;lock, &quot;buffer&quot;);
+            b-&gt;timestamp = ticks;
+        }
+    }
+}
+
+// Look through buffer cache for block on device dev.
+// If not found, allocate a buffer.
+// In either case, return locked buffer.
+static struct buf*
+bget(uint dev, uint blockno)
+{
+    struct buf *b;
+
+    // Is the block already cached?
+    int index = blockno % BUCKET_NUM;
+
+    // acquire the bucket lock
+    acquire(&amp;bcache.locks[index]);
+
+    for (b = bcache.bucket[index]; b &lt; bcache.bucket[index] + NBUF_PER_BUCKET; b++) {
+        if (b-&gt;dev == dev &amp;&amp; b-&gt;blockno == blockno) {
+            b-&gt;refcnt++;
+            b-&gt;timestamp = ticks; // update timestamp
+            release(&amp;bcache.locks[index]);
+            acquiresleep(&amp;b-&gt;lock);
+            return b;
+        }
+    }
+
+    // Not cached.
+    // Recycle the least recently used (LRU) unused buffer.
+    int replace_i = -1;
+    uint least_timestamp = ~0;
+
+    for (int i = 0; i &lt; NBUF_PER_BUCKET; ++i) {  // look
+        b = &amp;bcache.bucket[index][i];
+        if (b-&gt;refcnt == 0 &amp;&amp; b-&gt;timestamp &lt; least_timestamp) {
+            replace_i = i;
+            least_timestamp = b-&gt;timestamp;
+        }
+    }
+    if (replace_i != -1) {
+        b = &amp;bcache.bucket[index][replace_i];
+        b-&gt;dev = dev;
+        b-&gt;blockno = blockno;
+        b-&gt;valid = 0;
+        b-&gt;refcnt = 1;
+        b-&gt;timestamp = ticks;
+
+        release(&amp;bcache.locks[index]);
+        acquiresleep(&amp;b-&gt;lock);
+        return b;
+    } else {
+        panic(&quot;bget: no buffers&quot;);
+    }
+}
+
+void
+brelse(struct buf *b)
+{
+    if (!holdingsleep(&amp;b-&gt;lock))
+        panic(&quot;brelse&quot;);
+
+    releasesleep(&amp;b-&gt;lock);
+
+    int index = b-&gt;blockno % BUCKET_NUM;
+    acquire(&amp;bcache.locks[index]);
+    b-&gt;refcnt--;
+    release(&amp;bcache.locks[index]);
+}
+
+void
+bpin(struct buf *b) {
+    int index = b-&gt;blockno % BUCKET_NUM;
+    acquire(&amp;bcache.locks[index]);
+    b-&gt;refcnt++;
+    release(&amp;bcache.locks[index]);
+}
+
+void
+bunpin(struct buf *b) {
+    int index = b-&gt;blockno % BUCKET_NUM;
+    acquire(&amp;bcache.locks[index]);
+    b-&gt;refcnt--;
+    release(&amp;bcache.locks[index]);
+}
+</code></pre>
+<h3 id="第二次设计"><a class="header" href="#第二次设计">第二次设计</a></h3>
+<p>bucket中的buf改用链表连接，保留原来的线性buf表，每次从buf链表中申请buf放入相对应的桶中，如果buf链表用完了，就从其他bucket中偷取refcnt为0的buf到当前的bucket中。</p>
+<p>在这个过程中，锁的使用很巧妙，参考了<a href="https://blog.csdn.net/LostUnravel/article/details/121430900">网上</a>的设计。</p>
+<p>注意：</p>
+<p>不能拿着一个小锁去申请获取其他小锁（哲学家进餐问题）；</p>
+<p>先加大锁，再拿小锁。在向其他桶借buf的过程中，要先加大锁，防止其他借buf的行为发生，再加小锁，锁定特定的两个bucket。</p>
+<p>每次释放锁之后，任何事情都会发生，需要再检查一遍释放锁之前的事情是否改变。所以在具体实现时，把检查自己桶中的空buf和其他桶中的空buf放在一次加锁循环中进行。</p>
+<p>在测试时，最好先make clean 再 make qemu</p>
+
+                        <div id="comment-container"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="blog20220430.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="blog20220422.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="blog20220430.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="blog20220422.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="theme/comments.js"></script>
+        <script type="text/javascript" src="theme/toc.js"></script>
+    </body>
+</html>

