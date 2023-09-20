@@ -18,7 +18,7 @@ var initToc = function () {
         var id = null;
         var elements = document.getElementsByClassName("header");
         Array.prototype.forEach.call(elements, function (el) {
-            if (window.pageYOffset >= el.offsetTop) {
+            if (window.scrollY >= el.offsetTop) {
                 id = el;
             }
         });
