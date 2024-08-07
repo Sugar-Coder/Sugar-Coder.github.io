@@ -6,7 +6,7 @@ This is where I share interesting things.
 <p align="center">Photo by <a href="https://www.guomiabai.com/">Guo Bai</a> in Brighton</p>
 
 ## Hi, I'm Jinyang Shao
-I'm a graduate student in software engineering and I got a bachelor's degree in computer science in Wuhan University, China. Now I'm working on autonomous driving related tests in [CSTAR](http://cstar.whu.edu.cn/en/index.html) Lab.
+I graduated from [Wuhan University](https://www.whu.edu.cn/) with a Master of Engineering in Software Engineering and a Bachelor of Engineering in Computer Science and Technology. I am currently working on developing trading systems.
 
 ## Publications
 - **Jinyang Shao**, "Testing Object Detection for Autonomous Driving Systems via 3D Reconstruction," 2021 IEEE/ACM 43rd International Conference on Software Engineering: Companion Proceedings (ICSE-Companion)
