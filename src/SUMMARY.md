@@ -2,7 +2,7 @@
 
 [About](./about.md)
 # 2024
-- [ZeroMQ]()
+- [ZeroMQ](./blog20240807.md)
 
 # 2023
 - [CS 161 REGULUS](./blog20230222.md)
